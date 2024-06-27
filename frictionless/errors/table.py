@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from .data import DataError
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 
 class TableError(DataError):

@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     from ..package import Package
     from ..resource import Resource
 
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 
 class Validator:
@@ -170,7 +170,7 @@ class Validator:
                     # Limit rows
                     if limit_rows:
                         if row_count >= limit_rows:
-                            warning = _(f"reached row limit: {limit_rows}")
+                            warning = _("reached row limit: {limit_rows}").format(limit_rows=limit_rows)
                             warnings.append(warning)
                             partial = True
                             break
@@ -179,7 +179,7 @@ class Validator:
                     if limit_errors:
                         if len(errors) >= limit_errors:
                             errors = errors[:limit_errors]
-                            warning = _(f"reached error limit: {limit_errors}")
+                            warning = _("reached error limit: {limit_errors}").format(limit_errors=limit_errors)
                             warnings.append(warning)
                             partial = True
                             break

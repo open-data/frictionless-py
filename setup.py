@@ -91,12 +91,8 @@ setup(
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
-        'console_scripts': [
-            'frictionless = frictionless.__main__',
-        ],
-        'babel.extractors': [
-            'frictionless = frictionless.extract:extract_errors',
-        ],
+        [console_scripts]
+        frictionless = frictionless.__main__
     ''',
 
     # If you are changing from the default layout of your extension, you may

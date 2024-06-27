@@ -3,7 +3,7 @@ from __future__ import annotations
 import attrs
 
 from .header import HeaderError
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 
 @attrs.define(kw_only=True, repr=False)

@@ -9,7 +9,7 @@ from .table import TableError
 if TYPE_CHECKING:
     from ..table import Row
 
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 
 @attrs.define(kw_only=True, repr=False)

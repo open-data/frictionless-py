@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from .metadata import MetadataError
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 
 class ResourceError(MetadataError):

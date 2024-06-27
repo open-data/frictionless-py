@@ -6,7 +6,7 @@ import attrs
 
 from ..exception import FrictionlessException
 from .row import RowError
-from .. import _  # (canada fork only): add i18n support
+from ..i18n import _  # (canada fork only): add i18n support
 
 if TYPE_CHECKING:
     from ..table import Row
@@ -68,7 +68,7 @@ class CellError(RowError):
                     field_name=field_name,
                     field_number=field_number,
                 )
-        raise FrictionlessException(_(f"Field {field_name} is not in the row"))
+        raise FrictionlessException(_("Field {field_name} is not in the row").format(field_name=field_name))
 
     # Metadata
 
