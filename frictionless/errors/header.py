@@ -5,6 +5,7 @@ from typing import List
 import attrs
 
 from .table import TableError
+from .. import _  # (canada fork only): add i18n support
 
 
 @attrs.define(kw_only=True, repr=False)
@@ -15,9 +16,9 @@ class HeaderError(TableError):
     """
 
     type = "header-error"
-    title = "Header Error"
-    description = "Cell Error"
-    template = "Cell Error"
+    title = _("Header Error")
+    description = _("Cell Error")
+    template = _("Cell Error")
     tags = ["#table", "#header"]
 
     labels: List[str]
@@ -42,6 +43,6 @@ class HeaderError(TableError):
 
 class BlankHeaderError(HeaderError):
     type = "blank-header"
-    title = "Blank Header"
-    description = "This header is empty. A header should contain at least one value."
-    template = "Header is completely blank"
+    title = _("Blank Header")
+    description = _("This header is empty. A header should contain at least one value.")
+    template = _("Header is completely blank")

@@ -15,6 +15,8 @@ if TYPE_CHECKING:
     from ..package import Package
     from ..resource import Resource
 
+from .. import _  # (canada fork only): add i18n support
+
 
 class Validator:
     # Package
@@ -111,7 +113,7 @@ class Validator:
         if resource.hash:
             algorithm, _ = helpers.parse_resource_hash_v1(resource.hash)
             if algorithm not in ["md5", "sha256"]:
-                warning = "hash is ignored; supported algorithms: md5/sha256"
+                warning = _("hash is ignored; supported algorithms: md5/sha256")
                 warnings.append(warning)
 
         # Prepare resource
@@ -168,7 +170,7 @@ class Validator:
                     # Limit rows
                     if limit_rows:
                         if row_count >= limit_rows:
-                            warning = f"reached row limit: {limit_rows}"
+                            warning = _(f"reached row limit: {limit_rows}")
                             warnings.append(warning)
                             partial = True
                             break
@@ -177,7 +179,7 @@ class Validator:
                     if limit_errors:
                         if len(errors) >= limit_errors:
                             errors = errors[:limit_errors]
-                            warning = f"reached error limit: {limit_errors}"
+                            warning = _(f"reached error limit: {limit_errors}")
                             warnings.append(warning)
                             partial = True
                             break

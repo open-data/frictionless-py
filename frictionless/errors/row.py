@@ -9,6 +9,8 @@ from .table import TableError
 if TYPE_CHECKING:
     from ..table import Row
 
+from .. import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class RowError(TableError):
@@ -20,9 +22,9 @@ class RowError(TableError):
     """
 
     type = "row-error"
-    title = "Row Error"
-    description = "Row Error"
-    template = "Row Error"
+    title = _("Row Error")
+    description = _("Row Error")
+    template = _("Row Error")
     tags = ["#table", "#row"]
 
     cells: List[str]
@@ -59,24 +61,24 @@ class RowError(TableError):
 
 class BlankRowError(RowError):
     type = "blank-row"
-    title = "Blank Row"
-    description = "This row is empty. A row should contain at least one value."
-    template = 'Row at position "{rowNumber}" is completely blank'
+    title = _("Blank Row")
+    description = _("This row is empty. A row should contain at least one value.")
+    template = _('Row at position "{rowNumber}" is completely blank')
 
 
 class PrimaryKeyError(RowError):
     type = "primary-key"
-    title = "PrimaryKey Error"
-    description = "Values in the primary key fields should be unique for every row"
-    template = 'Row at position "{rowNumber}" violates the primary key: {note}'
+    title = _("PrimaryKey Error")
+    description = _("Values in the primary key fields should be unique for every row")
+    template = _('Row at position "{rowNumber}" violates the primary key: {note}')
 
 
 @attrs.define(kw_only=True)
 class ForeignKeyError(RowError):
     type = "foreign-key"
-    title = "ForeignKey Error"
-    description = "Values in the foreign key fields should exist in the reference table"
-    template = 'Row at position "{rowNumber}" violates the foreign key: {note}'
+    title = _("ForeignKey Error")
+    description = _("Values in the foreign key fields should exist in the reference table")
+    template = _('Row at position "{rowNumber}" violates the foreign key: {note}')
 
     field_names: List[str]
     """
@@ -135,13 +137,13 @@ class ForeignKeyError(RowError):
 
 class DuplicateRowError(RowError):
     type = "duplicate-row"
-    title = "Duplicate Row"
-    description = "The row is duplicated."
-    template = "Row at position {rowNumber} is duplicated: {note}"
+    title = _("Duplicate Row")
+    description = _("The row is duplicated.")
+    template = _("Row at position {rowNumber} is duplicated: {note}")
 
 
 class RowConstraintError(RowError):
     type = "row-constraint"
-    title = "Row Constraint"
-    description = "The value does not conform to the row constraint."
-    template = "The row at position {rowNumber} has an error: {note}"
+    title = _("Row Constraint")
+    description = _("The value does not conform to the row constraint.")
+    template = _("The row at position {rowNumber} has an error: {note}")

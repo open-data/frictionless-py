@@ -6,6 +6,7 @@ import attrs
 
 from ..exception import FrictionlessException
 from .row import RowError
+from .. import _  # (canada fork only): add i18n support
 
 if TYPE_CHECKING:
     from ..table import Row
@@ -19,9 +20,9 @@ class CellError(RowError):
     """
 
     type = "cell-error"
-    title = "Cell Error"
-    description = "Cell Error"
-    template = "Cell Error"
+    title = _("Cell Error")
+    description = _("Cell Error")
+    template = _("Cell Error")
     tags = ["#table", "#row", "#cell"]
 
     cell: str
@@ -67,7 +68,7 @@ class CellError(RowError):
                     field_name=field_name,
                     field_number=field_number,
                 )
-        raise FrictionlessException(f"Field {field_name} is not in the row")
+        raise FrictionlessException(_(f"Field {field_name} is not in the row"))
 
     # Metadata
 
@@ -82,62 +83,62 @@ class CellError(RowError):
 
 class ExtraCellError(CellError):
     type = "extra-cell"
-    title = "Extra Cell"
-    description = "This row has more values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns."
-    template = 'Row at position "{rowNumber}" has an extra value in field at position "{fieldNumber}"'
+    title = _("Extra Cell")
+    description = _("This row has more values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns.")
+    template = _('Row at position "{rowNumber}" has an extra value in field at position "{fieldNumber}"')
 
 
 class MissingCellError(CellError):
     type = "missing-cell"
-    title = "Missing Cell"
-    description = "This row has less values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns."
-    template = 'Row at position "{rowNumber}" has a missing cell in field "{fieldName}" at position "{fieldNumber}"'
+    title = _("Missing Cell")
+    description = _("This row has less values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns.")
+    template = _('Row at position "{rowNumber}" has a missing cell in field "{fieldName}" at position "{fieldNumber}"')
 
 
 class TypeError(CellError):
     type = "type-error"
-    title = "Type Error"
-    description = "The value does not match the schema type and format for this field."
-    template = 'Type error in the cell "{cell}" in row "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}": {note}'
+    title = _("Type Error")
+    description = _("The value does not match the schema type and format for this field.")
+    template = _('Type error in the cell "{cell}" in row "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}": {note}')
 
 
 class ConstraintError(CellError):
     type = "constraint-error"
-    title = "Constraint Error"
-    description = "A field value does not conform to a constraint."
-    template = 'The cell "{cell}" in row at position "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}" does not conform to a constraint: {note}'
+    title = _("Constraint Error")
+    description = _("A field value does not conform to a constraint.")
+    template = _('The cell "{cell}" in row at position "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}" does not conform to a constraint: {note}')
 
 
 class UniqueError(CellError):
     type = "unique-error"
-    title = "Unique Error"
-    description = "This field is a unique field but it contains a value that has been used in another row."
-    template = 'Row at position "{rowNumber}" has unique constraint violation in field "{fieldName}" at position "{fieldNumber}": {note}'
+    title = _("Unique Error")
+    description = _("This field is a unique field but it contains a value that has been used in another row.")
+    template = _('Row at position "{rowNumber}" has unique constraint violation in field "{fieldName}" at position "{fieldNumber}": {note}')
 
 
 class TruncatedValueError(CellError):
     type = "truncated-value"
-    title = "Truncated Value"
-    description = "The value is possible truncated."
-    template = "The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"
+    title = _("Truncated Value")
+    description = _("The value is possible truncated.")
+    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
 
 
 class ForbiddenValueError(CellError):
     type = "forbidden-value"
-    title = "Forbidden Value"
-    description = "The value is forbidden."
-    template = "The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"
+    title = _("Forbidden Value")
+    description = _("The value is forbidden.")
+    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
 
 
 class SequentialValueError(CellError):
     type = "sequential-value"
-    title = "Sequential Value"
-    description = "The value is not sequential."
-    template = "The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"
+    title = _("Sequential Value")
+    description = _("The value is not sequential.")
+    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
 
 
 class AsciiValueError(CellError):
     type = "ascii-value"
-    title = "Ascii Value"
-    description = "The cell contains non-ascii characters."
-    template = "The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"
+    title = _("Ascii Value")
+    description = _("The cell contains non-ascii characters.")
+    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
