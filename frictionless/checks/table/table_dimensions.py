@@ -7,6 +7,8 @@ import attrs
 from ... import errors
 from ...checklist import Check
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class table_dimensions(Check):
@@ -65,21 +67,21 @@ class table_dimensions(Check):
         # Check if there is a different number of fields as required
         if self.num_fields and number_fields != self.num_fields:
             yield errors.TableDimensionsError(
-                note="number of fields is %s, the required is %s"
+                note=_("number of fields is %s, the required is %s")
                 % (number_fields, self.num_fields),
             )
 
         # Check if there is less field than the minimum
         if self.min_fields and number_fields < self.min_fields:
             yield errors.TableDimensionsError(
-                note="number of fields is %s, the minimum is %s"
+                note=_("number of fields is %s, the minimum is %s")
                 % (number_fields, self.min_fields),
             )
 
         # Check if there is more field than the maximum
         if self.max_fields and number_fields > self.max_fields:
             yield errors.TableDimensionsError(
-                note="number of fields is %s, the maximum is %s"
+                note=_("number of fields is %s, the maximum is %s")
                 % (number_fields, self.max_fields),
             )
 
@@ -89,21 +91,21 @@ class table_dimensions(Check):
         # Check if doesn't have the exact number of rows
         if self.num_rows and number_rows != self.num_rows:
             yield errors.TableDimensionsError(
-                note="number of rows is %s, the required is %s"
+                note=_("number of rows is %s, the required is %s")
                 % (number_rows, self.num_rows),
             )
 
         # Check if has less rows than the required
         if self.min_rows and number_rows < self.min_rows:
             yield errors.TableDimensionsError(
-                note="number of rows is %s, the minimum is %s"
+                note=_("number of rows is %s, the minimum is %s")
                 % (number_rows, self.min_rows),
             )
 
         # Check if more rows than the required
         if self.max_rows and number_rows > self.max_rows:
             yield errors.TableDimensionsError(
-                note="number of rows is %s, the maximum is %s"
+                note=_("number of rows is %s, the maximum is %s")
                 % (number_rows, self.max_rows),
             )
 

@@ -11,6 +11,8 @@ from ...checklist import Check
 if TYPE_CHECKING:
     from ...table import Row
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class row_constraint(Check):
@@ -37,7 +39,7 @@ class row_constraint(Check):
         except Exception:
             yield errors.RowConstraintError.from_row(
                 row,
-                note='the row constraint to conform is "%s"' % self.formula,
+                note=_('the row constraint to conform is "%s"') % self.formula,
             )
 
     # Metadata

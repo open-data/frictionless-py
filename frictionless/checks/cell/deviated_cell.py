@@ -16,6 +16,8 @@ if TYPE_CHECKING:
 
 DEFAULT_INTERVAL = 3
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class deviated_cell(Check):
@@ -72,7 +74,7 @@ class deviated_cell(Check):
                 threshold = threshold if threshold > maximum else maximum
                 for row_number, cell in col_cell_sizes.items():
                     if cell > threshold:
-                        note = 'cell at row "%s" and field "%s" has deviated size'
+                        note = _('cell at row "%s" and field "%s" has deviated size')
                         note = note % (row_number, self.__fields[field_idx])
                         yield errors.DeviatedCellError(note=note)
             except Exception as exception:

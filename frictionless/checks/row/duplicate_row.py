@@ -12,6 +12,7 @@ if TYPE_CHECKING:
     from ...resource import Resource
     from ...table import Row
 
+from ...i18n import _  # (canada fork only): add i18n support
 
 @attrs.define(kw_only=True, repr=False)
 class duplicate_row(Check):
@@ -38,6 +39,6 @@ class duplicate_row(Check):
         hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
         match = self.__memory.get(hash)
         if match:
-            note = 'the same as row at position "%s"' % match
+            note = _('the same as row at position "%s"') % match
             yield errors.DuplicateRowError.from_row(row, note=note)
         self.__memory[hash] = row.row_number

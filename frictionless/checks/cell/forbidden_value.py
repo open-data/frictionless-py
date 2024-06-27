@@ -11,6 +11,8 @@ if TYPE_CHECKING:
     from ...error import Error
     from ...table import Row
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class forbidden_value(Check):
@@ -35,7 +37,7 @@ class forbidden_value(Check):
 
     def validate_start(self) -> Iterable[Error]:
         if self.field_name not in self.resource.schema.field_names:  # type: ignore
-            note = 'forbidden value check requires field "%s"' % self.field_name
+            note = _('forbidden value check requires field "%s"') % self.field_name
             yield errors.CheckError(note=note)
 
     def validate_row(self, row: Row):
@@ -43,7 +45,7 @@ class forbidden_value(Check):
         if cell in self.values:
             yield errors.ForbiddenValueError.from_row(
                 row,
-                note='forbidden values are "%s"' % self.values,
+                note=_('forbidden values are "%s"') % self.values,
                 field_name=self.field_name,
             )
 

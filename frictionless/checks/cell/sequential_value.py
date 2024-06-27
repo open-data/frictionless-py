@@ -12,6 +12,8 @@ if TYPE_CHECKING:
     from ...resource import Resource
     from ...table import Row
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class sequential_value(Check):
@@ -37,7 +39,7 @@ class sequential_value(Check):
 
     def validate_start(self) -> Iterable[Error]:
         if self.field_name not in self.resource.schema.field_names:  # type: ignore
-            note = 'sequential value check requires field "%s"' % self.field_name
+            note = _('sequential value check requires field "%s"') % self.field_name
             yield errors.CheckError(note=note)
 
     def validate_row(self, row: Row):
@@ -51,7 +53,7 @@ class sequential_value(Check):
                 self.__exited = True
                 yield errors.SequentialValueError.from_row(
                     row,
-                    note="the value is not sequential",
+                    note=_("the value is not sequential"),
                     field_name=self.field_name,
                 )
 

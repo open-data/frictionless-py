@@ -22,6 +22,8 @@ AVERAGE_FUNCTIONS = {
     "mode": statistics.mode,
 }
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class deviated_value(Check):
@@ -62,13 +64,13 @@ class deviated_value(Check):
     def validate_start(self) -> Iterable[Error]:
         numeric = ["integer", "number"]
         if self.field_name not in self.resource.schema.field_names:  # type: ignore
-            note = 'deviated value check requires field "%s" to exist'
+            note = _('deviated value check requires field "%s" to exist')
             yield errors.CheckError(note=note % self.field_name)
         elif self.resource.schema.get_field(self.field_name).type not in numeric:  # type: ignore
-            note = 'deviated value check requires field "%s" to be numeric'
+            note = _('deviated value check requires field "%s" to be numeric')
             yield errors.CheckError(note=note % self.field_name)
         if not self.__average_function:
-            note = 'deviated value check supports only average functions "%s"'
+            note = _('deviated value check supports only average functions "%s"')
             note = note % ", ".join(AVERAGE_FUNCTIONS.keys())
             yield errors.CheckError(note=note)
 
@@ -90,14 +92,14 @@ class deviated_value(Check):
             minimum = average - stdev * self.interval
             maximum = average + stdev * self.interval
         except Exception as exception:
-            note = 'calculation issue "%s"' % exception
+            note = _('calculation issue "%s"') % exception
             yield errors.DeviatedValueError(note=note)
             return
 
         # Check values
         for row_number, cell in zip(self.__row_numbers, self.__cells):
             if not (minimum <= cell <= maximum):
-                note = 'value "%s" in row at position "%s" and field "%s" is deviated "[%.2f, %.2f]"'
+                note = _('value "%s" in row at position "%s" and field "%s" is deviated "[%.2f, %.2f]"')
                 note = note % (cell, row_number, self.field_name, minimum, maximum)
                 yield errors.DeviatedValueError(note=note)
 

@@ -26,6 +26,8 @@ TRUNCATED_INTEGER_VALUES = [
     32767,
 ]
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class truncated_value(Check):
@@ -59,7 +61,7 @@ class truncated_value(Check):
 
             # Add error
             if truncated:
-                note = "value  is probably truncated"
+                note = _("value  is probably truncated")
                 yield errors.TruncatedValueError.from_row(
                     row, note=note, field_name=field_name
                 )

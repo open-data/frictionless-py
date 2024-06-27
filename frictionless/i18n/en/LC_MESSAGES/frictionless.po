@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-27 17:19+0000\n"
+"POT-Creation-Date: 2024-06-27 19:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,6 +18,127 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: frictionless/checks/baseline.py:66
+msgid "the source is empty"
+msgstr ""
+
+#: frictionless/checks/baseline.py:83 frictionless/checks/baseline.py:90
+#: frictionless/checks/baseline.py:97 frictionless/checks/baseline.py:104
+#, python-format
+msgid "expected is \"%s\" and actual is \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/ascii_value.py:36
+msgid "the cell contains non-ascii characters"
+msgstr ""
+
+#: frictionless/checks/cell/deviated_cell.py:77
+#, python-format
+msgid "cell at row \"%s\" and field \"%s\" has deviated size"
+msgstr ""
+
+#: frictionless/checks/cell/deviated_value.py:67
+#, python-format
+msgid "deviated value check requires field \"%s\" to exist"
+msgstr ""
+
+#: frictionless/checks/cell/deviated_value.py:70
+#, python-format
+msgid "deviated value check requires field \"%s\" to be numeric"
+msgstr ""
+
+#: frictionless/checks/cell/deviated_value.py:73
+#, python-format
+msgid "deviated value check supports only average functions \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/deviated_value.py:95
+#, python-format
+msgid "calculation issue \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/deviated_value.py:102
+#, python-format
+msgid ""
+"value \"%s\" in row at position \"%s\" and field \"%s\" is deviated "
+"\"[%.2f, %.2f]\""
+msgstr ""
+
+#: frictionless/checks/cell/forbidden_value.py:40
+#, python-format
+msgid "forbidden value check requires field \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/forbidden_value.py:48
+#, python-format
+msgid "forbidden values are \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/required_value.py:47
+#, python-format
+msgid "required value check requires field \"%s\" to exist"
+msgstr ""
+
+#: frictionless/checks/cell/required_value.py:60
+#, python-format
+msgid ""
+"The value \"%s\" is required to be present in field \"%s\" in at least "
+"one row."
+msgstr ""
+
+#: frictionless/checks/cell/sequential_value.py:42
+#, python-format
+msgid "sequential value check requires field \"%s\""
+msgstr ""
+
+#: frictionless/checks/cell/sequential_value.py:56
+msgid "the value is not sequential"
+msgstr ""
+
+#: frictionless/checks/cell/truncated_value.py:64
+msgid "value  is probably truncated"
+msgstr ""
+
+#: frictionless/checks/row/duplicate_row.py:42
+#, python-format
+msgid "the same as row at position \"%s\""
+msgstr ""
+
+#: frictionless/checks/row/row_constraint.py:42
+#, python-format
+msgid "the row constraint to conform is \"%s\""
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:70
+#, python-format
+msgid "number of fields is %s, the required is %s"
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:77
+#, python-format
+msgid "number of fields is %s, the minimum is %s"
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:84
+#, python-format
+msgid "number of fields is %s, the maximum is %s"
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:94
+#, python-format
+msgid "number of rows is %s, the required is %s"
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:101
+#, python-format
+msgid "number of rows is %s, the minimum is %s"
+msgstr ""
+
+#: frictionless/checks/table/table_dimensions.py:108
+#, python-format
+msgid "number of rows is %s, the maximum is %s"
+msgstr ""
 
 #: frictionless/errors/cell.py:23 frictionless/errors/cell.py:24
 #: frictionless/errors/cell.py:25 frictionless/errors/header.py:20

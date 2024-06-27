@@ -12,6 +12,8 @@ if TYPE_CHECKING:
     from ...resource import Resource
     from ...table import Row
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class required_value(Check):
@@ -42,7 +44,7 @@ class required_value(Check):
 
     def validate_start(self) -> Iterable[Error]:
         if self.field_name not in self.resource.schema.field_names:  # type: ignore
-            note = 'required value check requires field "%s" to exist'
+            note = _('required value check requires field "%s" to exist')
             yield errors.CheckError(note=note % self.field_name)
 
     def validate_row(self, row: Row) -> Iterable[Error]:
@@ -55,7 +57,7 @@ class required_value(Check):
         required_values_not_found = set(self.values) - self.__required_values_in_cell
         if required_values_not_found:
             for missing_required_value in required_values_not_found:
-                note = 'The value "%s" is required to be present in field "%s" in at least one row.'
+                note = _('The value "%s" is required to be present in field "%s" in at least one row.')
                 note = note % (missing_required_value, self.field_name)
                 yield errors.RequiredValueError(note=note)
 

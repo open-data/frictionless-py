@@ -14,6 +14,9 @@ if TYPE_CHECKING:
     from ..table import Row
 
 
+from ..i18n import _  # (canada fork only): add i18n support
+
+
 @attrs.define(kw_only=True, repr=False)
 class baseline(Check):
     """Check a table for basic errors
@@ -60,7 +63,7 @@ class baseline(Check):
     def validate_start(self) -> Iterable[Error]:
         if isinstance(self.resource, platform.frictionless_resources.TableResource):
             empty = not (self.resource.labels or self.resource.fragment)
-            yield from [errors.SourceError(note="the source is empty")] if empty else []
+            yield from [errors.SourceError(note=_("the source is empty"))] if empty else []
             yield from self.resource.header.errors  # type: ignore
         yield from []
 
@@ -77,27 +80,27 @@ class baseline(Check):
             elif algorithm == "sha256":
                 actual = self.resource.stats.sha256
             if actual and actual != expected:
-                note = 'expected is "%s" and actual is "%s"'
+                note = _('expected is "%s" and actual is "%s"')
                 note = note % (expected, actual)
                 yield errors.HashCountError(note=note)
 
         # Bytes
         if self.resource.bytes:
             if self.resource.bytes != self.resource.stats.bytes:
-                note = 'expected is "%s" and actual is "%s"'
+                note = _('expected is "%s" and actual is "%s"')
                 note = note % (self.resource.bytes, self.resource.stats.bytes)
                 yield errors.ByteCountError(note=note)
 
         # Fields
         if self.resource.fields:
             if self.resource.fields != self.resource.stats.fields:
-                note = 'expected is "%s" and actual is "%s"'
+                note = _('expected is "%s" and actual is "%s"')
                 note = note % (self.resource.fields, self.resource.stats.fields)
                 yield errors.FieldCountError(note=note)
 
         # Rows
         if self.resource.rows:
             if self.resource.rows != self.resource.stats.rows:
-                note = 'expected is "%s" and actual is "%s"'
+                note = _('expected is "%s" and actual is "%s"')
                 note = note % (self.resource.rows, self.resource.stats.rows)
                 yield errors.RowCountError(note=note)
