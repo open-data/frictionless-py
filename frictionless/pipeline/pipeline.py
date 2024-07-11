@@ -10,6 +10,8 @@ from ..exception import FrictionlessException
 from ..metadata import Metadata
 from .step import Step
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: raise an exception if we try export a pipeline with function based steps
 @attrs.define(kw_only=True, repr=False)
@@ -66,7 +68,7 @@ class Pipeline(Metadata):
         for step in self.steps:
             if step.type == type:
                 return step
-        error = errors.PipelineError(note=f'step "{type}" does not exist')
+        error = errors.PipelineError(note=_('step "{type}" does not exist').format(type=type))
         raise FrictionlessException(error)
 
     def set_step(self, step: Step) -> Optional[Step]:
@@ -117,6 +119,6 @@ class Pipeline(Metadata):
         tasks = descriptor.pop("tasks", [])
         if tasks and isinstance(tasks[0], dict):
             descriptor.setdefault("steps", tasks[0].get("steps"))
-            note = 'Pipeline "tasks[].steps" is deprecated in favor of "steps"'
-            note += "(it will be removed in the next major version)"
+            note = _('Pipeline "tasks[].steps" is deprecated in favor of "steps"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)

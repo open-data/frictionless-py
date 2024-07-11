@@ -13,6 +13,8 @@ from ...resource import Resource
 from ...system import Adapter, PublishResult, system
 from .control import CkanControl
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class CkanAdapter(Adapter):
     """Read and write data from/to Ckan"""
@@ -81,7 +83,7 @@ class CkanAdapter(Adapter):
         if "name" not in package_data:
             if not self.control.dataset:
                 note = (
-                    "Your package has no name. CKAN requires a name to publish a package"
+                    _("Your package has no name. CKAN requires a name to publish a package")
                 )
                 raise FrictionlessException(note)
             else:
@@ -188,7 +190,7 @@ class CkanAdapter(Adapter):
                 note = response.text
                 raise FrictionlessException(note)
         except Exception as exception:
-            note = "CKAN API error:" + repr(exception)
+            note = _("CKAN API error:") + repr(exception)
             raise FrictionlessException(note)
 
     # Experimental
@@ -247,7 +249,8 @@ class CkanAdapter(Adapter):
                 catalog.add_dataset(dataset)
             except FrictionlessException as e:
                 if self.control.ignore_package_errors:
-                    print(f'Error in CKAN dataset {descriptor["id"]}: {e}')
+                    print(_('Error in CKAN dataset {descriptor_id}: {e}').format(descriptor_id=descriptor["id"],
+                                                                                 e=e))
                     continue
                 else:
                     raise e
@@ -304,7 +307,7 @@ def make_ckan_request(
     except TypeError:
         ckan_error = response
     if ckan_error:
-        note = "CKAN returned an error: " + json.dumps(ckan_error)
+        note = _("CKAN returned an error: ") + json.dumps(ckan_error)
         raise FrictionlessException(note)
 
     return response_json

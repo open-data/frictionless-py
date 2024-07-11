@@ -12,6 +12,8 @@ from ....system import Parser, system
 from ...inline import InlineControl
 from ..control import JsonControl
 
+from ....i18n import _  # (canada fork only): add i18n support
+
 
 class JsonParser(Parser):
     """JSON parser implementation."""
@@ -42,7 +44,7 @@ class JsonParser(Parser):
             try:
                 yield next(resource.cell_stream)  # type: ignore
             except StopIteration:
-                note = f'cannot extract JSON tabular data from "{self.resource.normpath}"'
+                note = _('cannot extract JSON tabular data from "{resource_normpath}"').format(resource_normpath=self.resource.normpath)
                 raise FrictionlessException(errors.SourceError(note=note))
             inline_control = InlineControl.from_dialect(resource.dialect)
             if inline_control.keyed:

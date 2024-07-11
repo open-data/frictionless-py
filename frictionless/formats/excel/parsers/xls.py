@@ -13,6 +13,8 @@ from ..control import ExcelControl
 if TYPE_CHECKING:
     from ....resources import TableResource
 
+from ....i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: support ExcelControl.stringified
 
@@ -61,7 +63,7 @@ class XlsParser(Parser):
             else:
                 sheet = book.sheet_by_index(control.sheet - 1)
         except (platform.xlrd.XLRDError, IndexError):
-            note = 'Excel document "%s" does not have a sheet "%s"'
+            note = _('Excel document "%s" does not have a sheet "%s"')
             error = errors.FormatError(
                 note=note % (self.resource.normpath, control.sheet)
             )

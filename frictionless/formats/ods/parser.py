@@ -14,6 +14,8 @@ from .control import OdsControl
 if TYPE_CHECKING:
     from ...resources import TableResource
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class OdsParser(Parser):
     """ODS parser implementation."""
@@ -45,7 +47,7 @@ class OdsParser(Parser):
             else:
                 sheet = book.sheets[control.sheet - 1]
         except (KeyError, IndexError):
-            note = 'OpenOffice document "%s" does not have a sheet "%s"'
+            note = _('OpenOffice document "%s" does not have a sheet "%s"')
             note = note % (self.resource.normpath, control.sheet)
             raise FrictionlessException(errors.FormatError(note=note))
 

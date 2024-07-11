@@ -21,6 +21,8 @@ from .table import TableResource
 if TYPE_CHECKING:
     from .. import types
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 T = TypeVar("T", bound=Metadata)
 
@@ -60,7 +62,7 @@ class JsonResource(Resource):
         if not isinstance(resource, Resource):
             resource = Resource(target, **options)
         if not isinstance(resource, JsonResource):
-            raise FrictionlessException("target must be a json resource")
+            raise FrictionlessException(_("target must be a json resource"))
         data = self.read_json()
         dump = helpers.to_yaml if resource.format == "yaml" else helpers.to_json
         bytes = dump(data).encode("utf-8")

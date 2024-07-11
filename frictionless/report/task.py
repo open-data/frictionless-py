@@ -13,6 +13,8 @@ from ..exception import FrictionlessException
 from ..metadata import Metadata
 from . import types
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class ReportTask(Metadata):
@@ -74,7 +76,7 @@ class ReportTask(Metadata):
     def error(self):
         """Validation error if there is only one"""
         if len(self.errors) != 1:
-            error = Error(note='The "task.error" is available for single error tasks')
+            error = Error(note=_('The "task.error" is available for single error tasks'))
             raise FrictionlessException(error)
         return self.errors[0]
 
@@ -117,19 +119,19 @@ class ReportTask(Metadata):
             error_list[error_title] += 1
         size = self.stats.get("bytes")
         content = [
-            ["File Place", self.place],
-            ["File Size", humanize.naturalsize(size) if size else "(file not found)"],
-            ["Total Time", f"{self.stats.get('seconds')} Seconds"],
-            ["Rows Checked", self.stats.get("rows")],
+            [_("File Place"), self.place],
+            [_("File Size"), humanize.naturalsize(size) if size else _("(file not found)")],
+            [_("Total Time"), _("{seconds} Seconds").format(seconds=self.stats.get('seconds'))],
+            [_("Rows Checked"), self.stats.get("rows")],
         ]
         if error_list:
-            content.append(["Total Errors", sum(error_list.values())])
+            content.append([_("Total Errors"), sum(error_list.values())])
         for type, count in error_list.items():
             content.append([type, count])
         output = ""
         for warning in self.warnings:
             output += f"> {warning}\n\n"
-        output += tabulate(content, headers=["Name", "Value"], tablefmt="grid")
+        output += tabulate(content, headers=[_("Name"), _("Value")], tablefmt="grid")
         return output
 
     # Metadata

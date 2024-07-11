@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from .. import types
     from ..dialect import Control
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Catalog(Metadata, metaclass=Factory):
@@ -97,7 +99,7 @@ class Catalog(Metadata, metaclass=Factory):
         for dataset in self.datasets:
             if dataset.name == name:
                 return dataset
-        error = errors.CatalogError(note=f'dataset "{name}" does not exist')
+        error = errors.CatalogError(note=_('dataset "{name}" does not exist').format(name=name))
         raise FrictionlessException(error)
 
     def set_dataset(self, dataset: Dataset) -> Optional[Dataset]:

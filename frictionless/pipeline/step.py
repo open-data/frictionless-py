@@ -13,6 +13,8 @@ if TYPE_CHECKING:
     from ..package import Package
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # NOTE:
 # We might consider migrating transform_resource API to emitting
@@ -92,8 +94,8 @@ class Step(Metadata):
         code = descriptor.pop("code", None)
         if code:
             descriptor.setdefault("type", code)
-            note = 'Step "code" is deprecated in favor of "type"'
-            note += "(it will be removed in the next major version)"
+            note = _('Step "code" is deprecated in favor of "type"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
         return super().from_descriptor(descriptor, *args, **kwargs)

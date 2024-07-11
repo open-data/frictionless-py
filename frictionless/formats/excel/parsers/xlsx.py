@@ -21,6 +21,8 @@ from ..control import ExcelControl
 if TYPE_CHECKING:
     from ....resources import TableResource
 
+from ....i18n import _  # (canada fork only): add i18n support
+
 
 class XlsxParser(Parser):
     """XLSX parser implementation."""
@@ -86,7 +88,7 @@ class XlsxParser(Parser):
                 data_only=True,
             )
         except Exception as exception:
-            error = errors.FormatError(note=f'invalid excel file "{self.resource.path}"')
+            error = errors.FormatError(note=_('invalid excel file "{resource_path}"').format(resource_path=self.resource.path))
             raise FrictionlessException(error) from exception
 
         # Get sheet
@@ -96,7 +98,7 @@ class XlsxParser(Parser):
             else:
                 sheet = book.worksheets[control.sheet - 1]
         except (KeyError, IndexError):
-            note = 'Excel document "%s" does not have a sheet "%s"'
+            note = _('Excel document "%s" does not have a sheet "%s"')
             error = errors.FormatError(note=note % (self.resource.place, control.sheet))
             raise FrictionlessException(error)
 

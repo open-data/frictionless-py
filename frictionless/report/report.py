@@ -15,6 +15,8 @@ from .task import ReportTask
 if TYPE_CHECKING:
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Report(Metadata):
@@ -75,7 +77,7 @@ class Report(Metadata):
     def error(self):
         """Validation error (if there is only one)"""
         if self.stats["errors"] != 1:
-            note = 'The "report.error" is available for single error reports'
+            note = _('The "report.error" is available for single error reports')
             raise FrictionlessException(note)
         return self.tasks[0].error if self.tasks else self.errors[0]
 
@@ -83,7 +85,7 @@ class Report(Metadata):
     def task(self):
         """Validation task (if there is only one)"""
         if self.stats["tasks"] != 1:
-            note = 'The "report.task" is available for single task reports'
+            note = _('The "report.task" is available for single task reports')
             raise FrictionlessException(note)
         return self.tasks[0]
 

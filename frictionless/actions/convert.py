@@ -9,6 +9,8 @@ from ..resource import Resource
 if TYPE_CHECKING:
     from ..dialect import Dialect
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 def convert(
     source: Optional[Any] = None,
@@ -37,6 +39,6 @@ def convert(
 
     # Convert resource
     if not isinstance(resource, platform.frictionless_resources.Convertible):
-        note = f'Resource with data type "{resource.datatype}" is not convertible'
+        note = _('Resource with data type "{resource_datatype}" is not convertible').format(resource_datatype=resource.datatype)
         raise FrictionlessException(note)
     return resource.convert(to_path=to_path, to_format=to_format, to_dialect=to_dialect)

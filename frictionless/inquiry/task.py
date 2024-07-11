@@ -16,6 +16,8 @@ from ..resource import Resource
 from ..schema import Schema
 from ..system import system
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: rebase back on using resource?
 @attrs.define(kw_only=True, repr=False)
@@ -209,8 +211,8 @@ class InquiryTask(Metadata):
             type = descriptor.pop("type", "resource")
             name = "resource" if type == "resource" else "package"
             descriptor.setdefault(name, source)
-            note = 'InquiryTask "source" is deprecated in favor of "resource/package"'
-            note += "(it will be removed in the next major version)"
+            note = _('InquiryTask "source" is deprecated in favor of "resource/package"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
     @classmethod
@@ -228,7 +230,7 @@ class InquiryTask(Metadata):
                 items = value if isinstance(value, list) else [value]  # type: ignore
                 for item in items:  # type: ignore
                     if item and isinstance(item, str) and not helpers.is_safe_path(item):
-                        yield errors.InquiryTaskError(note=f'path "{item}" is not safe')
+                        yield errors.InquiryTaskError(note=_('path "{item}" is not safe').format(item=item))
                         return
 
         # Required
@@ -236,5 +238,5 @@ class InquiryTask(Metadata):
         resource = descriptor.get("resource")
         package = descriptor.get("package")
         if path is None and resource is None and package is None:
-            note = 'one of the properties "path", "resource", or "package" is required'
+            note = _('one of the properties "path", "resource", or "package" is required')
             yield errors.InquiryTaskError(note=note)

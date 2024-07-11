@@ -13,6 +13,8 @@ from ...resources import FileResource, TableResource
 from ...system import Adapter, PublishResult
 from .control import ZipControl
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 # NOTE:
 # We have to move resource's zip logc to this class as well
 # See `loader.read_byte_stream_decompress`
@@ -79,7 +81,7 @@ class ZipAdapter(Adapter):
                         for path, normpath in zip(resource.paths, resource.normpaths):
                             if os.path.isfile(normpath):
                                 if not helpers.is_safe_path(normpath):
-                                    note = f'Zipping usafe "{normpath}" is not supported'
+                                    note = _('Zipping usafe "{normpath}" is not supported').format(normpath=normpath)
                                     error = errors.PackageError(note=note)
                                     raise FrictionlessException(error)
                                 archive.write(normpath, path)
@@ -91,7 +93,7 @@ class ZipAdapter(Adapter):
                             normpath = resource.normpath
                             if os.path.isfile(normpath):
                                 if not helpers.is_safe_path(normpath):
-                                    note = f'Zipping usafe "{normpath}" is not supported'
+                                    note = _('Zipping usafe "{normpath}" is not supported').format(normpath=normpath)
                                     error = errors.PackageError(note=note)
                                     raise FrictionlessException(error)
                                 archive.write(normpath, path)

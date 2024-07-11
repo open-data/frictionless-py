@@ -17,6 +17,8 @@ if TYPE_CHECKING:
     from . import types
     from .schema import Schema
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Field(Metadata):
@@ -88,7 +90,7 @@ class Field(Metadata):
 
     def __setattr__(self, name: str, value: Any):  # type: ignore
         if name == "type":
-            note = 'Use "schema.set_field_type()" to update the type of the field'
+            note = _('Use "schema.set_field_type()" to update the type of the field')
             raise FrictionlessException(errors.FieldError(note=note))
         return super().__setattr__(name, value)  # type: ignore
 
@@ -138,13 +140,13 @@ class Field(Metadata):
                 cell = value_reader(cell)
                 if cell is None:
                     notes = notes or {}
-                    notes["type"] = f'type is "{self.type}/{self.format}"'
+                    notes["type"] = _('type is "{type}/{format}"').format(type=self.type, format=self.format)
             if not notes and checks:
                 for name, check in checks.items():
                     if not check(cell):
                         notes = notes or {}
                         constraint = self.constraints[name]
-                        notes[name] = f'constraint "{name}" is "{constraint}"'
+                        notes[name] = _('constraint "{name}" is "{constraint}"').format(name=name, constraint=constraint)
             return cell, notes
 
         return cell_reader
@@ -182,7 +184,7 @@ class Field(Metadata):
             cell = value_writer(cell)
             if cell is None:
                 notes = notes or {}
-                notes["type"] = f'type is "{self.type}/{self.format}"'
+                notes["type"] = _('type is "{type}/{format}"').format(type=self.type, format=self.format)
             return cell, notes
 
         return cell_writer
@@ -252,7 +254,7 @@ class Field(Metadata):
         # Constraints
         for name in descriptor.get("constraints", {}):
             if name not in cls.supported_constraints + ["unique"]:
-                note = f'constraint "{name}" is not supported by type "{cls.type}"'
+                note = _('constraint "{name}" is not supported by type "{type}"').format(name=name, type=cls.type)
                 yield errors.FieldError(note=note)
 
         # Examples
@@ -266,13 +268,13 @@ class Field(Metadata):
             )
             _, notes = field.read_cell(example)
             if notes is not None:
-                note = f'example value "{example}" for field "{field.name}" is not valid'
+                note = _('example value "{example}" for field "{field_name}" is not valid').format(example=example, field_name=field.name)
                 yield errors.FieldError(note=note)
 
         # Misleading
         for name in ["required"]:
             if name in descriptor:
-                note = f'"{name}" should be set as "constraints.{name}"'
+                note = _('"{name}" should be set as "constraints.{name}"').format(name=name)
                 yield errors.FieldError(note=note)
 
 

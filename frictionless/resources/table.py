@@ -25,6 +25,8 @@ if TYPE_CHECKING:
     from ..system import Loader, Parser
     from ..table import IRowStream
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class TableResource(Resource):
     type = "table"
@@ -53,7 +55,7 @@ class TableResource(Resource):
         source file (e.g. encoding, ...).
         """
         if self.__buffer is None:
-            raise FrictionlessException("resource is not open or non binary")
+            raise FrictionlessException(_("resource is not open or non binary"))
         return self.__buffer
 
     @property
@@ -67,7 +69,7 @@ class TableResource(Resource):
             list[]?: table sample
         """
         if self.__sample is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__sample
 
     @property
@@ -77,7 +79,7 @@ class TableResource(Resource):
             str[]?: table labels
         """
         if self.__labels is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__labels
 
     @property
@@ -91,7 +93,7 @@ class TableResource(Resource):
             list[]?: table fragment
         """
         if self.__fragment is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__fragment
 
     @property
@@ -101,7 +103,7 @@ class TableResource(Resource):
             str[]?: table header
         """
         if self.__header is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__header
 
     @property
@@ -111,7 +113,7 @@ class TableResource(Resource):
             str[]?: table lookup
         """
         if self.__lookup is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__lookup
 
     @property
@@ -122,7 +124,7 @@ class TableResource(Resource):
             gen<any[][]>?: cell stream
         """
         if self.__parser is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__parser.cell_stream
 
     @property
@@ -133,7 +135,7 @@ class TableResource(Resource):
             gen<Row[]>?: row stream
         """
         if self.__row_stream is None:
-            raise FrictionlessException("resource is not open")
+            raise FrictionlessException(_("resource is not open"))
         return self.__row_stream
 
     @property
@@ -236,10 +238,11 @@ class TableResource(Resource):
                 continue
             if source_name:
                 if not self.package:
-                    note = 'package is required for FK: "{fk}"'
+                    note = _('package is required for FK: "{fk}"').format(fk=fk)
                     raise FrictionlessException(errors.ResourceError(note=note))
                 if not self.package.has_resource(source_name):
-                    note = f'failed to handle a foreign key for resource "{self.name}" as resource "{source_name}" does not exist'
+                    note = _('failed to handle a foreign key for resource "{name}" as resource "{source_name}" does not exist').format(name=self.name,
+                                                                                                                                       source_name=source_name)
                     raise FrictionlessException(errors.ResourceError(note=note))
                 source_res = self.package.get_resource(source_name)
             else:
@@ -325,7 +328,7 @@ class TableResource(Resource):
                             memory_unique[field_name][cell] = row.row_number
                             if match:
                                 func = errors.UniqueError.from_row
-                                note = "the same as in the row at position %s" % match
+                                note = _("the same as in the row at position %s") % match
                                 error = func(row, note=note, field_name=field_name)
                                 row.errors.append(error)
 
@@ -333,7 +336,7 @@ class TableResource(Resource):
                 if is_integrity and self.schema.primary_key:
                     cells = tuple(row[name] for name in self.schema.primary_key)
                     if set(cells) == {None}:
-                        note = 'cells composing the primary keys are all "None"'
+                        note = _('cells composing the primary keys are all "None"')
                         error = errors.PrimaryKeyError.from_row(row, note=note)
                         row.errors.append(error)
                     else:
@@ -341,7 +344,7 @@ class TableResource(Resource):
                         memory_primary[cells] = row.row_number
                         if match:
                             if match:
-                                note = "the same as in the row at position %s" % match
+                                note = _("the same as in the row at position %s") % match
                                 error = errors.PrimaryKeyError.from_row(row, note=note)
                                 row.errors.append(error)
 
@@ -356,7 +359,7 @@ class TableResource(Resource):
                             match = cells in group_lookup.get(group["sourceKey"], set())
                             if not match:
                                 note = (
-                                    'for "%s": values "%s" not found in the lookup table "%s" as "%s"'
+                                    _('for "%s": values "%s" not found in the lookup table "%s" as "%s"')
                                     % (
                                         ", ".join(group["targetKey"]),
                                         ", ".join(str(d) for d in cells),
@@ -454,7 +457,7 @@ class TableResource(Resource):
         if not isinstance(resource, Resource):
             resource = Resource(target, **options)
         if not isinstance(resource, TableResource):
-            raise FrictionlessException("target must be a table resource")
+            raise FrictionlessException(_("target must be a table resource"))
         parser = system.create_parser(resource)
         parser.write_row_stream(self)
         return resource
@@ -509,7 +512,7 @@ class TableResource(Resource):
         dialect = to_dialect or Dialect()
         target = TableResource(path=to_path, format=to_format, dialect=dialect)
         if os.path.exists(to_path):
-            note = f'Cannot convert to the existent path "{to_path}"'
+            note = _('Cannot convert to the existent path "{to_path}"').format(to_path=to_path)
             raise FrictionlessException(note)
         self.write(target)
         return to_path

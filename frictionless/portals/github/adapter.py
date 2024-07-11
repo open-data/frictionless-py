@@ -15,6 +15,8 @@ if TYPE_CHECKING:
     from github.ContentFile import ContentFile
     from github.Repository import Repository
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class GithubAdapter(Adapter):
     """Read and write data from/to Github"""
@@ -26,7 +28,7 @@ class GithubAdapter(Adapter):
 
     def read_package(self) -> Package:
         if not (self.control.repo and self.control.user):
-            note = "Repo and user is required"
+            note = _("Repo and user is required")
             raise FrictionlessException(note)
 
         assert self.control.formats
@@ -47,7 +49,7 @@ class GithubAdapter(Adapter):
         if isinstance(package, Package) and package.resources:
             return package
 
-        note = "Package/s not found"
+        note = _("Package/s not found")
         raise FrictionlessException(note)
 
     # Write
@@ -67,7 +69,7 @@ class GithubAdapter(Adapter):
                 name=self.control.repo, auto_init=True, gitignore_template="Python"
             )
         except Exception as exception:
-            note = "Github API error:" + repr(exception)
+            note = _("Github API error:") + repr(exception)
             raise FrictionlessException(note)
 
         # Write package file
@@ -92,7 +94,7 @@ class GithubAdapter(Adapter):
                 author=author,
             )
         except Exception as exception:
-            note = "Github API error:" + repr(exception)
+            note = _("Github API error:") + repr(exception)
             raise FrictionlessException(note)
 
         # Write resource files
@@ -112,7 +114,7 @@ class GithubAdapter(Adapter):
                     author=author,
                 )
         except Exception as exception:
-            note = "Github API error:" + repr(exception)
+            note = _("Github API error:") + repr(exception)
             raise FrictionlessException(note)
 
         # Get url
@@ -142,7 +144,7 @@ class GithubAdapter(Adapter):
         query: Dict[str, Any] = {}
 
         if not (self.control.repo or self.control.user or self.control.search):
-            note = "Repo or user or search text is required"
+            note = _("Repo or user or search text is required")
             raise FrictionlessException(note)
 
         assert self.control.formats
@@ -154,7 +156,7 @@ class GithubAdapter(Adapter):
             try:
                 repository = client.get_repo(location)
             except Exception as exception:
-                note = "Github API error" + repr(exception)
+                note = _("Github API error") + repr(exception)
                 raise FrictionlessException(note)
             base_path = f"https://raw.githubusercontent.com/{location}/{repository.default_branch}"
             contents = repository.get_contents("")
@@ -170,7 +172,7 @@ class GithubAdapter(Adapter):
                         for package in all_packages
                     ]
                 )
-            note = "Package/s not found"
+            note = _("Package/s not found")
             raise FrictionlessException(note)
 
         # Search multiple repos
@@ -223,7 +225,7 @@ class GithubAdapter(Adapter):
                 ]
             )
 
-        note = "Package/s not found"
+        note = _("Package/s not found")
         raise FrictionlessException(note)
 
 

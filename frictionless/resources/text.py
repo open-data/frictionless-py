@@ -6,6 +6,8 @@ from .. import helpers
 from ..exception import FrictionlessException
 from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class TextResource(Resource):
     type = "text"
@@ -36,7 +38,7 @@ class TextResource(Resource):
         if not isinstance(resource, Resource):
             resource = TextResource(**options)
         if not isinstance(resource, TextResource):  # type: ignore
-            raise FrictionlessException("target must be a text resource")
+            raise FrictionlessException(_("target must be a text resource"))
         text = self.read_text()
         bytes = text.encode(resource.encoding or "utf-8")
         assert resource.normpath

@@ -18,6 +18,8 @@ from .models import ZenodoCreator, ZenodoMetadata
 if TYPE_CHECKING:
     from pyzenodo3 import Record  # type: ignore
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class ZenodoAdapter(Adapter):
     """Read and write data from/to Zenodo"""
@@ -30,7 +32,7 @@ class ZenodoAdapter(Adapter):
     def read_package(self) -> Package:
         client = platform.pyzenodo3.Zenodo(api_key=self.control.apikey)  # type: ignore
         if not self.control.record:
-            note = "Record is required."
+            note = _("Record is required.")
             raise FrictionlessException(note)
         assert self.control.formats
         package = Package()
@@ -44,7 +46,7 @@ class ZenodoAdapter(Adapter):
             raise FrictionlessException(note)
         if isinstance(package, Package) and package.resources:  # type: ignore
             return package
-        note = "Package/s not found"
+        note = _("Package/s not found")
         raise FrictionlessException(note)
 
     # Write
@@ -55,7 +57,7 @@ class ZenodoAdapter(Adapter):
 
         # Ensure api key
         if not self.control.apikey:
-            raise FrictionlessException("Api key is required for zenodo publishing")
+            raise FrictionlessException(_("Api key is required for zenodo publishing"))
 
         try:
             # Ensure deposition
@@ -141,7 +143,7 @@ class ZenodoAdapter(Adapter):
             )
 
         except Exception as exception:
-            note = "Zenodo API error" + repr(exception)
+            note = _("Zenodo API error") + repr(exception)
             raise FrictionlessException(note)
 
     # Experimental
@@ -201,7 +203,7 @@ class ZenodoAdapter(Adapter):
                 if isinstance(package, Package) and package.resources:  # type: ignore
                     packages.append(package)
         except Exception as exception:
-            note = "Zenodo API error" + repr(exception)
+            note = _("Zenodo API error") + repr(exception)
             raise FrictionlessException(note)
         if packages:
             return Catalog(
@@ -210,7 +212,7 @@ class ZenodoAdapter(Adapter):
                     for package in packages
                 ]
             )
-        note = "Package/s not found"
+        note = _("Package/s not found")
         raise FrictionlessException(note)
 
 

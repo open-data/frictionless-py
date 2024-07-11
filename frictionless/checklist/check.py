@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from ..resource import Resource
     from ..table import Row
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: add support for validate_package/etc?
 # TODO: sync API with Step (like "check.validate_resource_row")?
@@ -113,8 +115,8 @@ class Check(Metadata):
         code = descriptor.pop("code", None)
         if code:
             descriptor.setdefault("type", code)
-            note = 'Check "code" is deprecated in favor of "type"'
-            note += "(it will be removed in the next major version)"
+            note = _('Check "code" is deprecated in favor of "type"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
         return super().from_descriptor(descriptor)

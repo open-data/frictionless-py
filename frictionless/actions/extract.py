@@ -9,6 +9,8 @@ from ..resource import Resource
 if TYPE_CHECKING:
     from .. import types
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 def extract(
     source: Optional[Any] = None,
@@ -45,7 +47,7 @@ def extract(
 
     # Extract resource
     if not isinstance(resource, platform.frictionless_resources.Extractable):
-        note = f'Resource with data type "{resource.datatype}" is not extractable'
+        note = _('Resource with data type "{resource_datatype}" is not extractable').format(resource_datatype=resource.datatype)
         raise FrictionlessException(note)
     return resource.extract(
         name=name, filter=filter, process=process, limit_rows=limit_rows

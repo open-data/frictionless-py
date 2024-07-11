@@ -26,6 +26,8 @@ if TYPE_CHECKING:
     from ..report import Report
     from ..system import Loader
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Resource(Metadata, metaclass=Factory):  # type: ignore
@@ -361,7 +363,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
         source file (e.g. encoding, ...).
         """
         if self.__buffer is None:
-            raise FrictionlessException("resource is not open or non binary")
+            raise FrictionlessException(_("resource is not open or non binary"))
         return self.__buffer
 
     @property
@@ -372,7 +374,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
             gen<bytes>?: byte stream
         """
         if self.closed:
-            raise FrictionlessException("resource is not open or non binary")
+            raise FrictionlessException(_("resource is not open or non binary"))
         if not self.__loader:
             self.__loader = system.create_loader(self)
             self.__loader.open()
@@ -386,7 +388,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
             gen<str[]>?: text stream
         """
         if self.closed:
-            raise FrictionlessException("resource is not open or non textual")
+            raise FrictionlessException(_("resource is not open or non textual"))
         if not self.__loader:
             self.__loader = system.create_loader(self)
             self.__loader.open()
@@ -497,7 +499,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
             stats: stream file completely and infer stats
         """
         if not self.closed:
-            note = "Resource.infer cannot be used on a open resource"
+            note = _("Resource.infer cannot be used on a open resource")
             raise FrictionlessException(errors.ResourceError(note=note))
         with self:
             if not stats:
@@ -735,8 +737,8 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
             hash = stats.pop("hash", None)
             if hash:
                 descriptor[hashing] = hash
-            note = 'Resource "stats.hash" is deprecated in favor of "stats.sha256/md5"'
-            note += "(it will be removed in the next major version)"
+            note = _('Resource "stats.hash" is deprecated in favor of "stats.sha256/md5"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
         # Hash (standards/v1)
@@ -766,8 +768,8 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
         compression = descriptor.get("compression")
         if compression == "no":
             descriptor.pop("compression")
-            note = 'Resource "compression=no" is deprecated in favor not set value'
-            note += "(it will be removed in the next major version)"
+            note = _('Resource "compression=no" is deprecated in favor not set value')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
         # Profile (standards/v1)
@@ -781,8 +783,8 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
         if layout:
             descriptor.setdefault("dialect", {})
             descriptor["dialect"].update(layout)
-            note = 'Resource "layout" is deprecated in favor of "dialect"'
-            note += "(it will be removed in the next major version)"
+            note = _('Resource "layout" is deprecated in favor of "dialect"')
+            note += _("(it will be removed in the next major version)")
             warnings.warn(note, UserWarning)
 
     @classmethod
@@ -807,18 +809,18 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
         path = descriptor.get("path")
         data = descriptor.get("data")
         if path is None and data is None:
-            note = 'one of the properties "path" or "data" is required'
+            note = _('one of the properties "path" or "data" is required')
             yield errors.ResourceError(note=note)
 
         # Path/Data
         if path is not None and data is not None:
-            note = 'properties "path" and "data" is mutually exclusive'
+            note = _('properties "path" and "data" is mutually exclusive')
             yield errors.ResourceError(note=note)
 
         # Licenses
         for item in descriptor.get("licenses", []):
             if not item.get("path") and not item.get("name"):
-                note = f'license requires "path" or "name": {item}'
+                note = _('license requires "path" or "name": {item}').format(item=item)
                 yield errors.ResourceError(note=note)
 
         # Contributors/Sources
@@ -828,7 +830,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
                     field = fields.StringField(name="email", format="email")
                     _, note = field.read_cell(item.get("email"))
                     if note:
-                        note = f'property "{name}[].email" is not valid "email"'
+                        note = _('property "{name}[].email" is not valid "email"').format(name=name)
                         yield errors.ResourceError(note=note)
 
         # Profile
@@ -844,13 +846,13 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
         schema = descriptor.get("schema")
         if profile == "tabular-data-resource":
             if not schema:
-                note = 'profile "tabular-data-resource" requires "schema" to be present'
+                note = _('profile "tabular-data-resource" requires "schema" to be present')
                 yield errors.ResourceError(note=note)
 
         # Misleading
         for name in ["missingValues"]:
             if name in descriptor:
-                note = f'"{name}" should be set as "schema.{name}"'
+                note = _('"{name}" should be set as "schema.{name}"').format(name=name)
                 yield errors.ResourceError(note=note)
 
     @classmethod

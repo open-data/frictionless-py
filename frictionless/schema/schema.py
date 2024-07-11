@@ -13,6 +13,8 @@ from .factory import Factory
 from .field import Field
 from .types import INotes
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Schema(Metadata, metaclass=Factory):
@@ -119,7 +121,7 @@ class Schema(Metadata, metaclass=Factory):
         for field in self.fields:
             if field.name == name:
                 return field
-        error = errors.SchemaError(note=f'field "{name}" does not exist')
+        error = errors.SchemaError(note=_('field "{name}" does not exist').format(name=name))
         raise FrictionlessException(error)
 
     def set_field(self, field: Field) -> Optional[Field]:
@@ -363,14 +365,14 @@ class Schema(Metadata, metaclass=Factory):
             if "name" in field:
                 field_names.append(field["name"])
         if len(field_names) != len(set(field_names)):
-            note = "names of the fields are not unique"
+            note = _("names of the fields are not unique")
             yield errors.SchemaError(note=note)
 
         # Primary Key
         pk = descriptor.get("primaryKey", [])
         for name in pk:
             if name not in field_names:
-                note = 'primary key "%s" does not match the fields "%s"'
+                note = _('primary key "%s" does not match the fields "%s"')
                 note = note % (pk, field_names)
                 yield errors.SchemaError(note=note)
 
@@ -379,10 +381,10 @@ class Schema(Metadata, metaclass=Factory):
         for fk in fks:
             for name in fk["fields"]:
                 if name not in field_names:
-                    note = 'foreign key "%s" does not match the fields "%s"'
+                    note = _('foreign key "%s" does not match the fields "%s"')
                     note = note % (fk, field_names)
                     yield errors.SchemaError(note=note)
             if len(fk["fields"]) != len(fk["reference"]["fields"]):
-                note = 'foreign key fields "%s" does not match the reference fields "%s"'
+                note = _('foreign key fields "%s" does not match the reference fields "%s"')
                 note = note % (fk["fields"], fk["reference"]["fields"])
                 yield errors.SchemaError(note=note)

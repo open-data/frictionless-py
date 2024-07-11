@@ -33,6 +33,8 @@ if TYPE_CHECKING:
     from ..error import Error
     from ..report import Report
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class Metadata:
     """Metadata representation
@@ -183,7 +185,7 @@ class Metadata:
         errors = list(Class.metadata_validate(descriptor))
         if not allow_invalid:
             if errors:
-                error = Error(note="descriptor is not valid")
+                error = Error(note=_("descriptor is not valid"))
                 raise FrictionlessException(error, reasons=errors)
         metadata = Class.metadata_import(descriptor, **helpers.remove_non_values(options))
         if descriptor_path:
@@ -197,7 +199,7 @@ class Metadata:
             Error = self.metadata_Error or platform.frictionless_errors.MetadataError
             errors = list(self.metadata_validate(descriptor))
             if errors:
-                error = Error(note="descriptor is not valid")
+                error = Error(note=_("descriptor is not valid"))
                 raise FrictionlessException(error, reasons=errors)
         return descriptor
 
@@ -334,7 +336,7 @@ class Metadata:
             raise TypeError("descriptor type is not supported")
         except Exception as exception:
             Error = cls.metadata_Error or platform.frictionless_errors.MetadataError
-            note = f'cannot retrieve metadata "{descriptor}" because "{exception}"'
+            note = _('cannot retrieve metadata "{descriptor}" because "{exception}"').format(descriptor=descriptor, exception=exception)
             raise FrictionlessException(Error(note=note)) from exception
 
     @classmethod

@@ -19,6 +19,8 @@ if TYPE_CHECKING:
     from .. import types
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Detector:
@@ -406,7 +408,7 @@ class Detector:
         if self.schema_sync:
             if labels:
                 if len(labels) != len(set(labels)):
-                    note = '"schema_sync" requires unique labels in the header'
+                    note = _('"schema_sync" requires unique labels in the header')
                     raise FrictionlessException(note)
                 mapping = {field.name: field for field in schema.fields}  # type: ignore
                 schema.clear_fields()

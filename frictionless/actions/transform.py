@@ -6,6 +6,8 @@ from ..pipeline import Pipeline, Step
 from ..platform import platform
 from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 def transform(
     source: Optional[Any] = None,
@@ -47,6 +49,6 @@ def transform(
 
     # Transform resource
     if not isinstance(resource, platform.frictionless_resources.Transformable):
-        note = f'Resource with data type "{resource.datatype}" is not transformable'
+        note = _('Resource with data type "{resource_datatype}" is not transformable').format(resource_datatype=resource.datatype)
         raise FrictionlessException(note)
     return resource.transform(pipeline)

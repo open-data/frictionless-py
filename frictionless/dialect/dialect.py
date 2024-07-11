@@ -14,6 +14,8 @@ from .factory import Factory
 if TYPE_CHECKING:
     from .. import types
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Dialect(Metadata, metaclass=Factory):
@@ -117,7 +119,7 @@ class Dialect(Metadata, metaclass=Factory):
     def add_control(self, control: Control) -> None:
         """Add new control to the schema"""
         if self.has_control(control.type):
-            error = errors.DialectError(note=f'control "{control.type}" already exists')
+            error = errors.DialectError(note=_('control "{control_type}" already exists').format(control_type=control.type))
             raise FrictionlessException(error)
         self.controls.append(control)
         control.schema = self
@@ -134,7 +136,7 @@ class Dialect(Metadata, metaclass=Factory):
         for control in self.controls:
             if control.type == type:
                 return control
-        error = errors.DialectError(note=f'control "{type}" does not exist')
+        error = errors.DialectError(note=_('control "{type}" does not exist').format(type=type))
         raise FrictionlessException(error)
 
     def set_control(self, control: Control) -> Optional[Control]:

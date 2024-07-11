@@ -10,6 +10,8 @@ from ...resources import TableResource
 from ...system import Parser
 from .control import GsheetsControl
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class GsheetsParser(Parser):
     """Google Sheets parser implementation."""
@@ -45,7 +47,7 @@ class GsheetsParser(Parser):
         control = GsheetsControl.from_dialect(self.resource.dialect)
         match = re.search(r".*/d/(?P<key>[^/]+)/.*?(?:gid=(?P<gid>\d+))?$", path)
         if not match:
-            error = errors.FormatError(note=f"Cannot save {path}")
+            error = errors.FormatError(note=_("Cannot save {path}").format(path=path))
             raise FrictionlessException(error)
         key = match.group("key")
         gid = match.group("gid")

@@ -18,6 +18,8 @@ if TYPE_CHECKING:
     from ..resources import TableResource
     from ..table import Row
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Indexer:
@@ -101,7 +103,7 @@ class Indexer:
             return self.populate_table_fast_sqlite()
         elif url.drivername.startswith("postgresql"):
             return self.populate_table_fast_postgresql()
-        raise FrictionlessException("Fast mode is only supported for Postgres/Sqlite")
+        raise FrictionlessException(_("Fast mode is only supported for Postgres/Sqlite"))
 
     def populate_table_fast_sqlite(self):
         assert self.adapter.engine.url.database

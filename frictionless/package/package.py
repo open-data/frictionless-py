@@ -26,6 +26,8 @@ if TYPE_CHECKING:
     from ..resources import TableResource
     from ..system import PublishResult
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class Package(Metadata, metaclass=Factory):
@@ -225,7 +227,7 @@ class Package(Metadata, metaclass=Factory):
         for resource in self.resources:
             if resource.name == name:
                 return resource
-        error = errors.PackageError(note=f'resource "{name}" does not exist')
+        error = errors.PackageError(note=_('resource "{name}" does not exist').format(name=name))
         raise FrictionlessException(error)
 
     def get_table_resource(self, name: str) -> TableResource:
@@ -233,7 +235,7 @@ class Package(Metadata, metaclass=Factory):
         resource = self.get_resource(name)
         if isinstance(resource, platform.frictionless_resources.TableResource):
             return resource
-        error = errors.PackageError(note=f'resource "{name}" is not tabular')
+        error = errors.PackageError(note=_('resource "{name}" is not tabular').format(name=name))
         raise FrictionlessException(error)
 
     def set_resource(self, resource: Resource) -> Optional[Resource]:
@@ -306,10 +308,10 @@ class Package(Metadata, metaclass=Factory):
         """
         adapter = system.create_adapter(target, control=control, packagify=True)
         if not adapter:
-            raise FrictionlessException(f"Not supported target: {target} or control")
+            raise FrictionlessException(_("Not supported target: {target} or control").format(target=target))
         path = adapter.write_package(self.to_copy())
         if not path:
-            raise FrictionlessException("Not supported action")
+            raise FrictionlessException(_("Not supported action"))
         return path
 
     # Flatten
@@ -625,7 +627,7 @@ class Package(Metadata, metaclass=Factory):
                 items = value if isinstance(value, list) else [value]  # type: ignore
                 for item in items:  # type: ignore
                     if item and isinstance(item, str) and not helpers.is_safe_path(item):
-                        yield errors.PackageError(note=f'path "{item}" is not safe')
+                        yield errors.PackageError(note=_('path "{item}" is not safe').format(item=item))
                         return
 
         # Resource Names
@@ -634,7 +636,7 @@ class Package(Metadata, metaclass=Factory):
             if isinstance(resource, dict) and "name" in resource:
                 resource_names.append(resource["name"])  # type: ignore
         if len(resource_names) != len(set(resource_names)):
-            note = "names of the resources are not unique"
+            note = _("names of the resources are not unique")
             yield errors.PackageError(note=note)
 
         # Created
@@ -643,13 +645,13 @@ class Package(Metadata, metaclass=Factory):
             field = fields.DatetimeField(name="created")
             _, note = field.read_cell(created)
             if note:
-                note = 'property "created" is not valid "datetime"'
+                note = _('property "created" is not valid "datetime"')
                 yield errors.PackageError(note=note)
 
         # Licenses
         for item in descriptor.get("licenses", []):
             if not item.get("path") and not item.get("name"):
-                note = f'license requires "path" or "name": {item}'
+                note = _('license requires "path" or "name": {item}').format(item=item)
                 yield errors.PackageError(note=note)
 
         # Contributors/Sources
@@ -659,7 +661,7 @@ class Package(Metadata, metaclass=Factory):
                     field = fields.StringField(name="email", format="email")
                     _, note = field.read_cell(item.get("email"))
                     if note:
-                        note = f'property "{name}[].email" is not valid "email"'
+                        note = _('property "{name}[].email" is not valid "email"').format(name=name)
                         yield errors.PackageError(note=note)
 
         # Profile
@@ -680,13 +682,13 @@ class Package(Metadata, metaclass=Factory):
         if profile == "tabular-data-package":
             for resource in resources:
                 if resource.get("profile", None) != "tabular-data-resource":
-                    note = 'profile "tabular-data-package" requires all the resources to be "tabular-data-resource"'
+                    note = _('profile "tabular-data-package" requires all the resources to be "tabular-data-resource"')
                     yield errors.PackageError(note=note)
 
         # Misleading
         for name in ["missingValues", "fields"]:
             if name in descriptor:
-                note = f'"{name}" should be set as "resource.schema.{name}"'
+                note = _('"{name}" should be set as "resource.schema.{name}"').format(name=name)
                 yield errors.PackageError(note=note)
 
     @classmethod

@@ -10,6 +10,8 @@ from .control import InlineControl
 if TYPE_CHECKING:
     from ...resources import TableResource
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class InlineParser(Parser):
     """Inline parser implementation."""
@@ -68,7 +70,7 @@ class InlineParser(Parser):
             yield [item.get(header) for header in headers]  # type: ignore
             for item in data:
                 if not isinstance(item, dict):
-                    error = errors.SourceError(note="unsupported inline data")
+                    error = errors.SourceError(note=_("unsupported inline data"))
                     raise FrictionlessException(error)
                 yield [item.get(header) for header in headers]  # type: ignore
 
@@ -77,13 +79,13 @@ class InlineParser(Parser):
             yield item
             for item in data:
                 if not isinstance(item, (list, tuple)):
-                    error = errors.SourceError(note="unsupported inline data")
+                    error = errors.SourceError(note=_("unsupported inline data"))
                     raise FrictionlessException(error)
                 yield item
 
         # Unsupported
         else:
-            error = errors.SourceError(note="unsupported inline data")
+            error = errors.SourceError(note=_("unsupported inline data"))
             raise FrictionlessException(error)
 
     # Write

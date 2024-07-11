@@ -9,6 +9,8 @@ from ..resource import Resource
 if TYPE_CHECKING:
     from ..indexer import IOnProgress, IOnRow
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 def index(
     source: Optional[Any] = None,
@@ -35,7 +37,7 @@ def index(
 
     # Index resource
     if not isinstance(resource, platform.frictionless_resources.Indexable):
-        note = f'Resource with data type "{resource.datatype}" is not indexable'
+        note = _('Resource with data type "{resource_datatype}" is not indexable').format(resource_datatype=resource.datatype)
         raise FrictionlessException(note)
     return resource.index(
         database_url,

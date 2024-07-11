@@ -6,6 +6,8 @@ from .. import helpers
 from ..exception import FrictionlessException
 from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class FileResource(Resource):
     type = "file"
@@ -48,7 +50,7 @@ class FileResource(Resource):
         if not isinstance(resource, Resource):
             resource = FileResource(**options)
         if not isinstance(resource, FileResource):  # type: ignore
-            raise FrictionlessException("target must be a text resource")
+            raise FrictionlessException(_("target must be a text resource"))
         bytes = self.read_file()
         assert resource.normpath
         helpers.write_file(resource.normpath, bytes, mode="wb")
