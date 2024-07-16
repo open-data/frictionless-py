@@ -27,6 +27,8 @@ def console_script(
     debug: bool = common.debug,
     trusted: bool = common.trusted,
     standards: str = common.standards,
+    # Command
+    language: str = common.language,  # (canada fork only): add i18n support
 ):
     """Script data"""
     console = Console()

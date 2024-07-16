@@ -23,6 +23,8 @@ def console_explore(
     debug: bool = common.debug,
     trusted: bool = common.trusted,
     standards: str = common.standards,
+    # Command
+    language: str = common.language,  # (canada fork only): add i18n support
 ):
     """Explore dataset with Visidata
 

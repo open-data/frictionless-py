@@ -27,6 +27,7 @@ def console_convert(
     debug: bool = common.debug,
     trusted: bool = common.trusted,
     standards: str = common.standards,
+    language: str = common.language,  # (canada fork only): add i18n support
 ):
     """Convert metadata to various output"""
 

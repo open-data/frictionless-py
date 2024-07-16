@@ -4,6 +4,8 @@ from typer import Argument, Option
 
 from .. import settings
 
+from ..i18n import set_language  # (canada fork only): add i18n support
+
 # TODO: migrate to click options to encapsulate types (or we can set types here)?
 
 # Source
@@ -356,4 +358,11 @@ metadata = Option(
 fallback = Option(
     default=False,
     help="If fast indexing errored fallback to the normal mode",
+)
+
+# (canada fork only): add i18n support
+language = Option(
+    default="en",
+    help="Set the language for the output.",
+    callback=set_language,
 )

@@ -63,6 +63,7 @@ def console_extract(
     yaml: bool = common.yaml,
     json: bool = common.json,
     csv: bool = common.csv,
+    language: str = common.language,  # (canada fork only): add i18n support
     # System
     debug: bool = common.debug,
     trusted: bool = common.trusted,

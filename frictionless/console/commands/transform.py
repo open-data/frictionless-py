@@ -25,6 +25,7 @@ def console_transform(
     debug: bool = common.debug,
     trusted: bool = common.trusted,
     standards: str = common.standards,
+    language: str = common.language,  # (canada fork only): add i18n support
 ):
     """Transform data using a provided pipeline.
 

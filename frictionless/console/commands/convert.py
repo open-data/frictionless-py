@@ -43,6 +43,7 @@ def console_convert(
     to_format: str = common.format,
     to_dialect: str = common.dialect,
     to_csv_delimiter: str = typer.Option(default=None),
+    language: str = common.language,  # (canada fork only): add i18n support
     # System
     debug: bool = common.debug,
     trusted: bool = common.trusted,

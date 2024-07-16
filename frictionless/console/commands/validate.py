@@ -63,6 +63,7 @@ def console_validate(
     debug: bool = common.debug,
     trusted: bool = common.trusted,
     standards: str = common.standards,
+    language: str = common.language,  # (canada fork only): add i18n support
     # Deprecated
     resource_name: str = common.resource_name,
 ):

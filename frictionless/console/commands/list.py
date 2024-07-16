@@ -47,6 +47,7 @@ def console_describe(
     basepath: str = common.basepath,
     yaml: bool = common.yaml,
     json: bool = common.json,
+    language: str = common.language,  # (canada fork only): add i18n support
     # System
     debug: bool = common.debug,
     trusted: bool = common.trusted,

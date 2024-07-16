@@ -23,6 +23,7 @@ def console_index(
     fast: bool = common.fast,
     fallback: bool = common.fallback,
     qsv: str = common.qsv,
+    language: str = common.language,  # (canada fork only): add i18n support
     # System
     debug: bool = common.debug,
     trusted: bool = common.trusted,

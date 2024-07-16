@@ -26,6 +26,7 @@ def console_publish(
     # Command
     target: str = typer.Option(default=...),
     title: str = typer.Option(default=None),
+    language: str = common.language,  # (canada fork only): add i18n support
     # System
     debug: bool = common.debug,
     trusted: bool = common.trusted,

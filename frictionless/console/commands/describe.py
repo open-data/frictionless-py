@@ -50,6 +50,7 @@ def console_describe(
     field_missing_values: str = common.field_missing_values,
     # Command
     basepath: str = common.basepath,
+    language: str = common.language,  # (canada fork only): add i18n support
     # TODO: allow cherry-picking stats for adding to a descriptor
     stats: bool = common.stats,
     yaml: bool = common.yaml,
