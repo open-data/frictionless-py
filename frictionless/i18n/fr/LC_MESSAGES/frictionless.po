@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-27 19:58+0000\n"
+"POT-Creation-Date: 2024-07-16 16:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,6 +18,37 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: frictionless/actions/convert.py:42
+msgid "Resource with data type \"{resource_datatype}\" is not convertible"
+msgstr ""
+
+#: frictionless/actions/extract.py:50
+msgid "Resource with data type \"{resource_datatype}\" is not extractable"
+msgstr ""
+
+#: frictionless/actions/index.py:40
+msgid "Resource with data type \"{resource_datatype}\" is not indexable"
+msgstr ""
+
+#: frictionless/actions/transform.py:52
+msgid "Resource with data type \"{resource_datatype}\" is not transformable"
+msgstr ""
+
+#: frictionless/catalog/catalog.py:102
+msgid "dataset \"{name}\" does not exist"
+msgstr ""
+
+#: frictionless/checklist/check.py:118
+msgid "Check \"code\" is deprecated in favor of \"type\""
+msgstr ""
+
+#: frictionless/checklist/check.py:119 frictionless/inquiry/task.py:215
+#: frictionless/pipeline/pipeline.py:123 frictionless/pipeline/step.py:98
+#: frictionless/resource/resource.py:741 frictionless/resource/resource.py:772
+#: frictionless/resource/resource.py:787
+msgid "(it will be removed in the next major version)"
+msgstr ""
 
 #: frictionless/checks/baseline.py:66
 msgid "the source is empty"
@@ -138,6 +169,18 @@ msgstr ""
 #: frictionless/checks/table/table_dimensions.py:108
 #, python-format
 msgid "number of rows is %s, the maximum is %s"
+msgstr ""
+
+#: frictionless/detector/detector.py:411
+msgid "\"schema_sync\" requires unique labels in the header"
+msgstr ""
+
+#: frictionless/dialect/dialect.py:122
+msgid "control \"{control_type}\" already exists"
+msgstr ""
+
+#: frictionless/dialect/dialect.py:139
+msgid "control \"{type}\" does not exist"
 msgstr ""
 
 #: frictionless/errors/cell.py:23 frictionless/errors/cell.py:24
@@ -825,6 +868,460 @@ msgstr ""
 
 #: frictionless/errors/table.py:54
 msgid "Required values not found: {note}"
+msgstr ""
+
+#: frictionless/formats/excel/parsers/xls.py:66
+#: frictionless/formats/excel/parsers/xlsx.py:101
+#, python-format
+msgid "Excel document \"%s\" does not have a sheet \"%s\""
+msgstr ""
+
+#: frictionless/formats/excel/parsers/xlsx.py:91
+msgid "invalid excel file \"{resource_path}\""
+msgstr ""
+
+#: frictionless/formats/gsheets/parser.py:50
+msgid "Cannot save {path}"
+msgstr ""
+
+#: frictionless/formats/inline/parser.py:73
+#: frictionless/formats/inline/parser.py:82
+#: frictionless/formats/inline/parser.py:88
+msgid "unsupported inline data"
+msgstr ""
+
+#: frictionless/formats/json/parsers/json.py:47
+msgid "cannot extract JSON tabular data from \"{resource_normpath}\""
+msgstr ""
+
+#: frictionless/formats/ods/parser.py:50
+#, python-format
+msgid "OpenOffice document \"%s\" does not have a sheet \"%s\""
+msgstr ""
+
+#: frictionless/formats/yaml/parser.py:45
+msgid "cannot extract YAML tabular data from \"{resource_normpath}\""
+msgstr ""
+
+#: frictionless/formats/zip/adapter.py:84
+#: frictionless/formats/zip/adapter.py:96
+msgid "Zipping usafe \"{normpath}\" is not supported"
+msgstr ""
+
+#: frictionless/indexer/indexer.py:106
+msgid "Fast mode is only supported for Postgres/Sqlite"
+msgstr ""
+
+#: frictionless/inquiry/task.py:214
+msgid "InquiryTask \"source\" is deprecated in favor of \"resource/package\""
+msgstr ""
+
+#: frictionless/inquiry/task.py:233 frictionless/package/package.py:630
+msgid "path \"{item}\" is not safe"
+msgstr ""
+
+#: frictionless/inquiry/task.py:241
+msgid "one of the properties \"path\", \"resource\", or \"package\" is required"
+msgstr ""
+
+#: frictionless/metadata/metadata.py:188 frictionless/metadata/metadata.py:202
+msgid "descriptor is not valid"
+msgstr ""
+
+#: frictionless/metadata/metadata.py:339
+msgid "cannot retrieve metadata \"{descriptor}\" because \"{exception}\""
+msgstr ""
+
+#: frictionless/package/package.py:230
+msgid "resource \"{name}\" does not exist"
+msgstr ""
+
+#: frictionless/package/package.py:238
+msgid "resource \"{name}\" is not tabular"
+msgstr ""
+
+#: frictionless/package/package.py:311
+msgid "Not supported target: {target} or control"
+msgstr ""
+
+#: frictionless/package/package.py:314
+msgid "Not supported action"
+msgstr ""
+
+#: frictionless/package/package.py:639
+msgid "names of the resources are not unique"
+msgstr ""
+
+#: frictionless/package/package.py:648
+msgid "property \"created\" is not valid \"datetime\""
+msgstr ""
+
+#: frictionless/package/package.py:654 frictionless/resource/resource.py:823
+msgid "license requires \"path\" or \"name\": {item}"
+msgstr ""
+
+#: frictionless/package/package.py:664 frictionless/resource/resource.py:833
+msgid "property \"{name}[].email\" is not valid \"email\""
+msgstr ""
+
+#: frictionless/package/package.py:685
+msgid ""
+"profile \"tabular-data-package\" requires all the resources to be "
+"\"tabular-data-resource\""
+msgstr ""
+
+#: frictionless/package/package.py:691
+msgid "\"{name}\" should be set as \"resource.schema.{name}\""
+msgstr ""
+
+#: frictionless/pipeline/pipeline.py:71
+msgid "step \"{type}\" does not exist"
+msgstr ""
+
+#: frictionless/pipeline/pipeline.py:122
+msgid "Pipeline \"tasks[].steps\" is deprecated in favor of \"steps\""
+msgstr ""
+
+#: frictionless/pipeline/step.py:97
+msgid "Step \"code\" is deprecated in favor of \"type\""
+msgstr ""
+
+#: frictionless/portals/ckan/adapter.py:86
+msgid "Your package has no name. CKAN requires a name to publish a package"
+msgstr ""
+
+#: frictionless/portals/ckan/adapter.py:193
+msgid "CKAN API error:"
+msgstr ""
+
+#: frictionless/portals/ckan/adapter.py:252
+msgid "Error in CKAN dataset {descriptor_id}: {e}"
+msgstr ""
+
+#: frictionless/portals/ckan/adapter.py:310
+msgid "CKAN returned an error: "
+msgstr ""
+
+#: frictionless/portals/github/adapter.py:31
+msgid "Repo and user is required"
+msgstr ""
+
+#: frictionless/portals/github/adapter.py:52
+#: frictionless/portals/github/adapter.py:175
+#: frictionless/portals/github/adapter.py:228
+#: frictionless/portals/zenodo/adapter.py:49
+#: frictionless/portals/zenodo/adapter.py:215
+msgid "Package/s not found"
+msgstr ""
+
+#: frictionless/portals/github/adapter.py:72
+#: frictionless/portals/github/adapter.py:97
+#: frictionless/portals/github/adapter.py:117
+msgid "Github API error:"
+msgstr ""
+
+#: frictionless/portals/github/adapter.py:147
+msgid "Repo or user or search text is required"
+msgstr ""
+
+#: frictionless/portals/github/adapter.py:159
+msgid "Github API error"
+msgstr ""
+
+#: frictionless/portals/zenodo/adapter.py:35
+msgid "Record is required."
+msgstr ""
+
+#: frictionless/portals/zenodo/adapter.py:60
+msgid "Api key is required for zenodo publishing"
+msgstr ""
+
+#: frictionless/portals/zenodo/adapter.py:146
+#: frictionless/portals/zenodo/adapter.py:206
+msgid "Zenodo API error"
+msgstr ""
+
+#: frictionless/report/report.py:80
+msgid "The \"report.error\" is available for single error reports"
+msgstr ""
+
+#: frictionless/report/report.py:88
+msgid "The \"report.task\" is available for single task reports"
+msgstr ""
+
+#: frictionless/report/task.py:79
+msgid "The \"task.error\" is available for single error tasks"
+msgstr ""
+
+#: frictionless/report/task.py:122
+msgid "File Place"
+msgstr ""
+
+#: frictionless/report/task.py:123
+msgid "File Size"
+msgstr ""
+
+#: frictionless/report/task.py:123
+msgid "(file not found)"
+msgstr ""
+
+#: frictionless/report/task.py:124
+msgid "Total Time"
+msgstr ""
+
+#: frictionless/report/task.py:124
+msgid "{seconds} Seconds"
+msgstr ""
+
+#: frictionless/report/task.py:125
+msgid "Rows Checked"
+msgstr ""
+
+#: frictionless/report/task.py:128
+msgid "Total Errors"
+msgstr ""
+
+#: frictionless/report/task.py:134
+msgid "Name"
+msgstr ""
+
+#: frictionless/report/task.py:134
+msgid "Value"
+msgstr ""
+
+#: frictionless/resource/resource.py:366 frictionless/resource/resource.py:377
+#: frictionless/resources/table.py:58
+msgid "resource is not open or non binary"
+msgstr ""
+
+#: frictionless/resource/resource.py:391
+msgid "resource is not open or non textual"
+msgstr ""
+
+#: frictionless/resource/resource.py:502
+msgid "Resource.infer cannot be used on a open resource"
+msgstr ""
+
+#: frictionless/resource/resource.py:740
+msgid "Resource \"stats.hash\" is deprecated in favor of \"stats.sha256/md5\""
+msgstr ""
+
+#: frictionless/resource/resource.py:771
+msgid "Resource \"compression=no\" is deprecated in favor not set value"
+msgstr ""
+
+#: frictionless/resource/resource.py:786
+msgid "Resource \"layout\" is deprecated in favor of \"dialect\""
+msgstr ""
+
+#: frictionless/resource/resource.py:812
+msgid "one of the properties \"path\" or \"data\" is required"
+msgstr ""
+
+#: frictionless/resource/resource.py:817
+msgid "properties \"path\" and \"data\" is mutually exclusive"
+msgstr ""
+
+#: frictionless/resource/resource.py:849
+msgid "profile \"tabular-data-resource\" requires \"schema\" to be present"
+msgstr ""
+
+#: frictionless/resource/resource.py:855
+msgid "\"{name}\" should be set as \"schema.{name}\""
+msgstr ""
+
+#: frictionless/resources/file.py:53 frictionless/resources/text.py:41
+msgid "target must be a text resource"
+msgstr ""
+
+#: frictionless/resources/json.py:65
+msgid "target must be a json resource"
+msgstr ""
+
+#: frictionless/resources/table.py:72 frictionless/resources/table.py:82
+#: frictionless/resources/table.py:96 frictionless/resources/table.py:106
+#: frictionless/resources/table.py:116 frictionless/resources/table.py:127
+#: frictionless/resources/table.py:138
+msgid "resource is not open"
+msgstr ""
+
+#: frictionless/resources/table.py:241
+msgid "package is required for FK: \"{fk}\""
+msgstr ""
+
+#: frictionless/resources/table.py:244
+msgid ""
+"failed to handle a foreign key for resource \"{name}\" as resource "
+"\"{source_name}\" does not exist"
+msgstr ""
+
+#: frictionless/resources/table.py:331 frictionless/resources/table.py:347
+#, python-format
+msgid "the same as in the row at position %s"
+msgstr ""
+
+#: frictionless/resources/table.py:339
+msgid "cells composing the primary keys are all \"None\""
+msgstr ""
+
+#: frictionless/resources/table.py:362
+#, python-format
+msgid "for \"%s\": values \"%s\" not found in the lookup table \"%s\" as \"%s\""
+msgstr ""
+
+#: frictionless/resources/table.py:460
+msgid "target must be a table resource"
+msgstr ""
+
+#: frictionless/resources/table.py:515
+msgid "Cannot convert to the existent path \"{to_path}\""
+msgstr ""
+
+#: frictionless/schema/field.py:93
+msgid "Use \"schema.set_field_type()\" to update the type of the field"
+msgstr ""
+
+#: frictionless/schema/field.py:143 frictionless/schema/field.py:187
+msgid "type is \"{type}/{format}\""
+msgstr ""
+
+#: frictionless/schema/field.py:149
+msgid "constraint \"{name}\" is \"{constraint}\""
+msgstr ""
+
+#: frictionless/schema/field.py:257
+msgid "constraint \"{name}\" is not supported by type \"{type}\""
+msgstr ""
+
+#: frictionless/schema/field.py:271
+msgid "example value \"{example}\" for field \"{field_name}\" is not valid"
+msgstr ""
+
+#: frictionless/schema/field.py:277
+msgid "\"{name}\" should be set as \"constraints.{name}\""
+msgstr ""
+
+#: frictionless/schema/schema.py:124
+msgid "field \"{name}\" does not exist"
+msgstr ""
+
+#: frictionless/schema/schema.py:368
+msgid "names of the fields are not unique"
+msgstr ""
+
+#: frictionless/schema/schema.py:375
+#, python-format
+msgid "primary key \"%s\" does not match the fields \"%s\""
+msgstr ""
+
+#: frictionless/schema/schema.py:384
+#, python-format
+msgid "foreign key \"%s\" does not match the fields \"%s\""
+msgstr ""
+
+#: frictionless/schema/schema.py:388
+#, python-format
+msgid "foreign key fields \"%s\" does not match the reference fields \"%s\""
+msgstr ""
+
+#: frictionless/schemes/local/adapter.py:37
+msgid "Cannot read package"
+msgstr ""
+
+#: frictionless/schemes/stream/loader.py:20
+msgid "only local streams are supported: {byte_stream}"
+msgstr ""
+
+#: frictionless/schemes/stream/loader.py:26
+msgid "cannot open a stream in the byte mode: {byte_stream}"
+msgstr ""
+
+#: frictionless/schemes/stream/loader.py:52
+msgid "cannot re-open a byte stream: {byte_stream}"
+msgstr ""
+
+#: frictionless/steps/resource/resource_remove.py:38
+#: frictionless/steps/resource/resource_transform.py:45
+msgid "No resource \"{name}\""
+msgstr ""
+
+#: frictionless/steps/resource/resource_update.py:45
+msgid "Property \"name\" is required for \"resource_update\" within a package"
+msgstr ""
+
+#: frictionless/system/loader.py:72 frictionless/system/loader.py:85
+#: frictionless/system/loader.py:98
+msgid "loader is not open"
+msgstr ""
+
+#: frictionless/system/loader.py:214
+msgid "the archive is empty"
+msgstr ""
+
+#: frictionless/system/loader.py:259
+msgid "compression \"{compression}\" is not supported"
+msgstr ""
+
+#: frictionless/system/parser.py:68
+msgid "parser is not open or non requiring loader"
+msgstr ""
+
+#: frictionless/system/parser.py:78 frictionless/system/parser.py:88
+msgid "parser is not open"
+msgstr ""
+
+#: frictionless/system/system.py:230
+msgid "scheme \"{name}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:248
+msgid "format \"{name}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:285
+msgid "check type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:295
+msgid "control type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:309
+msgid "error type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:323
+msgid "field type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:333
+msgid "package type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:353
+msgid "resource type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/system/system.py:367
+msgid "step type \"{type}\" is not supported"
+msgstr ""
+
+#: frictionless/table/header.py:194
+#, python-format
+msgid "at position \"%s\""
+msgstr ""
+
+#: frictionless/table/row.py:68 frictionless/table/row.py:283
+msgid "Row does not have a field {key}"
+msgstr ""
+
+#: frictionless/transformer/transformer.py:27
+#: frictionless/transformer/transformer.py:49
+msgid "\"{get_name(step)}\" raises \"{exception}\""
+msgstr ""
+
+#: frictionless/transformer/transformer.py:93
+msgid "\"{get_name(self.step)}\" raises \"{exception}\""
 msgstr ""
 
 #: frictionless/validator/validator.py:116
