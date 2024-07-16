@@ -13,6 +13,8 @@ if TYPE_CHECKING:
     from ..pipeline import Step
     from ..resources import TableResource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class Transformer:
     # Package
@@ -22,7 +24,7 @@ class Transformer:
             try:
                 step.transform_package(package)
             except Exception as exception:
-                error = errors.StepError(note=f'"{get_name(step)}" raises "{exception}"')
+                error = errors.StepError(note=_('"{get_name(step)}" raises "{exception}"').format(exception=exception))
                 raise FrictionlessException(error) from exception
         return package
 
@@ -44,7 +46,7 @@ class Transformer:
             try:
                 step.transform_resource(resource)
             except Exception as exception:
-                error = errors.StepError(note=f'"{get_name(step)}" raises "{exception}"')
+                error = errors.StepError(note=_('"{get_name(step)}" raises "{exception}"').format(exception=exception))
                 raise FrictionlessException(error) from exception
 
             # Postprocess
@@ -88,5 +90,5 @@ class DataWithErrorHandling:
             if isinstance(exception, FrictionlessException):
                 if exception.error.type == "step-error":
                     raise
-            error = errors.StepError(note=f'"{get_name(self.step)}" raises "{exception}"')
+            error = errors.StepError(note=_('"{get_name(self.step)}" raises "{exception}"').format(exception=exception))
             raise FrictionlessException(error) from exception

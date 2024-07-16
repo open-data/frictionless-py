@@ -27,6 +27,8 @@ if TYPE_CHECKING:
     from .parser import Parser
     from .plugin import Plugin
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # NOTE:
 # Shall we add plugin.identity/priority/etc as we do in Livemark?
@@ -225,7 +227,7 @@ class System:
             loader = func(resource)
             if loader is not None:
                 return loader
-        note = f'scheme "{name}" is not supported'
+        note = _('scheme "{name}" is not supported').format(name=name)
         raise FrictionlessException(errors.SchemeError(note=note))
 
     def create_parser(self, resource: Resource) -> Parser:
@@ -243,7 +245,7 @@ class System:
             parser = func(resource)
             if parser is not None:
                 return parser
-        note = f'format "{name}" is not supported'
+        note = _('format "{name}" is not supported').format(name=name)
         raise FrictionlessException(errors.FormatError(note=note))
 
     def detect_resource(self, resource: Resource) -> None:
@@ -280,7 +282,7 @@ class System:
             if inspect.isclass(Class):
                 if vars(Class).get("type", None) == type:
                     return Class
-        note = f'check type "{type}" is not supported'
+        note = _('check type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.CheckError(note=note))
 
     def select_control_class(self, type: Optional[str] = None) -> Type[Control]:
@@ -290,7 +292,7 @@ class System:
             Class = func(type)
             if Class is not None:
                 return Class
-        note = f'control type "{type}" is not supported'
+        note = _('control type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.ControlError(note=note))
 
     def select_error_class(self, type: Optional[str] = None) -> Type[Error]:
@@ -304,7 +306,7 @@ class System:
             if inspect.isclass(Class):
                 if vars(Class).get("type", None) == type:
                     return Class
-        note = f'error type "{type}" is not supported'
+        note = _('error type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.Error(note=note))
 
     def select_field_class(self, type: Optional[str] = None) -> Type[Field]:
@@ -318,7 +320,7 @@ class System:
             if inspect.isclass(Class):
                 if vars(Class).get("type", None) == type:
                     return Class
-        note = f'field type "{type}" is not supported'
+        note = _('field type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.FieldError(note=note))
 
     def select_package_class(self, type: Optional[str] = None) -> Type[Package]:
@@ -328,7 +330,7 @@ class System:
             Class = func(type)
             if Class is not None:
                 return Class
-        note = f'package type "{type}" is not supported'
+        note = _('package type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.FieldError(note=note))
 
     def select_resource_class(
@@ -348,7 +350,7 @@ class System:
                 if type:
                     if vars(Class).get("type", None) == type:
                         return Class
-        note = f'resource type "{type or datatype}" is not supported'
+        note = _('resource type "{type}" is not supported').format(type=type or datatype)
         raise FrictionlessException(errors.ResourceError(note=note))
 
     def select_step_class(self, type: Optional[str] = None) -> Type[Step]:
@@ -362,7 +364,7 @@ class System:
             if inspect.isclass(Class):
                 if vars(Class).get("type", None) == type:
                     return Class
-        note = f'step type "{type}" is not supported'
+        note = _('step type "{type}" is not supported').format(type=type)
         raise FrictionlessException(errors.StepError(note=note))
 
 

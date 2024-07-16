@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from ...package import Package
     from ...resource import Resource
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class resource_update(Step):
@@ -40,7 +42,7 @@ class resource_update(Step):
 
     def transform_package(self, package: Package):
         if not self.name:
-            note = 'Property "name" is required for "resource_update" within a package'
+            note = _('Property "name" is required for "resource_update" within a package')
             raise FrictionlessException(errors.StepError(note=note))
         descriptor = deepcopy(self.descriptor)
         package.update_resource(self.name, descriptor)

@@ -8,6 +8,8 @@ from .. import errors, helpers
 if TYPE_CHECKING:
     from ..schema import Field
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class Header(List[str]):  # type: ignore
     """Header representation
@@ -189,7 +191,7 @@ class Header(List[str]):  # type: ignore
                         duplicate_field_numbers.append(seen_number)
                 if duplicate_field_numbers:
                     label = None
-                    note = 'at position "%s"'
+                    note = _('at position "%s"')
                     note = note % ", ".join(map(str, duplicate_field_numbers))
                     self.__errors.append(
                         errors.DuplicateLabelError(

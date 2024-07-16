@@ -11,6 +11,8 @@ from ...pipeline import Pipeline, Step
 if TYPE_CHECKING:
     from ...package import Package
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class resource_transform(Step):
@@ -40,7 +42,7 @@ class resource_transform(Step):
         resource = package.get_resource(self.name)
         index = package.resources.index(resource)
         if not resource:
-            error = errors.ResourceError(note=f'No resource "{self.name}"')
+            error = errors.ResourceError(note=_('No resource "{name}"').format(name=self.name))
             raise FrictionlessException(error=error)
         package.resources[index] = resource.transform(Pipeline(steps=self.steps))  # type: ignore
 

@@ -9,6 +9,8 @@ from ...package import Package
 from ...resource import Resource
 from ...system import Adapter
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 class LocalAdapter(Adapter):
     def __init__(self, source: Any, *, basepath: Optional[str] = None):
@@ -32,5 +34,5 @@ class LocalAdapter(Adapter):
                 package.add_resource(Resource(path=path))
             return package
 
-        note = "Cannot read package"
+        note = _("Cannot read package")
         raise FrictionlessException(note)

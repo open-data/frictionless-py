@@ -7,6 +7,8 @@ from typing import Any, Dict, List, Optional
 from .. import errors, helpers
 from ..platform import platform
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 # NOTE:
 # Currently dict.update/setdefault/pop/popitem/clear is not disabled (can be confusing)
 # We can consider adding row.header property to provide more comprehensive API
@@ -63,7 +65,7 @@ class Row(Dict[str, Any]):
         try:
             _, field_number, _, _ = self.__field_info["mapping"][key]
         except KeyError:
-            raise KeyError(f"Row does not have a field {key}")
+            raise KeyError(_("Row does not have a field {key}").format(key=key))
         if len(self.__cells) < field_number:
             self.__cells.extend([None] * (field_number - len(self.__cells)))
         self.__cells[field_number - 1] = value
@@ -278,7 +280,7 @@ class Row(Dict[str, Any]):
                     "mapping"
                 ][key]
             except KeyError:
-                raise KeyError(f"Row does not have a field {key}")
+                raise KeyError(_("Row does not have a field {key}").format(key=key))
             cell = cells[field_number - 1] if len(cells) >= field_number else None
             iterator = zip([(field, field_number, cell_reader, cell_writer)], [cell])
 

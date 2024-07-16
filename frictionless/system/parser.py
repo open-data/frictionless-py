@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from ..resources import TableResource
     from .loader import Loader
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 class Parser:
     """Parser representation
@@ -63,7 +65,7 @@ class Parser:
             Loader: loader
         """
         if self.__loader is None:
-            raise FrictionlessException("parser is not open or non requiring loader")
+            raise FrictionlessException(_("parser is not open or non requiring loader"))
         return self.__loader
 
     @property
@@ -73,7 +75,7 @@ class Parser:
             Loader: sample
         """
         if self.__sample is None:
-            raise FrictionlessException("parser is not open")
+            raise FrictionlessException(_("parser is not open"))
         return self.__sample
 
     @property
@@ -83,7 +85,7 @@ class Parser:
             any[][]: list stream
         """
         if self.__cell_stream is None:
-            raise FrictionlessException("parser is not open")
+            raise FrictionlessException(_("parser is not open"))
         return self.__cell_stream
 
     # Open/Close

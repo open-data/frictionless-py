@@ -16,6 +16,8 @@ if TYPE_CHECKING:
     from .. import types
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # NOTE:
 # Probably we need to rework the way we calculate stats
@@ -67,7 +69,7 @@ class Loader:
             Loader: buffer
         """
         if self.__buffer is None:
-            raise FrictionlessException("loader is not open")
+            raise FrictionlessException(_("loader is not open"))
         return self.__buffer
 
     @property
@@ -80,7 +82,7 @@ class Loader:
             io.ByteStream: resource byte stream
         """
         if self.__byte_stream is None:
-            raise FrictionlessException("loader is not open")
+            raise FrictionlessException(_("loader is not open"))
         return self.__byte_stream
 
     @property
@@ -93,7 +95,7 @@ class Loader:
             io.TextStream: resource text stream
         """
         if self.closed:
-            raise FrictionlessException("loader is not open")
+            raise FrictionlessException(_("loader is not open"))
         if not self.__text_stream:
             self.__text_stream = self.read_text_stream()
         return self.__text_stream
@@ -209,7 +211,7 @@ class Loader:
             with platform.zipfile.ZipFile(byte_stream) as archive:
                 name = self.resource.innerpath or archive.namelist()[0]
                 if not name:
-                    error = errors.Error(note="the archive is empty")
+                    error = errors.Error(note=_("the archive is empty"))
                     raise FrictionlessException(error)
                 # TODO: enable typing when resource.innerpath is fixed
                 with archive.open(name) as file:  # type: ignore
@@ -254,7 +256,7 @@ class Loader:
             return byte_stream
 
         # Not supported compression
-        note = f'compression "{self.resource.compression}" is not supported'
+        note = _('compression "{compression}" is not supported').format(compression=self.resource.compression)
         raise FrictionlessException(errors.CompressionError(note=note))
 
     def read_byte_stream_buffer(self, byte_stream: types.IByteStream):

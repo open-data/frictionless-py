@@ -11,6 +11,8 @@ from ...pipeline import Step
 if TYPE_CHECKING:
     from ...package import Package
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @attrs.define(kw_only=True, repr=False)
 class resource_remove(Step):
@@ -33,7 +35,7 @@ class resource_remove(Step):
     def transform_package(self, package: Package):
         resource = package.get_resource(self.name)
         if not resource:
-            error = errors.ResourceError(note=f'No resource "{self.name}"')
+            error = errors.ResourceError(note=_('No resource "{name}"').format(name=self.name))
             raise FrictionlessException(error=error)
         package.remove_resource(self.name)
 
