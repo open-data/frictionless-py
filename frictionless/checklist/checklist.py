@@ -13,6 +13,8 @@ from .check import Check
 if TYPE_CHECKING:
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: raise an exception if we try export a checklist with function based checks?
 @attrs.define(kw_only=True, repr=False)
@@ -105,7 +107,7 @@ class Checklist(Metadata):
         for check in self.checks:
             if check.type == type:
                 return check
-        error = errors.ChecklistError(note=f'check "{type}" does not exist')
+        error = errors.ChecklistError(note=_('check "{type}" does not exist').format(type=type))
         raise FrictionlessException(error)
 
     def set_check(self, check: Check) -> Optional[Check]:

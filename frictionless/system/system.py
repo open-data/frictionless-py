@@ -116,7 +116,7 @@ class System:
             module = import_module(f"frictionless.{group}")
             if module.__file__:
                 path = os.path.dirname(module.__file__)
-                for _, name, _ in pkgutil.iter_modules([path]):
+                for _x, name, _ in pkgutil.iter_modules([path]):
                     module = import_module(f"frictionless.{group}.{name}")
                     modules[name] = module
         plugins = OrderedDict(self.__dynamic_plugins)

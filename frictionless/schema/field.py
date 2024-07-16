@@ -266,7 +266,7 @@ class Field(Metadata):
                 name=descriptor.get("name", "example"),
                 format=descriptor.get("format", "default"),  # type: ignore
             )
-            _, notes = field.read_cell(example)
+            _x, notes = field.read_cell(example)
             if notes is not None:
                 note = _('example value "{example}" for field "{field_name}" is not valid').format(example=example, field_name=field.name)
                 yield errors.FieldError(note=note)

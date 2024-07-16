@@ -78,7 +78,7 @@ class deviated_cell(Check):
                         note = note % (row_number, self.__fields[field_idx])
                         yield errors.DeviatedCellError(note=note)
             except Exception as exception:
-                note = 'calculation issue "%s"' % exception
+                note = _('calculation issue "%s"') % exception
                 yield errors.DeviatedCellError(note=note)
 
     # Metadata

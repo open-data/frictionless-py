@@ -472,7 +472,7 @@ class TableResource(Resource):
             stats: stream file completely and infer stats
         """
         if not self.closed:
-            note = "Resource.infer cannot be used on a open resource"
+            note = _("Resource.infer cannot be used on a open resource")
             raise FrictionlessException(errors.ResourceError(note=note))
         with self:
             if not stats:

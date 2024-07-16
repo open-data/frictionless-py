@@ -119,6 +119,6 @@ def filter_dict(
             (order.index(key) if key in order else len(order), i)
             for i, key in enumerate(x)
         ]
-        sorted_keys = [key for _, key in sorted(zip(index, x.keys()))]
+        sorted_keys = [key for _x, key in sorted(zip(index, x.keys()))]
         x = {key: x[key] for key in sorted_keys}
     return x

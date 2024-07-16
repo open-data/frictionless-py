@@ -60,7 +60,7 @@ class field_update(Step):
         new_name = descriptor.get("name")
         resource.schema.update_field(self.name, descriptor)
         if self.formula:
-            function = lambda _, row: simpleeval.simple_eval(self.formula, names=row)  # type: ignore
+            function = lambda _x, row: simpleeval.simple_eval(self.formula, names=row)  # type: ignore
             pass_row = True
         if function:
             resource.data = table.convert(self.name, function, pass_row=pass_row)  # type: ignore

@@ -287,7 +287,7 @@ class Metadata:
     @classmethod
     def metadata_select_class(cls, type: Optional[str]) -> Type[Metadata]:
         if type:
-            note = f'unsupported type for "{cls.metadata_type}": {type}'
+            note = _('unsupported type for "{metadata_type}": {type}').format(metadata_type=cls.metadata_type, type=type)
             Error = cls.metadata_Error or platform.frictionless_errors.MetadataError
             raise FrictionlessException(Error(note=note))
         return cls
@@ -376,7 +376,7 @@ class Metadata:
             message = re.sub(r"\s+", " ", error.message)  # type: ignore
             note = message
             if metadata_path:
-                note = f"{note} at property '{metadata_path}'"
+                note = _("{note} at property '{metadata_path}'").format(note=note, metadata_path=metadata_path)
             yield Error(note=note)
         for name in profile.get("properties", {}):
             value = descriptor.get(name)

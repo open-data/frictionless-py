@@ -802,7 +802,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
                 items = value if isinstance(value, list) else [value]  # type: ignore
                 for item in items:  # type: ignore
                     if item and isinstance(item, str) and not helpers.is_safe_path(item):
-                        yield errors.ResourceError(note=f'path "{item}" is not safe')
+                        yield errors.ResourceError(note=_('path "{item}" is not safe').format(item=item))
                         return
 
         # Required
@@ -828,7 +828,7 @@ class Resource(Metadata, metaclass=Factory):  # type: ignore
             for item in descriptor.get(name, []):
                 if item.get("email"):
                     field = fields.StringField(name="email", format="email")
-                    _, note = field.read_cell(item.get("email"))
+                    _x, note = field.read_cell(item.get("email"))
                     if note:
                         note = _('property "{name}[].email" is not valid "email"').format(name=name)
                         yield errors.ResourceError(note=note)

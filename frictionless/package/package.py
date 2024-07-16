@@ -643,7 +643,7 @@ class Package(Metadata, metaclass=Factory):
         created = descriptor.get("created")
         if created:
             field = fields.DatetimeField(name="created")
-            _, note = field.read_cell(created)
+            _x, note = field.read_cell(created)
             if note:
                 note = _('property "created" is not valid "datetime"')
                 yield errors.PackageError(note=note)
@@ -659,7 +659,7 @@ class Package(Metadata, metaclass=Factory):
             for item in descriptor.get(name, []):
                 if item.get("email"):
                     field = fields.StringField(name="email", format="email")
-                    _, note = field.read_cell(item.get("email"))
+                    _x, note = field.read_cell(item.get("email"))
                     if note:
                         note = _('property "{name}[].email" is not valid "email"').format(name=name)
                         yield errors.PackageError(note=note)

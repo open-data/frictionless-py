@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-07-16 16:22+0000\n"
+"POT-Creation-Date: 2024-07-16 16:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -19,19 +19,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
 
+#: frictionless/platform.py:19
+msgid "Please install \"frictionless[{name}]\""
+msgstr ""
+
 #: frictionless/actions/convert.py:42
+#: frictionless/console/commands/convert.py:117
 msgid "Resource with data type \"{resource_datatype}\" is not convertible"
 msgstr ""
 
 #: frictionless/actions/extract.py:50
+#: frictionless/console/commands/extract.py:165
 msgid "Resource with data type \"{resource_datatype}\" is not extractable"
 msgstr ""
 
-#: frictionless/actions/index.py:40
+#: frictionless/actions/index.py:40 frictionless/console/helpers.py:218
 msgid "Resource with data type \"{resource_datatype}\" is not indexable"
 msgstr ""
 
 #: frictionless/actions/transform.py:52
+#: frictionless/console/commands/transform.py:62
 msgid "Resource with data type \"{resource_datatype}\" is not transformable"
 msgstr ""
 
@@ -48,6 +55,10 @@ msgstr ""
 #: frictionless/resource/resource.py:741 frictionless/resource/resource.py:772
 #: frictionless/resource/resource.py:787
 msgid "(it will be removed in the next major version)"
+msgstr ""
+
+#: frictionless/checklist/checklist.py:110
+msgid "check \"{type}\" does not exist"
 msgstr ""
 
 #: frictionless/checks/baseline.py:66
@@ -69,6 +80,12 @@ msgstr ""
 msgid "cell at row \"%s\" and field \"%s\" has deviated size"
 msgstr ""
 
+#: frictionless/checks/cell/deviated_cell.py:81
+#: frictionless/checks/cell/deviated_value.py:95
+#, python-format
+msgid "calculation issue \"%s\""
+msgstr ""
+
 #: frictionless/checks/cell/deviated_value.py:67
 #, python-format
 msgid "deviated value check requires field \"%s\" to exist"
@@ -82,11 +99,6 @@ msgstr ""
 #: frictionless/checks/cell/deviated_value.py:73
 #, python-format
 msgid "deviated value check supports only average functions \"%s\""
-msgstr ""
-
-#: frictionless/checks/cell/deviated_value.py:95
-#, python-format
-msgid "calculation issue \"%s\""
 msgstr ""
 
 #: frictionless/checks/cell/deviated_value.py:102
@@ -169,6 +181,43 @@ msgstr ""
 #: frictionless/checks/table/table_dimensions.py:108
 #, python-format
 msgid "number of rows is %s, the maximum is %s"
+msgstr ""
+
+#: frictionless/console/commands/convert.py:68
+#: frictionless/console/commands/describe.py:81
+#: frictionless/console/commands/explore.py:47
+#: frictionless/console/commands/extract.py:95
+#: frictionless/console/commands/index.py:46
+#: frictionless/console/commands/inspect.py:46
+#: frictionless/console/commands/list.py:72
+#: frictionless/console/commands/publish.py:50
+#: frictionless/console/commands/query.py:45
+#: frictionless/console/commands/script.py:47
+#: frictionless/console/commands/transform.py:48
+#: frictionless/console/commands/validate.py:90
+msgid "Providing \"source\" or \"path\" is required"
+msgstr ""
+
+#: frictionless/console/commands/extract.py:196
+msgid "No tabular data have been found in the source"
+msgstr ""
+
+#: frictionless/console/commands/extract.py:204
+msgid "For the \"csv\" mode you need to provide a resource \"name"
+msgstr ""
+
+#: frictionless/console/commands/extract.py:236
+msgid "No rows found"
+msgstr ""
+
+#: frictionless/console/commands/extract.py:236
+msgid "Empty"
+msgstr ""
+
+#: frictionless/console/commands/inspect.py:86
+#: frictionless/console/commands/query.py:85
+#: frictionless/console/commands/script.py:87
+msgid "Not found any tabular resources"
 msgstr ""
 
 #: frictionless/detector/detector.py:411
@@ -899,6 +948,18 @@ msgstr ""
 msgid "OpenOffice document \"%s\" does not have a sheet \"%s\""
 msgstr ""
 
+#: frictionless/formats/sql/parser.py:36
+msgid "Please provide \"dialect.sql.table\" for reading"
+msgstr ""
+
+#: frictionless/formats/sql/parser.py:40 frictionless/formats/sql/parser.py:55
+msgid "Not supported source: {normpath}"
+msgstr ""
+
+#: frictionless/formats/sql/parser.py:51
+msgid "Please provide \"dialect.sql.table\" for writing"
+msgstr ""
+
 #: frictionless/formats/yaml/parser.py:45
 msgid "cannot extract YAML tabular data from \"{resource_normpath}\""
 msgstr ""
@@ -917,6 +978,7 @@ msgid "InquiryTask \"source\" is deprecated in favor of \"resource/package\""
 msgstr ""
 
 #: frictionless/inquiry/task.py:233 frictionless/package/package.py:630
+#: frictionless/resource/resource.py:805
 msgid "path \"{item}\" is not safe"
 msgstr ""
 
@@ -928,8 +990,16 @@ msgstr ""
 msgid "descriptor is not valid"
 msgstr ""
 
+#: frictionless/metadata/metadata.py:290
+msgid "unsupported type for \"{metadata_type}\": {type}"
+msgstr ""
+
 #: frictionless/metadata/metadata.py:339
 msgid "cannot retrieve metadata \"{descriptor}\" because \"{exception}\""
+msgstr ""
+
+#: frictionless/metadata/metadata.py:379
+msgid "{note} at property '{metadata_path}'"
 msgstr ""
 
 #: frictionless/package/package.py:230
@@ -990,6 +1060,7 @@ msgstr ""
 msgid "Your package has no name. CKAN requires a name to publish a package"
 msgstr ""
 
+#: frictionless/portals/ckan/adapter.py:158
 #: frictionless/portals/ckan/adapter.py:193
 msgid "CKAN API error:"
 msgstr ""
@@ -1006,6 +1077,12 @@ msgstr ""
 msgid "Repo and user is required"
 msgstr ""
 
+#: frictionless/portals/github/adapter.py:40
+#: frictionless/portals/github/adapter.py:159
+#: frictionless/portals/github/adapter.py:217
+msgid "Github API error"
+msgstr ""
+
 #: frictionless/portals/github/adapter.py:52
 #: frictionless/portals/github/adapter.py:175
 #: frictionless/portals/github/adapter.py:228
@@ -1017,6 +1094,7 @@ msgstr ""
 #: frictionless/portals/github/adapter.py:72
 #: frictionless/portals/github/adapter.py:97
 #: frictionless/portals/github/adapter.py:117
+#: frictionless/portals/github/adapter.py:135
 msgid "Github API error:"
 msgstr ""
 
@@ -1024,21 +1102,18 @@ msgstr ""
 msgid "Repo or user or search text is required"
 msgstr ""
 
-#: frictionless/portals/github/adapter.py:159
-msgid "Github API error"
-msgstr ""
-
 #: frictionless/portals/zenodo/adapter.py:35
 msgid "Record is required."
 msgstr ""
 
-#: frictionless/portals/zenodo/adapter.py:60
-msgid "Api key is required for zenodo publishing"
-msgstr ""
-
+#: frictionless/portals/zenodo/adapter.py:45
 #: frictionless/portals/zenodo/adapter.py:146
 #: frictionless/portals/zenodo/adapter.py:206
 msgid "Zenodo API error"
+msgstr ""
+
+#: frictionless/portals/zenodo/adapter.py:60
+msgid "Api key is required for zenodo publishing"
 msgstr ""
 
 #: frictionless/report/report.py:80
@@ -1098,7 +1173,7 @@ msgstr ""
 msgid "resource is not open or non textual"
 msgstr ""
 
-#: frictionless/resource/resource.py:502
+#: frictionless/resource/resource.py:502 frictionless/resources/table.py:475
 msgid "Resource.infer cannot be used on a open resource"
 msgstr ""
 
@@ -1317,11 +1392,8 @@ msgstr ""
 
 #: frictionless/transformer/transformer.py:27
 #: frictionless/transformer/transformer.py:49
-msgid "\"{get_name(step)}\" raises \"{exception}\""
-msgstr ""
-
 #: frictionless/transformer/transformer.py:93
-msgid "\"{get_name(self.step)}\" raises \"{exception}\""
+msgid "\"{step}\" raises \"{exception}\""
 msgstr ""
 
 #: frictionless/validator/validator.py:116
@@ -1335,4 +1407,10 @@ msgstr ""
 #: frictionless/validator/validator.py:182
 msgid "reached error limit: {limit_errors}"
 msgstr ""
+
+#~ msgid "\"{get_name(step)}\" raises \"{exception}\""
+#~ msgstr ""
+
+#~ msgid "\"{get_name(self.step)}\" raises \"{exception}\""
+#~ msgstr ""
 

@@ -20,6 +20,8 @@ from ..platform import platform
 if TYPE_CHECKING:
     from ..resource import Resource
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 
 # Source
 
@@ -213,7 +215,7 @@ def index_resource(
 ) -> List[str]:
     # Ensure type
     if not isinstance(resource, platform.frictionless_resources.Indexable):
-        note = f'Resource with data type "{resource.datatype}" is not indexable'
+        note = _('Resource with data type "{resource_datatype}" is not indexable').format(resource_datatype=resource.datatype)
         raise FrictionlessException(note)
 
     # Index resource

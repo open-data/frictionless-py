@@ -136,7 +136,7 @@ class Analyzer:
         analysis_report["timeTaken"] = timer.time
         return {
             **analysis_report,
-            **attrs.asdict(resource.stats, filter=lambda _, v: v is not None),
+            **attrs.asdict(resource.stats, filter=lambda _x, v: v is not None),
         }
 
 
@@ -191,7 +191,7 @@ def _find_bounds(quartiles: List[Any]):
     Returns:
         List: upper and lower bound
     """
-    q1, _, q3 = quartiles
+    q1, _x, q3 = quartiles
     inter_quartile_range = q3 - q1
     upper_bound = round(q3 + (1.5 * inter_quartile_range))
     lower_bound = round(q1 - (1.5 * inter_quartile_range))

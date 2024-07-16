@@ -37,7 +37,7 @@ class GithubAdapter(Adapter):
         try:
             repository = client.get_repo(location)
         except Exception as exception:
-            note = "Github API error" + repr(exception)
+            note = _("Github API error") + repr(exception)
             raise FrictionlessException(note)
         base_path = (
             f"https://raw.githubusercontent.com/{location}/{repository.default_branch}"
@@ -132,7 +132,7 @@ class GithubAdapter(Adapter):
                 )
                 url = f"https://{user.name}.github.io/{repository.name}"
             except Exception as exception:
-                note = "Github API error:" + repr(exception)
+                note = _("Github API error:") + repr(exception)
                 raise FrictionlessException(note)
 
         return PublishResult(url=url, context=dict(repository=repository))
@@ -214,7 +214,7 @@ class GithubAdapter(Adapter):
                 if isinstance(package, Package) and package.resources:
                     packages.append(package)
         except Exception as exception:
-            note = "Github API error" + repr(exception)
+            note = _("Github API error") + repr(exception)
             raise FrictionlessException(note)
 
         if packages:

@@ -63,7 +63,7 @@ class Row(Dict[str, Any]):
 
     def __setitem__(self, key: str, value: Any):
         try:
-            _, field_number, _, _ = self.__field_info["mapping"][key]
+            _x, field_number, _x, _x = self.__field_info["mapping"][key]
         except KeyError:
             raise KeyError(_("Row does not have a field {key}").format(key=key))
         if len(self.__cells) < field_number:
@@ -210,7 +210,7 @@ class Row(Dict[str, Any]):
         # Convert
         if types is not None:
             for index, field_mapping in enumerate(self.__field_info["mapping"].values()):
-                field, _, _, cell_writer = field_mapping
+                field, _x, _x, cell_writer = field_mapping
                 # Here we can optimize performance if we use a types mapping
                 if field.type in types:
                     continue
@@ -246,11 +246,11 @@ class Row(Dict[str, Any]):
         # Convert
         if types is not None:
             for field_mapping in self.__field_info["mapping"].values():
-                field, _, _, cell_writer = field_mapping
+                field, _x, _x, cell_writer = field_mapping
                 # Here we can optimize performance if we use a types mapping
                 if field.type not in types:
                     cell = result[field.name]
-                    cell, _ = cell_writer(cell, ignore_missing=True)
+                    cell, _x = cell_writer(cell, ignore_missing=True)
                     result[field.name] = cell
 
         # Return

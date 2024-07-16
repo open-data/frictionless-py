@@ -28,7 +28,7 @@ class ZipPlugin(Plugin):
         if not isinstance(source, str):
             return
         fullpath = helpers.join_basepath(source, basepath=basepath)
-        _, format = helpers.parse_scheme_and_format(fullpath)
+        _x, format = helpers.parse_scheme_and_format(fullpath)
         if format != "zip":
             return
         if not packagify:

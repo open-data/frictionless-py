@@ -13,6 +13,8 @@ from ...system import system
 from .. import common, helpers
 from ..console import console
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 # TODO: figure out how we can reduce duplication among commands like this: query/etc
 @console.command(name="inspect", hidden=True)
@@ -41,7 +43,7 @@ def console_inspect(
     # Create source
     source = helpers.create_source(source, path=path)
     if not source and not path:
-        note = 'Providing "source" or "path" is required'
+        note = _('Providing "source" or "path" is required')
         helpers.print_error(console, note=note)
         raise typer.Exit(code=1)
 
@@ -81,7 +83,7 @@ def console_inspect(
 
     # Ensure tables
     if not names:
-        note = "Not found any tabular resources"
+        note = _("Not found any tabular resources")
         helpers.print_error(console, note=note)
         raise typer.Exit(1)
 

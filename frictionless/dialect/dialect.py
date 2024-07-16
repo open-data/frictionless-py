@@ -185,7 +185,7 @@ class Dialect(Metadata, metaclass=Factory):
     def read_fragment(self, sample: types.ISample):
         # Collect fragment
         fragment: List[List[Any]] = []
-        for _, cells in self.read_enumerated_content_stream(sample):
+        for _x, cells in self.read_enumerated_content_stream(sample):
             fragment.append(cells)
 
         return fragment

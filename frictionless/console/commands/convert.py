@@ -13,6 +13,8 @@ from ...system import system
 from .. import common, helpers
 from ..console import console
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @console.command(name="convert")
 def console_convert(
@@ -63,7 +65,7 @@ def console_convert(
     # Create source
     source = helpers.create_source(source, path=path)
     if not source and not path:
-        note = 'Providing "source" or "path" is required'
+        note = _('Providing "source" or "path" is required')
         helpers.print_error(console, note=note)
         raise typer.Exit(code=1)
 
@@ -112,7 +114,7 @@ def console_convert(
 
         # Ensure type
         if not isinstance(resource, platform.frictionless_resources.Convertible):
-            note = f'Resource with data type "{resource.datatype}" is not convertible'
+            note = _('Resource with data type "{resource_datatype}" is not convertible').format(resource_datatype=resource.datatype)
             raise FrictionlessException(note)
 
         # Convert resource

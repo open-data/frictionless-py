@@ -24,7 +24,7 @@ class Transformer:
             try:
                 step.transform_package(package)
             except Exception as exception:
-                error = errors.StepError(note=_('"{get_name(step)}" raises "{exception}"').format(exception=exception))
+                error = errors.StepError(note=_('"{step}" raises "{exception}"').format(step=get_name(step), exception=exception))
                 raise FrictionlessException(error) from exception
         return package
 
@@ -46,7 +46,7 @@ class Transformer:
             try:
                 step.transform_resource(resource)
             except Exception as exception:
-                error = errors.StepError(note=_('"{get_name(step)}" raises "{exception}"').format(exception=exception))
+                error = errors.StepError(note=_('"{step}" raises "{exception}"').format(step=get_name(step), exception=exception))
                 raise FrictionlessException(error) from exception
 
             # Postprocess
@@ -90,5 +90,5 @@ class DataWithErrorHandling:
             if isinstance(exception, FrictionlessException):
                 if exception.error.type == "step-error":
                     raise
-            error = errors.StepError(note=_('"{get_name(self.step)}" raises "{exception}"').format(exception=exception))
+            error = errors.StepError(note=_('"{step}" raises "{exception}"').format(step=get_name(self.step), exception=exception))
             raise FrictionlessException(error) from exception

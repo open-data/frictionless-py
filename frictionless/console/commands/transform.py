@@ -12,6 +12,8 @@ from ...system import system
 from .. import common, helpers
 from ..console import console
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 @console.command(name="transform", hidden=True)
 def console_transform(
@@ -43,7 +45,7 @@ def console_transform(
     # Create source
     source = helpers.create_source(source, path=path)
     if not source and not path:
-        note = 'Providing "source" or "path" is required'
+        note = _('Providing "source" or "path" is required')
         helpers.print_error(console, note=note)
         raise typer.Exit(code=1)
 
@@ -57,7 +59,7 @@ def console_transform(
     try:
         resource = Resource(source, path=path)
         if not isinstance(resource, platform.frictionless_resources.Transformable):
-            note = f'Resource with data type "{resource.datatype}" is not transformable'
+            note = _('Resource with data type "{resource_datatype}" is not transformable').format(resource_datatype=resource.datatype)
             raise FrictionlessException(note)
         result = resource.transform(pipeline_obj)
     # TODO: we don't catch errors here because it's streaming

@@ -4,6 +4,8 @@ from functools import cached_property
 from importlib import import_module
 from typing import Any, Callable, ClassVar
 
+from .i18n import _  # (canada fork only): add i18n support
+
 
 def extras(*, name: str):
     """Extra dependency decorator"""
@@ -14,7 +16,7 @@ def extras(*, name: str):
                 return func(*args, **kwargs)
             except Exception:
                 module = import_module("frictionless.exception")
-                note = f'Please install "frictionless[{name}]"'
+                note = _('Please install "frictionless[{name}]"').format(name=name)
                 raise module.FrictionlessException(note)
 
         return inner

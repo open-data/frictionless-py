@@ -42,7 +42,7 @@ class ZenodoAdapter(Adapter):
                 name = self.control.name or dataset.data["metadata"]["title"]
                 package = get_package(dataset, name, self.control.formats)
         except Exception as exception:
-            note = "Zenodo API error" + repr(exception)
+            note = _("Zenodo API error") + repr(exception)
             raise FrictionlessException(note)
         if isinstance(package, Package) and package.resources:  # type: ignore
             return package

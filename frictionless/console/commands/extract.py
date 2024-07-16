@@ -18,6 +18,8 @@ from ..console import console
 if TYPE_CHECKING:
     from ... import types
 
+from ...i18n import _  # (canada fork only): add i18n support
+
 
 DEFAULT_MAX_FIELDS = 10
 DEFAULT_MAX_ROWS = 10
@@ -90,7 +92,7 @@ def console_extract(
     # Create source
     source = helpers.create_source(source, path=path)
     if not source and not path:
-        note = 'Providing "source" or "path" is required'
+        note = _('Providing "source" or "path" is required')
         helpers.print_error(console, note=note)
         raise typer.Exit(code=1)
 
@@ -160,7 +162,7 @@ def console_extract(
 
         # Ensure type
         if not isinstance(resource, platform.frictionless_resources.Extractable):
-            note = f'Resource with data type "{resource.datatype}" is not extractable'
+            note = _('Resource with data type "{resource_datatype}" is not extractable').format(resource_datatype=resource.datatype)
             raise FrictionlessException(note)
 
         # Extract data
@@ -191,7 +193,7 @@ def console_extract(
 
     # No data
     if not data:
-        note = "No tabular data have been found in the source"
+        note = _("No tabular data have been found in the source")
         helpers.print_error(console, note=note)
         raise typer.Exit(code=1)
 
@@ -199,7 +201,7 @@ def console_extract(
     # Csv mode
     if csv:
         if len(data) > 1:
-            note = 'For the "csv" mode you need to provide a resource "name'
+            note = _('For the "csv" mode you need to provide a resource "name')
             typer.secho(note, err=True, fg=typer.colors.RED, bold=True)
             raise typer.Exit(1)
         options = {}
@@ -231,7 +233,7 @@ def console_extract(
     for title, items in data.items():
         # Empty
         if not items:
-            helpers.print_error(console, note="No rows found", title="Empty")
+            helpers.print_error(console, note=_("No rows found"), title=_("Empty"))
             continue
 
         # General

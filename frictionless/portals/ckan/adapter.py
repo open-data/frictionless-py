@@ -116,7 +116,7 @@ class CkanAdapter(Adapter):
                 # TODO: See if it's possible to upload only the resources that need to be uploaded
                 for index, resource in enumerate(package.resources):
                     if resource.path:
-                        _, resource_filename = os.path.split(resource.path)
+                        _x, resource_filename = os.path.split(resource.path)
                         resource_filename = (
                             f"{resource.name}.{resource_filename.split('.')[1]}"
                         )
@@ -155,7 +155,7 @@ class CkanAdapter(Adapter):
                 raise FrictionlessException(note)
 
         except Exception as exception:
-            note = "CKAN API error:" + repr(exception)
+            note = _("CKAN API error:") + repr(exception)
             raise FrictionlessException(note)
 
     def write_resource(self, dataset_id: str, resource: Resource):
@@ -165,7 +165,7 @@ class CkanAdapter(Adapter):
         resource_descriptor = resource.to_descriptor()
         resource_data = self.mapper["fric_to_ckan"].resource(resource_descriptor)  # type: ignore
         resource_data["package_id"] = dataset_id
-        _, resource_filename = os.path.split(resource_data["url"])
+        _x, resource_filename = os.path.split(resource_data["url"])
         resource_data["owner_org"] = self.control.organization_name
 
         del resource_data["url"]

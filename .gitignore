@@ -50,7 +50,7 @@ coverage.xml
 
 # Translations
 *.mo
-*.pot
+# *.pot  # (canada fork only): i18n support
 
 # Django stuff:
 *.log

@@ -386,7 +386,7 @@ class Detector:
                         if runner["score"] < threshold:
                             continue
                         if not is_field_missing_value:
-                            _, notes = runner["field"].read_cell(source)
+                            _x, notes = runner["field"].read_cell(source)
                             runner["score"] += 1 if not notes else -1
                         if max_score[index] > 0 and runner["score"] >= (
                             max_score[index] * self.field_confidence
@@ -418,7 +418,7 @@ class Detector:
                         field = Field.from_descriptor({"name": name, "type": "any"})
                     schema.add_field(field)
                 # For required fields that are missing
-                for _, field in mapping.items():
+                for _x, field in mapping.items():
                     if field and field.required and field.name not in labels:
                         schema.add_field(field)
 
