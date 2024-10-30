@@ -111,7 +111,7 @@ class Validator:
         # TODO: remove in next version
         # Ignore not-supported hashings
         if resource.hash:
-            algorithm, _ = helpers.parse_resource_hash_v1(resource.hash)
+            algorithm, _x = helpers.parse_resource_hash_v1(resource.hash)  # (canada fork only): add i18n support
             if algorithm not in ["md5", "sha256"]:
                 warning = _("hash is ignored; supported algorithms: md5/sha256")
                 warnings.append(warning)

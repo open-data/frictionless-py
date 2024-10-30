@@ -218,7 +218,7 @@ class Row(Dict[str, Any]):
                 if json is True and field.type == "number" and field.float_number:
                     continue
                 cell = result[index]
-                cell, _ = cell_writer(cell, ignore_missing=True)
+                cell, _x = cell_writer(cell, ignore_missing=True)  # (canada fork only): add i18n support
                 result[index] = cell
 
         # Return
@@ -289,7 +289,7 @@ class Row(Dict[str, Any]):
             # Prepare context
             if field_mapping is None:
                 break
-            field, field_number, cell_reader, _ = field_mapping
+            field, field_number, cell_reader, _x = field_mapping  # (canada fork only): add i18n support
             if not is_empty and super().__contains__(field.name):
                 continue
 

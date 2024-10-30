@@ -118,7 +118,7 @@ class SpssParser(Parser):
                             cell = cell.strftime(format).encode()
                             cell = writer.spssDateTime(cell, format)
                         elif field.type not in mapping:  # type: ignore
-                            cell, _ = field.write_cell(cell)
+                            cell, _x = field.write_cell(cell)  # (canada fork only): add i18n support
                             cell = cell.encode("utf-8")
                         cells.append(cell)
                     writer.writerow(cells)
@@ -150,7 +150,7 @@ class SpssParser(Parser):
                 for name in sizes.keys():
                     cell = row[name]
                     field = source.schema.get_field(name)
-                    cell, _ = field.write_cell(cell)
+                    cell, _x = field.write_cell(cell)  # (canada fork only): add i18n support
                     size = len(cell.encode("utf-8"))
                     if size > sizes[name]:
                         sizes[name] = size

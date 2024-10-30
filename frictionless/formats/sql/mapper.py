@@ -306,7 +306,7 @@ class SqlMapper(Mapper):
             if cell is not None:
                 column_type = self.write_type(field.type)  # type: ignore
                 if field.type != "string" and column_type is sa.Text:
-                    cell, _ = field.write_cell(cell)
+                    cell, _x = field.write_cell(cell)  # (canada fork only): add i18n support
                 elif field.type in ["object", "geojson"]:
                     cell = json.dumps(cell)
                 elif field.type == "datetime":

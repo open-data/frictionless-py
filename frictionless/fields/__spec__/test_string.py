@@ -29,7 +29,7 @@ from frictionless import Field
 )
 def test_string_read_cell(format, source, target):
     field = Field.from_descriptor({"name": "name", "type": "string", "format": format})
-    cell, _ = field.read_cell(source)
+    cell, _x = field.read_cell(source)  # (canada fork only): add i18n support
     assert cell == target
 
 
@@ -93,5 +93,5 @@ def test_string_read_cell(format, source, target):
 )
 def test_string_read_cell_wkt(format, source, target):
     field = Field.from_descriptor({"name": "name", "type": "string", "format": format})
-    cell, _ = field.read_cell(source)
+    cell, _x = field.read_cell(source)  # (canada fork only): add i18n support
     assert cell == target
