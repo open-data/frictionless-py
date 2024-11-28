@@ -10,12 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2024-11-13 16:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: fr\n"
 "Language-Team: fr <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.10.3\n"
 
 #: frictionless/platform.py:19
@@ -54,7 +54,7 @@ msgstr ""
 #: frictionless/resource/resource.py:741 frictionless/resource/resource.py:772
 #: frictionless/resource/resource.py:787
 msgid "(it will be removed in the next major version)"
-msgstr ""
+msgstr "(sera supprimé dans la prochaine version principale)"
 
 #: frictionless/checklist/checklist.py:110
 msgid "check \"{type}\" does not exist"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: frictionless/checks/baseline.py:66
 msgid "the source is empty"
-msgstr ""
+msgstr "la source est vide"
 
 #: frictionless/checks/baseline.py:83 frictionless/checks/baseline.py:90
 #: frictionless/checks/baseline.py:97 frictionless/checks/baseline.py:104
@@ -72,7 +72,7 @@ msgstr ""
 
 #: frictionless/checks/cell/ascii_value.py:36
 msgid "the cell contains non-ascii characters"
-msgstr ""
+msgstr "la cellule contient des caractères non ascii"
 
 #: frictionless/checks/cell/deviated_cell.py:77
 #, python-format
@@ -102,9 +102,7 @@ msgstr ""
 
 #: frictionless/checks/cell/deviated_value.py:102
 #, python-format
-msgid ""
-"value \"%s\" in row at position \"%s\" and field \"%s\" is deviated "
-"\"[%.2f, %.2f]\""
+msgid "value \"%s\" in row at position \"%s\" and field \"%s\" is deviated \"[%.2f, %.2f]\""
 msgstr ""
 
 #: frictionless/checks/cell/forbidden_value.py:40
@@ -125,8 +123,8 @@ msgstr ""
 #: frictionless/checks/cell/required_value.py:60
 #, python-format
 msgid ""
-"The value \"%s\" is required to be present in field \"%s\" in at least "
-"one row."
+"The value \"%s\" is required to be present in field \"%s\" in at least one "
+"row."
 msgstr ""
 
 #: frictionless/checks/cell/sequential_value.py:42
@@ -136,11 +134,11 @@ msgstr ""
 
 #: frictionless/checks/cell/sequential_value.py:56
 msgid "the value is not sequential"
-msgstr ""
+msgstr "la valeur n'est pas séquentielle"
 
 #: frictionless/checks/cell/truncated_value.py:64
 msgid "value  is probably truncated"
-msgstr ""
+msgstr "valeur est probablement tronquée"
 
 #: frictionless/checks/row/duplicate_row.py:42
 #, python-format
@@ -155,32 +153,32 @@ msgstr ""
 #: frictionless/checks/table/table_dimensions.py:70
 #, python-format
 msgid "number of fields is %s, the required is %s"
-msgstr ""
+msgstr "nombre de champs est %s, nombre requis est %s"
 
 #: frictionless/checks/table/table_dimensions.py:77
 #, python-format
 msgid "number of fields is %s, the minimum is %s"
-msgstr ""
+msgstr "nombre de champs est %s, minimum est %s"
 
 #: frictionless/checks/table/table_dimensions.py:84
 #, python-format
 msgid "number of fields is %s, the maximum is %s"
-msgstr ""
+msgstr "nombre de champs est %s, maximum est %s"
 
 #: frictionless/checks/table/table_dimensions.py:94
 #, python-format
 msgid "number of rows is %s, the required is %s"
-msgstr ""
+msgstr "nombre de lignes est %s, nombre requis est %s"
 
 #: frictionless/checks/table/table_dimensions.py:101
 #, python-format
 msgid "number of rows is %s, the minimum is %s"
-msgstr ""
+msgstr "nombre de lignes est %s, minimum est %s"
 
 #: frictionless/checks/table/table_dimensions.py:108
 #, python-format
 msgid "number of rows is %s, the maximum is %s"
-msgstr ""
+msgstr "nombre de lignes est %s, maximum est %s"
 
 #: frictionless/console/commands/convert.py:68
 #: frictionless/console/commands/describe.py:81
@@ -199,7 +197,7 @@ msgstr ""
 
 #: frictionless/console/commands/extract.py:196
 msgid "No tabular data have been found in the source"
-msgstr ""
+msgstr "Aucune donnée tabulaire n'a été trouvée dans la source"
 
 #: frictionless/console/commands/extract.py:204
 msgid "For the \"csv\" mode you need to provide a resource \"name"
@@ -207,17 +205,17 @@ msgstr ""
 
 #: frictionless/console/commands/extract.py:236
 msgid "No rows found"
-msgstr ""
+msgstr "Aucune ligne trouvée"
 
 #: frictionless/console/commands/extract.py:236
 msgid "Empty"
-msgstr ""
+msgstr "Vide"
 
 #: frictionless/console/commands/inspect.py:86
 #: frictionless/console/commands/query.py:85
 #: frictionless/console/commands/script.py:87
 msgid "Not found any tabular resources"
-msgstr ""
+msgstr "Aucune ressource tabulaire n'a été trouvée"
 
 #: frictionless/detector/detector.py:411
 msgid "\"schema_sync\" requires unique labels in the header"
@@ -235,22 +233,25 @@ msgstr ""
 #: frictionless/errors/cell.py:25 frictionless/errors/header.py:20
 #: frictionless/errors/header.py:21
 msgid "Cell Error"
-msgstr ""
+msgstr "Erreur de cellule"
 
 #: frictionless/errors/cell.py:71
 msgid "Field {field_name} is not in the row"
-msgstr ""
+msgstr "Champ {field_name} n'est pas dans la ligne"
 
 #: frictionless/errors/cell.py:86
 msgid "Extra Cell"
-msgstr ""
+msgstr "Cellule supplémentaire"
 
 #: frictionless/errors/cell.py:87
 msgid ""
-"This row has more values compared to the header row (the first row in the"
-" data source). A key concept is that all the rows in tabular data must "
-"have the same number of columns."
+"This row has more values compared to the header row (the first row in the "
+"data source). A key concept is that all the rows in tabular data must have "
+"the same number of columns."
 msgstr ""
+"Cette ligne contient plus de valeurs que la ligne d'en-tête (la première "
+"ligne de la source de données). Un concept clé est que toutes les lignes des"
+" données tabulaires doivent avoir le même nombre de colonnes."
 
 #: frictionless/errors/cell.py:88
 msgid ""
@@ -260,28 +261,32 @@ msgstr ""
 
 #: frictionless/errors/cell.py:93
 msgid "Missing Cell"
-msgstr ""
+msgstr "Cellule manquante"
 
 #: frictionless/errors/cell.py:94
 msgid ""
-"This row has less values compared to the header row (the first row in the"
-" data source). A key concept is that all the rows in tabular data must "
-"have the same number of columns."
+"This row has less values compared to the header row (the first row in the "
+"data source). A key concept is that all the rows in tabular data must have "
+"the same number of columns."
 msgstr ""
+"Cette ligne contient moins de valeurs que la ligne d'en-tête (la première "
+"ligne de la source de données). Un concept clé est que toutes les lignes des"
+" données tabulaires doivent avoir le même nombre de colonnes."
 
 #: frictionless/errors/cell.py:95
 msgid ""
-"Row at position \"{rowNumber}\" has a missing cell in field "
-"\"{fieldName}\" at position \"{fieldNumber}\""
+"Row at position \"{rowNumber}\" has a missing cell in field \"{fieldName}\" "
+"at position \"{fieldNumber}\""
 msgstr ""
 
 #: frictionless/errors/cell.py:100
 msgid "Type Error"
-msgstr ""
+msgstr "Erreur de type"
 
 #: frictionless/errors/cell.py:101
 msgid "The value does not match the schema type and format for this field."
 msgstr ""
+"La valeur ne correspond pas au type et au format du schéma pour ce champ."
 
 #: frictionless/errors/cell.py:102
 msgid ""
@@ -291,11 +296,11 @@ msgstr ""
 
 #: frictionless/errors/cell.py:107
 msgid "Constraint Error"
-msgstr ""
+msgstr "Erreur de contrainte"
 
 #: frictionless/errors/cell.py:108
 msgid "A field value does not conform to a constraint."
-msgstr ""
+msgstr "Une valeur de champ n'est pas conforme à une contrainte."
 
 #: frictionless/errors/cell.py:109
 msgid ""
@@ -306,13 +311,15 @@ msgstr ""
 
 #: frictionless/errors/cell.py:114
 msgid "Unique Error"
-msgstr ""
+msgstr "Erreur unique"
 
 #: frictionless/errors/cell.py:115
 msgid ""
-"This field is a unique field but it contains a value that has been used "
-"in another row."
+"This field is a unique field but it contains a value that has been used in "
+"another row."
 msgstr ""
+"Ce champ est unique, mais il contient une valeur qui a été utilisée dans une"
+" autre ligne."
 
 #: frictionless/errors/cell.py:116
 msgid ""
@@ -322,11 +329,11 @@ msgstr ""
 
 #: frictionless/errors/cell.py:121
 msgid "Truncated Value"
-msgstr ""
+msgstr "Valeur tronquée"
 
 #: frictionless/errors/cell.py:122
 msgid "The value is possible truncated."
-msgstr ""
+msgstr "La valeur est possiblement tronquée."
 
 #: frictionless/errors/cell.py:123 frictionless/errors/cell.py:130
 #: frictionless/errors/cell.py:137 frictionless/errors/cell.py:144
@@ -334,139 +341,148 @@ msgid ""
 "The cell {cell} in row at position {rowNumber} and field {fieldName} at "
 "position {fieldNumber} has an error: {note}"
 msgstr ""
+"La cellule {cell} dans la ligne à la position {rowNumber} et le champ "
+"{fieldName} à la position {fieldNumber} ont une erreur :{note}"
 
 #: frictionless/errors/cell.py:128
 msgid "Forbidden Value"
-msgstr ""
+msgstr "Valeur interdite"
 
 #: frictionless/errors/cell.py:129
 msgid "The value is forbidden."
-msgstr ""
+msgstr "La valeur est interdite."
 
 #: frictionless/errors/cell.py:135
 msgid "Sequential Value"
-msgstr ""
+msgstr "Valeur séquentielle"
 
 #: frictionless/errors/cell.py:136
 msgid "The value is not sequential."
-msgstr ""
+msgstr "La valeur n'est pas séquentielle."
 
 #: frictionless/errors/cell.py:142
 msgid "Ascii Value"
-msgstr ""
+msgstr "Valeur Ascii"
 
 #: frictionless/errors/cell.py:143
 msgid "The cell contains non-ascii characters."
-msgstr ""
+msgstr "La cellule contient des caractères non ascii."
 
 #: frictionless/errors/data.py:9
 msgid "Data Error"
-msgstr ""
+msgstr "Erreur de données"
 
 #: frictionless/errors/data.py:10
 msgid "There is a data error."
-msgstr ""
+msgstr "Il y a une erreur de données."
 
 #: frictionless/errors/data.py:11
 msgid "Data error: {note}"
-msgstr ""
+msgstr "Erreur de données :{note}"
 
 #: frictionless/errors/file.py:9
 msgid "File Error"
-msgstr ""
+msgstr "Erreur de fichier"
 
 #: frictionless/errors/file.py:10
 msgid "There is a file error."
-msgstr ""
+msgstr "Il y a une erreur de fichier."
 
 #: frictionless/errors/file.py:11
 msgid "General file error: {note}"
-msgstr ""
+msgstr "Erreur générale de fichier :{note}"
 
 #: frictionless/errors/file.py:17
 msgid "Hash Count Error"
-msgstr ""
+msgstr "Erreur de nombre de hachages"
 
 #: frictionless/errors/file.py:18 frictionless/errors/file.py:25
 #: frictionless/errors/table.py:18 frictionless/errors/table.py:25
 #: frictionless/errors/table.py:32
 msgid "This error can happen if the data is corrupted."
-msgstr ""
+msgstr "Cette erreur peut se produire si les données sont corrompues."
 
 #: frictionless/errors/file.py:19
 msgid "The data source does not match the expected hash count: {note}"
 msgstr ""
+"La source de données ne correspond pas au nombre de hachages attendu : "
+"{note}"
 
 #: frictionless/errors/file.py:24
 msgid "Byte Count Error"
-msgstr ""
+msgstr "Erreur de comptage d'octets"
 
 #: frictionless/errors/file.py:26
 msgid "The data source does not match the expected byte count: {note}"
 msgstr ""
+"La source de données ne correspond pas au nombre d'octets attendu : {note}"
 
 #: frictionless/errors/header.py:19
 msgid "Header Error"
-msgstr ""
+msgstr "Erreur d'en-tête"
 
 #: frictionless/errors/header.py:46
 msgid "Blank Header"
-msgstr ""
+msgstr "En-tête vierge"
 
 #: frictionless/errors/header.py:47
 msgid "This header is empty. A header should contain at least one value."
-msgstr ""
+msgstr "Cet en-tête est vide. Un en-tête doit contenir au moins une valeur."
 
 #: frictionless/errors/header.py:48
 msgid "Header is completely blank"
-msgstr ""
+msgstr "L'en-tête est complètement vide"
 
 #: frictionless/errors/label.py:18 frictionless/errors/label.py:19
 #: frictionless/errors/label.py:20
 msgid "Label Error"
-msgstr ""
+msgstr "Erreur d'étiquette"
 
 #: frictionless/errors/label.py:51
 msgid "Extra Label"
-msgstr ""
+msgstr "Étiquette supplémentaire"
 
 #: frictionless/errors/label.py:52
 msgid ""
 "The header of the data source contains label that does not exist in the "
 "provided schema."
 msgstr ""
+"L'en-tête de la source de données contient une étiquette qui n'existe pas "
+"dans le schéma fourni."
 
 #: frictionless/errors/label.py:53
-msgid ""
-"There is an extra label \"{label}\" in header at position "
-"\"{fieldNumber}\""
+msgid "There is an extra label \"{label}\" in header at position \"{fieldNumber}\""
 msgstr ""
 
 #: frictionless/errors/label.py:58
 msgid "Missing Label"
-msgstr ""
+msgstr "Étiquette manquante"
 
 #: frictionless/errors/label.py:59
 msgid ""
-"Based on the schema there should be a label that is missing in the data's"
-" header."
+"Based on the schema there should be a label that is missing in the data's "
+"header."
 msgstr ""
+"D'après le schéma, il devrait y avoir une étiquette manquante dans l'en-tête"
+" des données."
 
 #: frictionless/errors/label.py:60
 msgid ""
-"There is a missing label in the header's field \"{fieldName}\" at "
-"position \"{fieldNumber}\""
+"There is a missing label in the header's field \"{fieldName}\" at position "
+"\"{fieldNumber}\""
 msgstr ""
 
 #: frictionless/errors/label.py:65
 msgid "Blank Label"
-msgstr ""
+msgstr "Étiquette vierge"
 
 #: frictionless/errors/label.py:66
 msgid ""
-"A label in the header row is missing a value. Label should be provided "
-"and not be blank."
+"A label in the header row is missing a value. Label should be provided and "
+"not be blank."
 msgstr ""
+"Il manque une valeur à une étiquette de la ligne d'en-tête. L'étiquette doit"
+" être fournie et ne doit pas être vide."
 
 #: frictionless/errors/label.py:67
 msgid "Label in the header in field at position \"{fieldNumber}\" is blank"
@@ -474,325 +490,335 @@ msgstr ""
 
 #: frictionless/errors/label.py:72
 msgid "Duplicate Label"
-msgstr ""
+msgstr "Étiquette dupliquée"
 
 #: frictionless/errors/label.py:73
 msgid ""
-"Two columns in the header row have the same value. Column names should be"
-" unique."
+"Two columns in the header row have the same value. Column names should be "
+"unique."
 msgstr ""
+"Deux colonnes de la ligne d'en-tête ont la même valeur. Les noms de colonnes"
+" doivent être uniques."
 
 #: frictionless/errors/label.py:74
 msgid ""
-"Label \"{label}\" in the header at position \"{fieldNumber}\" is "
-"duplicated to a label: {note}"
+"Label \"{label}\" in the header at position \"{fieldNumber}\" is duplicated "
+"to a label: {note}"
 msgstr ""
 
 #: frictionless/errors/label.py:79
 msgid "Incorrect Label"
-msgstr ""
+msgstr "Étiquette incorrecte"
 
 #: frictionless/errors/label.py:80
 msgid ""
-"One of the data source header does not match the field name defined in "
-"the schema."
+"One of the data source header does not match the field name defined in the "
+"schema."
 msgstr ""
+"L'un des en-têtes de la source de données ne correspond pas au nom du champ "
+"défini dans le schéma."
 
 #: frictionless/errors/label.py:81
 msgid ""
-"Label \"{label}\" in field {fieldName} at position \"{fieldNumber}\" does"
-" not match the field name in the schema"
+"Label \"{label}\" in field {fieldName} at position \"{fieldNumber}\" does "
+"not match the field name in the schema"
 msgstr ""
 
 #: frictionless/errors/metadata.py:9
 msgid "Metadata Error"
-msgstr ""
+msgstr "Erreur dans les métadonnées"
 
 #: frictionless/errors/metadata.py:10
 msgid "There is a metadata error."
-msgstr ""
+msgstr "Il y a une erreur de métadonnées."
 
 #: frictionless/errors/metadata.py:11
 msgid "Metadata error: {note}"
-msgstr ""
+msgstr "Erreur de métadonnées : {note}"
 
 #: frictionless/errors/metadata.py:16
 msgid "Catalog Error"
-msgstr ""
+msgstr "Erreur de catalogue"
 
 #: frictionless/errors/metadata.py:17 frictionless/errors/metadata.py:24
 #: frictionless/errors/metadata.py:80 frictionless/errors/resource.py:10
 msgid "A validation cannot be processed."
-msgstr ""
+msgstr "Une validation ne peut être traitée."
 
 #: frictionless/errors/metadata.py:18
 msgid "The data catalog has an error: {note}"
-msgstr ""
+msgstr "Le catalogue de données a une erreur :{note}"
 
 #: frictionless/errors/metadata.py:23
 msgid "Dataset Error"
-msgstr ""
+msgstr "Erreur de l'ensemble de données"
 
 #: frictionless/errors/metadata.py:25
 msgid "The dataset has an error: {note}"
-msgstr ""
+msgstr "L’ensemble de données comporte une erreur : {note}"
 
 #: frictionless/errors/metadata.py:30
 msgid "Checklist Error"
-msgstr ""
+msgstr "Erreur dans la liste de vérification"
 
 #: frictionless/errors/metadata.py:31
 msgid "Provided checklist is not valid."
-msgstr ""
+msgstr "Liste de vérification fournie n'est pas valide."
 
 #: frictionless/errors/metadata.py:32
 msgid "Checklist is not valid: {note}"
-msgstr ""
+msgstr "Liste de vérification n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:37
 msgid "Check Error"
-msgstr ""
+msgstr "Vérifier erreur"
 
 #: frictionless/errors/metadata.py:38
 msgid "Provided check is not valid"
-msgstr ""
+msgstr "Vérification fournie n'est pas valide"
 
 #: frictionless/errors/metadata.py:39
 msgid "Check is not valid: {note}"
-msgstr ""
+msgstr "Vérification n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:44
 msgid "Detector Error"
-msgstr ""
+msgstr "Erreur du détecteur"
 
 #: frictionless/errors/metadata.py:45
 msgid "Provided detector is not valid."
-msgstr ""
+msgstr "Détecteur fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:46
 msgid "Detector is not valid: {note}"
-msgstr ""
+msgstr "Détecteur n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:51
 msgid "Dialect Error"
-msgstr ""
+msgstr "Erreur de dialecte"
 
 #: frictionless/errors/metadata.py:52
 msgid "Provided dialect is not valid."
-msgstr ""
+msgstr "Dialecte fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:53
 msgid "Dialect is not valid: {note}"
-msgstr ""
+msgstr "Dialecte n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:58
 msgid "Control Error"
-msgstr ""
+msgstr "Erreur de vérification"
 
 #: frictionless/errors/metadata.py:59
 msgid "Provided control is not valid."
-msgstr ""
+msgstr "Vérification fournie n'est pas valide."
 
 #: frictionless/errors/metadata.py:60
 msgid "Control is not valid: {note}"
-msgstr ""
+msgstr "Vérification n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:65
 msgid "Inquiry Error"
-msgstr ""
+msgstr "Erreur d’interrogation"
 
 #: frictionless/errors/metadata.py:66
 msgid "Provided inquiry is not valid."
-msgstr ""
+msgstr "Interrogation fournie n'est pas valide."
 
 #: frictionless/errors/metadata.py:67
 msgid "Inquiry is not valid: {note}"
-msgstr ""
+msgstr "Interrogation n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:72
 msgid "Inquiry Task Error"
-msgstr ""
+msgstr "Erreur de la tâche d’interrogation"
 
 #: frictionless/errors/metadata.py:73
 msgid "Provided inquiry task is not valid."
-msgstr ""
+msgstr "Tâche d’interrogation fournie n'est pas valide."
 
 #: frictionless/errors/metadata.py:74
 msgid "Inquiry task is not valid: {note}"
-msgstr ""
+msgstr "Tâche d’interrogation n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:79
 msgid "Package Error"
-msgstr ""
+msgstr "Erreur de l’ensemble de données"
 
 #: frictionless/errors/metadata.py:81
 msgid "The data package has an error: {note}"
-msgstr ""
+msgstr "L’ensemble de données a une erreur : {note}"
 
 #: frictionless/errors/metadata.py:86
 msgid "Pipeline Error"
-msgstr ""
+msgstr "Erreur de pipeline"
 
 #: frictionless/errors/metadata.py:87
 msgid "Provided pipeline is not valid."
-msgstr ""
+msgstr "Pipeline fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:88
 msgid "Pipeline is not valid: {note}"
-msgstr ""
+msgstr "Pipeline n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:93
 msgid "Step Error"
-msgstr ""
+msgstr "Erreur d'étape"
 
 #: frictionless/errors/metadata.py:94
 msgid "Provided step is not valid"
-msgstr ""
+msgstr "Étape fournie n'est pas valide"
 
 #: frictionless/errors/metadata.py:95
 msgid "Step is not valid: {note}"
-msgstr ""
+msgstr "Étape n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:100
 msgid "Report Error"
-msgstr ""
+msgstr "Signaler une erreur"
 
 #: frictionless/errors/metadata.py:101
 msgid "Provided report is not valid."
-msgstr ""
+msgstr "Rapport fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:102
 msgid "Report is not valid: {note}"
-msgstr ""
+msgstr "Rapport n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:107
 msgid "Report Task Error"
-msgstr ""
+msgstr "Signaler une erreur de tâche"
 
 #: frictionless/errors/metadata.py:108
 msgid "Provided report task is not valid."
-msgstr ""
+msgstr "Tâche de rapport fournie n'est pas valide."
 
 #: frictionless/errors/metadata.py:109
 msgid "Report task is not valid: {note}"
-msgstr ""
+msgstr "Tâche du rapport n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:114
 msgid "Schema Error"
-msgstr ""
+msgstr "Erreur de schéma"
 
 #: frictionless/errors/metadata.py:115
 msgid "Provided schema is not valid."
-msgstr ""
+msgstr "Schéma fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:116
 msgid "Schema is not valid: {note}"
-msgstr ""
+msgstr "Schéma n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:121
 msgid "Field Error"
-msgstr ""
+msgstr "Erreur de champ"
 
 #: frictionless/errors/metadata.py:122
 msgid "Provided field is not valid."
-msgstr ""
+msgstr "Champ fourni n'est pas valide."
 
 #: frictionless/errors/metadata.py:123
 msgid "Field is not valid: {note}"
-msgstr ""
+msgstr "Champ n'est pas valide : {note}"
 
 #: frictionless/errors/metadata.py:128
 msgid "Stats Error"
-msgstr ""
+msgstr "Erreur de statistiques"
 
 #: frictionless/errors/metadata.py:129
 msgid "Stats object has an error."
-msgstr ""
+msgstr "Objet des statistiques a une erreur."
 
 #: frictionless/errors/metadata.py:130
 msgid "Stats object has an error: {note}"
-msgstr ""
+msgstr "Objet des statistiques a une erreur : {note}"
 
 #: frictionless/errors/resource.py:9
 msgid "Resource Error"
-msgstr ""
+msgstr "Erreur de ressource"
 
 #: frictionless/errors/resource.py:11
 msgid "The data resource has an error: {note}"
-msgstr ""
+msgstr "La ressource de données a une erreur : {note}"
 
 #: frictionless/errors/resource.py:16
 msgid "Source Error"
-msgstr ""
+msgstr "Erreur de source"
 
 #: frictionless/errors/resource.py:17
 msgid "Data reading error because of not supported or inconsistent contents."
 msgstr ""
+"Erreur de lecture des données en raison d'un contenu non pris en charge ou "
+"incohérent."
 
 #: frictionless/errors/resource.py:18
 msgid "The data source has not supported or has inconsistent contents: {note}"
 msgstr ""
+"La source de données n'est pas prise en charge ou a un contenu incohérent : "
+"{note}"
 
 #: frictionless/errors/resource.py:23
 msgid "Scheme Error"
-msgstr ""
+msgstr "Erreur de modèle"
 
 #: frictionless/errors/resource.py:24
 msgid "Data reading error because of incorrect scheme."
-msgstr ""
+msgstr "Erreur de lecture des données en raison d'un modèle incorrect."
 
 #: frictionless/errors/resource.py:25
 msgid "The data source could not be successfully loaded: {note}"
-msgstr ""
+msgstr "La source de données n'a pas pu être chargée avec succès : {note}"
 
 #: frictionless/errors/resource.py:30
 msgid "Format Error"
-msgstr ""
+msgstr "Erreur de format"
 
 #: frictionless/errors/resource.py:31
 msgid "Data reading error because of incorrect format."
-msgstr ""
+msgstr "Erreur de lecture des données en raison d'un format incorrect."
 
 #: frictionless/errors/resource.py:32
 msgid "The data source could not be successfully parsed: {note}"
-msgstr ""
+msgstr "La source de données n'a pas pu être analysée avec succès : {note}"
 
 #: frictionless/errors/resource.py:37
 msgid "Encoding Error"
-msgstr ""
+msgstr "Erreur d'encodage"
 
 #: frictionless/errors/resource.py:38
 msgid "Data reading error because of an encoding problem."
-msgstr ""
+msgstr "Erreur de lecture des données en raison d’un problème d'encodage."
 
 #: frictionless/errors/resource.py:39
 msgid "The data source could not be successfully decoded: {note}"
-msgstr ""
+msgstr "La source de données n'a pas pu être décodée avec succès : {note}"
 
 #: frictionless/errors/resource.py:44
 msgid "Compression Error"
-msgstr ""
+msgstr "Erreur de compression"
 
 #: frictionless/errors/resource.py:45
 msgid "Data reading error because of a decompression problem."
 msgstr ""
+"Erreur de lecture des données en raison d’un problème de décompression."
 
 #: frictionless/errors/resource.py:46
 msgid "The data source could not be successfully decompressed: {note}"
 msgstr ""
+"La source de données n'a pas pu être décompressée avec succès : {note}"
 
 #: frictionless/errors/row.py:25 frictionless/errors/row.py:26
 #: frictionless/errors/row.py:27
 msgid "Row Error"
-msgstr ""
+msgstr "Erreur de ligne"
 
 #: frictionless/errors/row.py:64
 msgid "Blank Row"
-msgstr ""
+msgstr "Ligne vierge"
 
 #: frictionless/errors/row.py:65
 msgid "This row is empty. A row should contain at least one value."
-msgstr ""
+msgstr "Cette ligne est vide. Une ligne doit contenir au moins une valeur."
 
 #: frictionless/errors/row.py:66
 msgid "Row at position \"{rowNumber}\" is completely blank"
@@ -800,11 +826,12 @@ msgstr ""
 
 #: frictionless/errors/row.py:71
 msgid "PrimaryKey Error"
-msgstr ""
+msgstr "Erreur PrimaryKey"
 
 #: frictionless/errors/row.py:72
 msgid "Values in the primary key fields should be unique for every row"
 msgstr ""
+"Valeurs des champs de la clé primaire doivent être uniques pour chaque ligne"
 
 #: frictionless/errors/row.py:73
 msgid "Row at position \"{rowNumber}\" violates the primary key: {note}"
@@ -812,11 +839,13 @@ msgstr ""
 
 #: frictionless/errors/row.py:79
 msgid "ForeignKey Error"
-msgstr ""
+msgstr "Erreur ForeignKey"
 
 #: frictionless/errors/row.py:80
 msgid "Values in the foreign key fields should exist in the reference table"
 msgstr ""
+"Valeurs des champs de la clé étrangère doivent exister dans la table de "
+"référence"
 
 #: frictionless/errors/row.py:81
 msgid "Row at position \"{rowNumber}\" violates the foreign key: {note}"
@@ -824,99 +853,101 @@ msgstr ""
 
 #: frictionless/errors/row.py:140
 msgid "Duplicate Row"
-msgstr ""
+msgstr "Ligne dupliquée"
 
 #: frictionless/errors/row.py:141
 msgid "The row is duplicated."
-msgstr ""
+msgstr "La ligne est dupliquée."
 
 #: frictionless/errors/row.py:142
 msgid "Row at position {rowNumber} is duplicated: {note}"
-msgstr ""
+msgstr "Ligne à la position {rowNumber} est dupliquée : {note}"
 
 #: frictionless/errors/row.py:147
 msgid "Row Constraint"
-msgstr ""
+msgstr "Contrainte de ligne"
 
 #: frictionless/errors/row.py:148
 msgid "The value does not conform to the row constraint."
-msgstr ""
+msgstr "La valeur n'est pas conforme à la contrainte de ligne."
 
 #: frictionless/errors/row.py:149
 msgid "The row at position {rowNumber} has an error: {note}"
-msgstr ""
+msgstr "La ligne à la position {rowNumber} comporte une erreur : {note}"
 
 #: frictionless/errors/table.py:9
 msgid "Table Error"
-msgstr ""
+msgstr "Erreur de tableau"
 
 #: frictionless/errors/table.py:10
 msgid "There is a table error."
-msgstr ""
+msgstr "Il y a une erreur de tableau."
 
 #: frictionless/errors/table.py:11
 msgid "General table error: {note}"
-msgstr ""
+msgstr "Erreur générale de tableau : {note}"
 
 #: frictionless/errors/table.py:17
 msgid "Field Count Error"
-msgstr ""
+msgstr "Erreur de comptage des champs"
 
 #: frictionless/errors/table.py:19
 msgid "The data source does not match the expected field count: {note}"
 msgstr ""
+"La source de données ne correspond pas au nombre de champs attendus : {note}"
 
 #: frictionless/errors/table.py:24
 msgid "Row Count Error"
-msgstr ""
+msgstr "Erreur de comptage des lignes"
 
 #: frictionless/errors/table.py:26
 msgid "The data source does not match the expected row count: {note}"
 msgstr ""
+"La source de données ne correspond pas au nombre de lignes attendu : {note}"
 
 #: frictionless/errors/table.py:31
 msgid "Table dimensions error"
-msgstr ""
+msgstr "Erreur dans les dimensions du tableau"
 
 #: frictionless/errors/table.py:33
 msgid "The data source does not have the required dimensions: {note}"
-msgstr ""
+msgstr "La source de données n'a pas les dimensions requises : {note}"
 
 #: frictionless/errors/table.py:38
 msgid "Deviated Value"
-msgstr ""
+msgstr "Valeur déviée"
 
 #: frictionless/errors/table.py:39
 msgid "The value is deviated."
-msgstr ""
+msgstr "La valeur est déviée."
 
 #: frictionless/errors/table.py:40
 msgid "There is a possible error because the value is deviated: {note}"
-msgstr ""
+msgstr "Une erreur est possible car la valeur est déviée : {note}"
 
 #: frictionless/errors/table.py:45
 msgid "Deviated cell"
-msgstr ""
+msgstr "Cellule déviée"
 
 #: frictionless/errors/table.py:46
 msgid "The cell is deviated."
-msgstr ""
+msgstr "La cellule est déviée."
 
 #: frictionless/errors/table.py:47
 msgid "There is a possible error because the cell is deviated: {note}"
-msgstr ""
+msgstr "Une erreur est possible car la cellule est déviée : {note}"
 
 #: frictionless/errors/table.py:52
 msgid "Required Value"
-msgstr ""
+msgstr "Valeur requise"
 
 #: frictionless/errors/table.py:53
 msgid "The required values are missing."
-msgstr ""
+msgstr "Les valeurs requises sont manquantes."
 
 #: frictionless/errors/table.py:54
 msgid "Required values not found: {note}"
-msgstr ""
+msgstr "Valeurs requises non trouvées : {note}"
 
 #: frictionless/formats/excel/parsers/xls.py:66
 #: frictionless/formats/excel/parsers/xlsx.py:101
@@ -930,13 +961,13 @@ msgstr ""
 
 #: frictionless/formats/gsheets/parser.py:50
 msgid "Cannot save {path}"
-msgstr ""
+msgstr "Enregistrement impossible {path}"
 
 #: frictionless/formats/inline/parser.py:73
 #: frictionless/formats/inline/parser.py:82
 #: frictionless/formats/inline/parser.py:88
 msgid "unsupported inline data"
-msgstr ""
+msgstr "données en ligne non prises en charge"
 
 #: frictionless/formats/json/parsers/json.py:47
 msgid "cannot extract JSON tabular data from \"{resource_normpath}\""
@@ -953,7 +984,7 @@ msgstr ""
 
 #: frictionless/formats/sql/parser.py:40 frictionless/formats/sql/parser.py:55
 msgid "Not supported source: {normpath}"
-msgstr ""
+msgstr "Souce non prise en charge : {normpath}"
 
 #: frictionless/formats/sql/parser.py:51
 msgid "Please provide \"dialect.sql.table\" for writing"
@@ -970,7 +1001,7 @@ msgstr ""
 
 #: frictionless/indexer/indexer.py:106
 msgid "Fast mode is only supported for Postgres/Sqlite"
-msgstr ""
+msgstr "Mode rapide n'est pris en charge que pour Postgres/Sqlite"
 
 #: frictionless/inquiry/task.py:214
 msgid "InquiryTask \"source\" is deprecated in favor of \"resource/package\""
@@ -987,7 +1018,7 @@ msgstr ""
 
 #: frictionless/metadata/metadata.py:188 frictionless/metadata/metadata.py:202
 msgid "descriptor is not valid"
-msgstr ""
+msgstr "descripteur n'est pas valide"
 
 #: frictionless/metadata/metadata.py:290
 msgid "unsupported type for \"{metadata_type}\": {type}"
@@ -999,7 +1030,7 @@ msgstr ""
 
 #: frictionless/metadata/metadata.py:379
 msgid "{note} at property '{metadata_path}'"
-msgstr ""
+msgstr "{note} à la propriété '{metadata_path}'"
 
 #: frictionless/package/package.py:230
 msgid "resource \"{name}\" does not exist"
@@ -1011,15 +1042,15 @@ msgstr ""
 
 #: frictionless/package/package.py:311
 msgid "Not supported target: {target} or control"
-msgstr ""
+msgstr "Cible non prise en charge : {target} ou vérification"
 
 #: frictionless/package/package.py:314
 msgid "Not supported action"
-msgstr ""
+msgstr "Action non soutenue"
 
 #: frictionless/package/package.py:639
 msgid "names of the resources are not unique"
-msgstr ""
+msgstr "noms des ressources ne sont pas uniques"
 
 #: frictionless/package/package.py:648
 msgid "property \"created\" is not valid \"datetime\""
@@ -1035,8 +1066,8 @@ msgstr ""
 
 #: frictionless/package/package.py:685
 msgid ""
-"profile \"tabular-data-package\" requires all the resources to be "
-"\"tabular-data-resource\""
+"profile \"tabular-data-package\" requires all the resources to be \"tabular-"
+"data-resource\""
 msgstr ""
 
 #: frictionless/package/package.py:691
@@ -1058,29 +1089,31 @@ msgstr ""
 #: frictionless/portals/ckan/adapter.py:86
 msgid "Your package has no name. CKAN requires a name to publish a package"
 msgstr ""
+"Votre ensemble n'a pas de nom. CKAN a besoin d'un nom pour publier un "
+"ensemble"
 
 #: frictionless/portals/ckan/adapter.py:158
 #: frictionless/portals/ckan/adapter.py:193
 msgid "CKAN API error:"
-msgstr ""
+msgstr "Erreur de l'API de CKAN :"
 
 #: frictionless/portals/ckan/adapter.py:252
 msgid "Error in CKAN dataset {descriptor_id}: {e}"
-msgstr ""
+msgstr "Erreur dans l'ensemble de données CKAN {descriptor_id} : {e}"
 
 #: frictionless/portals/ckan/adapter.py:310
 msgid "CKAN returned an error: "
-msgstr ""
+msgstr "CKAN a renvoyé une erreur :"
 
 #: frictionless/portals/github/adapter.py:31
 msgid "Repo and user is required"
-msgstr ""
+msgstr "Repo et utilisateur requis"
 
 #: frictionless/portals/github/adapter.py:40
 #: frictionless/portals/github/adapter.py:159
 #: frictionless/portals/github/adapter.py:217
 msgid "Github API error"
-msgstr ""
+msgstr "Erreur de l’API de Github :"
 
 #: frictionless/portals/github/adapter.py:52
 #: frictionless/portals/github/adapter.py:175
@@ -1088,32 +1121,32 @@ msgstr ""
 #: frictionless/portals/zenodo/adapter.py:49
 #: frictionless/portals/zenodo/adapter.py:215
 msgid "Package/s not found"
-msgstr ""
+msgstr "Ensemble(s) non trouvé(s)"
 
 #: frictionless/portals/github/adapter.py:72
 #: frictionless/portals/github/adapter.py:97
 #: frictionless/portals/github/adapter.py:117
 #: frictionless/portals/github/adapter.py:135
 msgid "Github API error:"
-msgstr ""
+msgstr "Erreur de l’API de Github :"
 
 #: frictionless/portals/github/adapter.py:147
 msgid "Repo or user or search text is required"
-msgstr ""
+msgstr "Un texte de repo, d'utilisateur ou de recherche est nécessaire"
 
 #: frictionless/portals/zenodo/adapter.py:35
 msgid "Record is required."
-msgstr ""
+msgstr "Enregistrement est nécessaire."
 
 #: frictionless/portals/zenodo/adapter.py:45
 #: frictionless/portals/zenodo/adapter.py:146
 #: frictionless/portals/zenodo/adapter.py:206
 msgid "Zenodo API error"
-msgstr ""
+msgstr "Erreur de l'API de Zenodo"
 
 #: frictionless/portals/zenodo/adapter.py:60
 msgid "Api key is required for zenodo publishing"
-msgstr ""
+msgstr "La clé Api est nécessaire pour la publication de Zenodo"
 
 #: frictionless/report/report.py:80
 msgid "The \"report.error\" is available for single error reports"
@@ -1129,52 +1162,52 @@ msgstr ""
 
 #: frictionless/report/task.py:122
 msgid "File Place"
-msgstr ""
+msgstr "Placement du fichier"
 
 #: frictionless/report/task.py:123
 msgid "File Size"
-msgstr ""
+msgstr "Taille du fichier :"
 
 #: frictionless/report/task.py:123
 msgid "(file not found)"
-msgstr ""
+msgstr "(fichier non trouvé)"
 
 #: frictionless/report/task.py:124
 msgid "Total Time"
-msgstr ""
+msgstr "Durée totale"
 
 #: frictionless/report/task.py:124
 msgid "{seconds} Seconds"
-msgstr ""
+msgstr "{seconds} Secondes"
 
 #: frictionless/report/task.py:125
 msgid "Rows Checked"
-msgstr ""
+msgstr "Lignes vérifiées"
 
 #: frictionless/report/task.py:128
 msgid "Total Errors"
-msgstr ""
+msgstr "Total des erreurs"
 
 #: frictionless/report/task.py:134
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: frictionless/report/task.py:134
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 #: frictionless/resource/resource.py:366 frictionless/resource/resource.py:377
 #: frictionless/resources/table.py:58
 msgid "resource is not open or non binary"
-msgstr ""
+msgstr "ressource n'est pas ouverte ou non binaire"
 
 #: frictionless/resource/resource.py:391
 msgid "resource is not open or non textual"
-msgstr ""
+msgstr "ressource n'est pas ouverte ou non textuelle"
 
 #: frictionless/resource/resource.py:502 frictionless/resources/table.py:475
 msgid "Resource.infer cannot be used on a open resource"
-msgstr ""
+msgstr "Resource.infer ne peut pas être utilisé sur une ressource ouverte"
 
 #: frictionless/resource/resource.py:740
 msgid "Resource \"stats.hash\" is deprecated in favor of \"stats.sha256/md5\""
@@ -1206,18 +1239,18 @@ msgstr ""
 
 #: frictionless/resources/file.py:53 frictionless/resources/text.py:41
 msgid "target must be a text resource"
-msgstr ""
+msgstr "cible doit être une ressource textuelle"
 
 #: frictionless/resources/json.py:65
 msgid "target must be a json resource"
-msgstr ""
+msgstr "cible doit être une ressource json"
 
 #: frictionless/resources/table.py:72 frictionless/resources/table.py:82
 #: frictionless/resources/table.py:96 frictionless/resources/table.py:106
 #: frictionless/resources/table.py:116 frictionless/resources/table.py:127
 #: frictionless/resources/table.py:138
 msgid "resource is not open"
-msgstr ""
+msgstr "ressource n'est pas ouverte"
 
 #: frictionless/resources/table.py:241
 msgid "package is required for FK: \"{fk}\""
@@ -1232,7 +1265,7 @@ msgstr ""
 #: frictionless/resources/table.py:331 frictionless/resources/table.py:347
 #, python-format
 msgid "the same as in the row at position %s"
-msgstr ""
+msgstr "la même que dans la ligne à la position %s"
 
 #: frictionless/resources/table.py:339
 msgid "cells composing the primary keys are all \"None\""
@@ -1245,7 +1278,7 @@ msgstr ""
 
 #: frictionless/resources/table.py:460
 msgid "target must be a table resource"
-msgstr ""
+msgstr "cible doit être une ressource sous forme de tableau"
 
 #: frictionless/resources/table.py:515
 msgid "Cannot convert to the existent path \"{to_path}\""
@@ -1281,7 +1314,7 @@ msgstr ""
 
 #: frictionless/schema/schema.py:368
 msgid "names of the fields are not unique"
-msgstr ""
+msgstr "noms des champs ne sont pas uniques"
 
 #: frictionless/schema/schema.py:375
 #, python-format
@@ -1300,19 +1333,19 @@ msgstr ""
 
 #: frictionless/schemes/local/adapter.py:37
 msgid "Cannot read package"
-msgstr ""
+msgstr "Impossible de lire l’ensemble"
 
 #: frictionless/schemes/stream/loader.py:20
 msgid "only local streams are supported: {byte_stream}"
-msgstr ""
+msgstr "seuls les flux locaux sont pris en charge : {byte_stream}"
 
 #: frictionless/schemes/stream/loader.py:26
 msgid "cannot open a stream in the byte mode: {byte_stream}"
-msgstr ""
+msgstr "ne peut pas ouvrir un flux en mode octet : {byte_stream}"
 
 #: frictionless/schemes/stream/loader.py:52
 msgid "cannot re-open a byte stream: {byte_stream}"
-msgstr ""
+msgstr "ne peut pas rouvrir un flux d'octets : {byte_stream}"
 
 #: frictionless/steps/resource/resource_remove.py:38
 #: frictionless/steps/resource/resource_transform.py:45
@@ -1326,11 +1359,11 @@ msgstr ""
 #: frictionless/system/loader.py:72 frictionless/system/loader.py:85
 #: frictionless/system/loader.py:98
 msgid "loader is not open"
-msgstr ""
+msgstr "chargeur n'est pas ouvert"
 
 #: frictionless/system/loader.py:214
 msgid "the archive is empty"
-msgstr ""
+msgstr "l'archive est vide"
 
 #: frictionless/system/loader.py:259
 msgid "compression \"{compression}\" is not supported"
@@ -1338,11 +1371,11 @@ msgstr ""
 
 #: frictionless/system/parser.py:68
 msgid "parser is not open or non requiring loader"
-msgstr ""
+msgstr "analyseur n'est pas ouvert ou ne nécessite pas de chargeur"
 
 #: frictionless/system/parser.py:78 frictionless/system/parser.py:88
 msgid "parser is not open"
-msgstr ""
+msgstr "analyseur n'est pas ouvert"
 
 #: frictionless/system/system.py:230
 msgid "scheme \"{name}\" is not supported"
@@ -1387,7 +1420,7 @@ msgstr ""
 
 #: frictionless/table/row.py:68 frictionless/table/row.py:283
 msgid "Row does not have a field {key}"
-msgstr ""
+msgstr "Ligne n'a pas de champ {key}"
 
 #: frictionless/transformer/transformer.py:27
 #: frictionless/transformer/transformer.py:49
@@ -1397,19 +1430,18 @@ msgstr ""
 
 #: frictionless/validator/validator.py:116
 msgid "hash is ignored; supported algorithms: md5/sha256"
-msgstr ""
+msgstr "hachage est ignoré; algorithmes pris en charge : md5/sha256"
 
 #: frictionless/validator/validator.py:173
 msgid "reached row limit: {limit_rows}"
-msgstr ""
+msgstr "a atteint la limite de lignes : {limit_rows}"
 
 #: frictionless/validator/validator.py:182
 msgid "reached error limit: {limit_errors}"
-msgstr ""
+msgstr "a atteint la limite d’erreurs : {limit_errors}"
 
 #~ msgid "\"{get_name(step)}\" raises \"{exception}\""
 #~ msgstr ""
 
 #~ msgid "\"{get_name(self.step)}\" raises \"{exception}\""
 #~ msgstr ""
-
