@@ -16,9 +16,9 @@ class HeaderError(TableError):
     """
 
     type = "header-error"
-    title = _("Header Error")
-    description = _("Cell Error")
-    template = _("Cell Error")
+    title = property(lambda self: _("Header Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("Cell Error"))  # (canada fork only): i18n support
+    template = property(lambda self: _("Cell Error"))  # (canada fork only): i18n support
     tags = ["#table", "#header"]
 
     labels: List[str]
@@ -43,6 +43,6 @@ class HeaderError(TableError):
 
 class BlankHeaderError(HeaderError):
     type = "blank-header"
-    title = _("Blank Header")
-    description = _("This header is empty. A header should contain at least one value.")
-    template = _("Header is completely blank")
+    title = property(lambda self: _("Blank Header"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This header is empty. A header should contain at least one value."))  # (canada fork only): i18n support
+    template = property(lambda self: _("Header is completely blank"))  # (canada fork only): i18n support

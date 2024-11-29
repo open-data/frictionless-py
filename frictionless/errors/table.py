@@ -6,49 +6,49 @@ from ..i18n import _  # (canada fork only): add i18n support
 
 class TableError(DataError):
     type = "table-error"
-    title = _("Table Error")
-    description = _("There is a table error.")
-    template = _("General table error: {note}")
+    title = property(lambda self: _("Table Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("There is a table error."))  # (canada fork only): i18n support
+    template = property(lambda self: _("General table error: {note}"))  # (canada fork only): i18n support
     tags = ["#table"]
 
 
 class FieldCountError(TableError):
     type = "field-count"
-    title = _("Field Count Error")
-    description = _("This error can happen if the data is corrupted.")
-    template = _("The data source does not match the expected field count: {note}")
+    title = property(lambda self: _("Field Count Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This error can happen if the data is corrupted."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The data source does not match the expected field count: {note}"))  # (canada fork only): i18n support
 
 
 class RowCountError(TableError):
     type = "row-count"
-    title = _("Row Count Error")
-    description = _("This error can happen if the data is corrupted.")
-    template = _("The data source does not match the expected row count: {note}")
+    title = property(lambda self: _("Row Count Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This error can happen if the data is corrupted."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The data source does not match the expected row count: {note}"))  # (canada fork only): i18n support
 
 
 class TableDimensionsError(TableError):
     type = "table-dimensions"
-    title = _("Table dimensions error")
-    description = _("This error can happen if the data is corrupted.")
-    template = _("The data source does not have the required dimensions: {note}")
+    title = property(lambda self: _("Table dimensions error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This error can happen if the data is corrupted."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The data source does not have the required dimensions: {note}"))  # (canada fork only): i18n support
 
 
 class DeviatedValueError(TableError):
     type = "deviated-value"
-    title = _("Deviated Value")
-    description = _("The value is deviated.")
-    template = _("There is a possible error because the value is deviated: {note}")
+    title = property(lambda self: _("Deviated Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value is deviated."))  # (canada fork only): i18n support
+    template = property(lambda self: _("There is a possible error because the value is deviated: {note}"))  # (canada fork only): i18n support
 
 
 class DeviatedCellError(TableError):
     type = "deviated-cell"
-    title = _("Deviated cell")
-    description = _("The cell is deviated.")
-    template = _("There is a possible error because the cell is deviated: {note}")
+    title = property(lambda self: _("Deviated cell"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The cell is deviated."))  # (canada fork only): i18n support
+    template = property(lambda self: _("There is a possible error because the cell is deviated: {note}"))  # (canada fork only): i18n support
 
 
 class RequiredValueError(TableError):
     type = "required-value"
-    title = _("Required Value")
-    description = _("The required values are missing.")
-    template = _("Required values not found: {note}")
+    title = property(lambda self: _("Required Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The required values are missing."))  # (canada fork only): i18n support
+    template = property(lambda self: _("Required values not found: {note}"))  # (canada fork only): i18n support

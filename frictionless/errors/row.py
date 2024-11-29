@@ -22,9 +22,9 @@ class RowError(TableError):
     """
 
     type = "row-error"
-    title = _("Row Error")
-    description = _("Row Error")
-    template = _("Row Error")
+    title = property(lambda self: _("Row Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("Row Error"))  # (canada fork only): i18n support
+    template = property(lambda self: _("Row Error"))  # (canada fork only): i18n support
     tags = ["#table", "#row"]
 
     cells: List[str]
@@ -61,24 +61,24 @@ class RowError(TableError):
 
 class BlankRowError(RowError):
     type = "blank-row"
-    title = _("Blank Row")
-    description = _("This row is empty. A row should contain at least one value.")
-    template = _('Row at position "{rowNumber}" is completely blank')
+    title = property(lambda self: _("Blank Row"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This row is empty. A row should contain at least one value."))  # (canada fork only): i18n support
+    template = property(lambda self: _('Row at position "{rowNumber}" is completely blank'))  # (canada fork only): i18n support
 
 
 class PrimaryKeyError(RowError):
     type = "primary-key"
-    title = _("PrimaryKey Error")
-    description = _("Values in the primary key fields should be unique for every row")
-    template = _('Row at position "{rowNumber}" violates the primary key: {note}')
+    title = property(lambda self: _("PrimaryKey Error"))  # (canada fork only): i18n support
+    description = property(_("Values in the primary key fields should be unique for every row"))  # (canada fork only): i18n support
+    template = property(_('Row at position "{rowNumber}" violates the primary key: {note}'))  # (canada fork only): i18n support
 
 
 @attrs.define(kw_only=True)
 class ForeignKeyError(RowError):
     type = "foreign-key"
-    title = _("ForeignKey Error")
-    description = _("Values in the foreign key fields should exist in the reference table")
-    template = _('Row at position "{rowNumber}" violates the foreign key: {note}')
+    title = property(lambda self: ("ForeignKey Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("Values in the foreign key fields should exist in the reference table"))  # (canada fork only): i18n support
+    template = property(lambda self: _('Row at position "{rowNumber}" violates the foreign key: {note}'))  # (canada fork only): i18n support
 
     field_names: List[str]
     """
@@ -137,13 +137,13 @@ class ForeignKeyError(RowError):
 
 class DuplicateRowError(RowError):
     type = "duplicate-row"
-    title = _("Duplicate Row")
-    description = _("The row is duplicated.")
-    template = _("Row at position {rowNumber} is duplicated: {note}")
+    title = property(lambda self: _("Duplicate Row"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The row is duplicated."))  # (canada fork only): i18n support
+    template = property(lambda self: _("Row at position {rowNumber} is duplicated: {note}"))  # (canada fork only): i18n support
 
 
 class RowConstraintError(RowError):
     type = "row-constraint"
-    title = _("Row Constraint")
-    description = _("The value does not conform to the row constraint.")
-    template = _("The row at position {rowNumber} has an error: {note}")
+    title = property(lambda self: _("Row Constraint"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value does not conform to the row constraint."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The row at position {rowNumber} has an error: {note}"))  # (canada fork only): i18n support

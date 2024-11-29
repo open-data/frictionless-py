@@ -2,14 +2,18 @@
 import gettext
 import os
 
-
-i18n_dir = os.path.join(os.path.dirname(__file__), '../i18n')
+i18n_dir = os.path.join(os.path.dirname(__file__), 'i18n')
 try:
-    _ = gettext.translation('frictionless', i18n_dir).ugettext
+    real_gettext = gettext.translation('frictionless', i18n_dir).ugettext
 except AttributeError:
-    _ = gettext.translation('frictionless', i18n_dir).gettext
+    real_gettext = gettext.translation('frictionless', i18n_dir).gettext
 except IOError:
-    _ = lambda x:x
+    real_gettext = lambda x:x
+
+
+def _(text):
+    global real_gettext
+    return real_gettext(text)
 
 
 def set_language(lang):
@@ -18,10 +22,10 @@ def set_language(lang):
     # Raises
         IOError: translation for lang is not found.
     """
-    global _
+    global real_gettext
     try:
-        _ = gettext.translation('frictionless', i18n_dir, [lang]).ugettext
+        real_gettext = gettext.translation('frictionless', i18n_dir, [lang]).ugettext
     except AttributeError:
-        _ = gettext.translation('frictionless', i18n_dir, [lang]).gettext
+        real_gettext = gettext.translation('frictionless', i18n_dir, [lang]).gettext
     except IOError:
-        _ = lambda x:x
+        real_gettext = lambda x:x

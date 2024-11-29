@@ -8,6 +8,8 @@ from .. import helpers, types
 from ..metadata import Metadata
 from ..platform import platform
 
+from ..i18n import _  # (canada fork only): add i18n support
+
 # NOTE:
 # Consider other approaches for report/errors as dict is not really
 # effective as it can be very memory consumig. As an option we can store
@@ -23,9 +25,9 @@ class Error(Metadata):
     """
 
     type: ClassVar[str] = "error"
-    title: ClassVar[str] = "Error"
-    description: ClassVar[str] = "Error"
-    template: ClassVar[str] = "{note}"
+    title: ClassVar[str] = property(lambda self: _("Error"))  # (canada fork only): i18n support
+    description: ClassVar[str] = property(lambda self: _("Error"))  # (canada fork only): i18n support
+    template: ClassVar[str] = property(lambda self: _("{note}"))  # (canada fork only): i18n support
     tags: ClassVar[List[str]] = []
 
     message: str = attrs.field(init=False)

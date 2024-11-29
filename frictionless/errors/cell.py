@@ -20,9 +20,9 @@ class CellError(RowError):
     """
 
     type = "cell-error"
-    title = _("Cell Error")
-    description = _("Cell Error")
-    template = _("Cell Error")
+    title = property(lambda self: _("Cell Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("Cell Error"))  # (canada fork only): i18n support
+    template = property(lambda self: _("Cell Error"))  # (canada fork only): i18n support
     tags = ["#table", "#row", "#cell"]
 
     cell: str
@@ -83,62 +83,62 @@ class CellError(RowError):
 
 class ExtraCellError(CellError):
     type = "extra-cell"
-    title = _("Extra Cell")
-    description = _("This row has more values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns.")
-    template = _('Row at position "{rowNumber}" has an extra value in field at position "{fieldNumber}"')
+    title = property(lambda self: _("Extra Cell"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This row has more values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns."))  # (canada fork only): i18n support
+    template = property(lambda self: _('Row at position "{rowNumber}" has an extra value in field at position "{fieldNumber}"'))  # (canada fork only): i18n support
 
 
 class MissingCellError(CellError):
     type = "missing-cell"
-    title = _("Missing Cell")
-    description = _("This row has less values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns.")
-    template = _('Row at position "{rowNumber}" has a missing cell in field "{fieldName}" at position "{fieldNumber}"')
+    title = property(lambda self: _("Missing Cell"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This row has less values compared to the header row (the first row in the data source). A key concept is that all the rows in tabular data must have the same number of columns."))  # (canada fork only): i18n support
+    template = property(lambda self: _('Row at position "{rowNumber}" has a missing cell in field "{fieldName}" at position "{fieldNumber}"'))  # (canada fork only): i18n support
 
 
 class TypeError(CellError):
     type = "type-error"
-    title = _("Type Error")
-    description = _("The value does not match the schema type and format for this field.")
-    template = _('Type error in the cell "{cell}" in row "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}": {note}')
+    title = property(lambda self: _("Type Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value does not match the schema type and format for this field."))  # (canada fork only): i18n support
+    template = property(lambda self: _('Type error in the cell "{cell}" in row "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}": {note}'))  # (canada fork only): i18n support
 
 
 class ConstraintError(CellError):
     type = "constraint-error"
-    title = _("Constraint Error")
-    description = _("A field value does not conform to a constraint.")
-    template = _('The cell "{cell}" in row at position "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}" does not conform to a constraint: {note}')
+    title = property(lambda self: _("Constraint Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("A field value does not conform to a constraint."))  # (canada fork only): i18n support
+    template = property(lambda self: _('The cell "{cell}" in row at position "{rowNumber}" and field "{fieldName}" at position "{fieldNumber}" does not conform to a constraint: {note}'))  # (canada fork only): i18n support
 
 
 class UniqueError(CellError):
     type = "unique-error"
-    title = _("Unique Error")
-    description = _("This field is a unique field but it contains a value that has been used in another row.")
-    template = _('Row at position "{rowNumber}" has unique constraint violation in field "{fieldName}" at position "{fieldNumber}": {note}')
+    title = property(lambda self: _("Unique Error"))  # (canada fork only): i18n support
+    description = property(lambda self: _("This field is a unique field but it contains a value that has been used in another row."))  # (canada fork only): i18n support
+    template = property(lambda self: _('Row at position "{rowNumber}" has unique constraint violation in field "{fieldName}" at position "{fieldNumber}": {note}'))  # (canada fork only): i18n support
 
 
 class TruncatedValueError(CellError):
     type = "truncated-value"
-    title = _("Truncated Value")
-    description = _("The value is possible truncated.")
-    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
+    title = property(lambda self: _("Truncated Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value is possible truncated."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"))  # (canada fork only): i18n support
 
 
 class ForbiddenValueError(CellError):
     type = "forbidden-value"
-    title = _("Forbidden Value")
-    description = _("The value is forbidden.")
-    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
+    title = property(lambda self: _("Forbidden Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value is forbidden."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"))  # (canada fork only): i18n support
 
 
 class SequentialValueError(CellError):
     type = "sequential-value"
-    title = _("Sequential Value")
-    description = _("The value is not sequential.")
-    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
+    title = property(lambda self: _("Sequential Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The value is not sequential."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"))  # (canada fork only): i18n support
 
 
 class AsciiValueError(CellError):
     type = "ascii-value"
-    title = _("Ascii Value")
-    description = _("The cell contains non-ascii characters.")
-    template = _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}")
+    title = property(lambda self: _("Ascii Value"))  # (canada fork only): i18n support
+    description = property(lambda self: _("The cell contains non-ascii characters."))  # (canada fork only): i18n support
+    template = property(lambda self: _("The cell {cell} in row at position {rowNumber} and field {fieldName} at position {fieldNumber} has an error: {note}"))  # (canada fork only): i18n support
