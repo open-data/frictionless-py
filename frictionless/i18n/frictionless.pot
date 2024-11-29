@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: frictionless 5.17.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-13 16:06+0000\n"
+"POT-Creation-Date: 2024-11-29 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,45 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: frictionless/canada_strings.py:5
+msgid "Invalid Header for DataStore"
+msgstr ""
+
+#: frictionless/canada_strings.py:6
+msgid ""
+"Column name is invalid for a DataStore header.\n"
+"\n"
+" How it could be resolved:\n"
+" - Remove any leading underscores('_') from the column name.\n"
+" - Remove any leading or trailing white space from the column name.\n"
+" - Remove any double quotes('\"') from the column name.\n"
+" - Make sure the column name is not blank."
+msgstr ""
+
+#: frictionless/canada_strings.py:7
+msgid ""
+"Column name {value} in column {column_number} is not valid for a DataStore "
+"header"
+msgstr ""
+
+#: frictionless/canada_strings.py:9
+msgid "Header Too Long for DataStore"
+msgstr ""
+
+#: frictionless/canada_strings.py:10
+msgid ""
+"Column name is too long for a DataStore header.\n"
+"\n"
+" How it could be resolved:\n"
+" - Make the column name at most 63 characters long."
+msgstr ""
+
+#: frictionless/canada_strings.py:11
+msgid ""
+"Column name {value} in column {column_number} is too long for a DataStore "
+"header"
+msgstr ""
 
 #: frictionless/platform.py:19
 msgid "Please install \"frictionless[{name}]\""
@@ -226,6 +265,14 @@ msgstr ""
 
 #: frictionless/dialect/dialect.py:139
 msgid "control \"{type}\" does not exist"
+msgstr ""
+
+#: frictionless/error/error.py:28 frictionless/error/error.py:29
+msgid "Error"
+msgstr ""
+
+#: frictionless/error/error.py:30
+msgid "{note}"
 msgstr ""
 
 #: frictionless/errors/cell.py:23 frictionless/errors/cell.py:24

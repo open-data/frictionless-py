@@ -7,16 +7,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-11-13 16:06+0000\n"
+"POT-Creation-Date: 2024-11-29 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: fr <LL@li.org>\n"
 "Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.10.3\n"
+
+#: frictionless/canada_strings.py:5
+msgid "Invalid Header for DataStore"
+msgstr "En-tête invalide dans DataStore"
+
+#: frictionless/canada_strings.py:6
+msgid ""
+"Column name is invalid for a DataStore header.\n"
+"\n"
+" How it could be resolved:\n"
+" - Remove any leading underscores('_') from the column name.\n"
+" - Remove any leading or trailing white space from the column name.\n"
+" - Remove any double quotes('\"') from the column name.\n"
+" - Make sure the column name is not blank."
+msgstr ""
+"Le nom de la colonne est invalide comme en-tête dans DataStore.\n"
+"\n"
+" Solution :\n"
+" - Supprimez les traits de soulignement ('_') au début du nom de la "
+"colonne.\n"
+" - Supprimez les espaces au début et à la fin du nom de la colonne.\n"
+" - Supprimez les guillemets ('\"') du nom de la colonne.\n"
+" - Veillez à ce que le nom de la colonne soit indiqué."
+
+#: frictionless/canada_strings.py:7
+msgid ""
+"Column name {value} in column {column_number} is not valid for a "
+"DataStore header"
+msgstr ""
+"Le nom de la colonne {value} dans la colonne {column_number} est invalide"
+" comme en-tête dans DataStore"
+
+#: frictionless/canada_strings.py:9
+msgid "Header Too Long for DataStore"
+msgstr "L'en-tête est trop long dans DataStore"
+
+#: frictionless/canada_strings.py:10
+msgid ""
+"Column name is too long for a DataStore header.\n"
+"\n"
+" How it could be resolved:\n"
+" - Make the column name at most 63 characters long."
+msgstr ""
+"Le nom de la colonne est trop long comme en-tête dans DataStore.\n"
+"\n"
+" Solution :\n"
+" - Le nom de la colonne ne doit pas dépasser 63 caractères."
+
+#: frictionless/canada_strings.py:11
+msgid ""
+"Column name {value} in column {column_number} is too long for a DataStore"
+" header"
+msgstr ""
+"Le nom de la colonne {value} dans la colonne {column_number} est trop "
+"long comme en-tête dans DataStore"
 
 #: frictionless/platform.py:19
 msgid "Please install \"frictionless[{name}]\""
@@ -26,18 +81,19 @@ msgstr "Veuillez installer \"frictionless[{name}]\""
 #: frictionless/console/commands/convert.py:117
 msgid "Resource with data type \"{resource_datatype}\" is not convertible"
 msgstr ""
-"Ressource avec type de données \"{resource_datatype}\" n'est pas convertible"
+"Ressource avec type de données \"{resource_datatype}\" n'est pas "
+"convertible"
 
 #: frictionless/actions/extract.py:50
 #: frictionless/console/commands/extract.py:165
 msgid "Resource with data type \"{resource_datatype}\" is not extractable"
 msgstr ""
-"Ressource avec le type données \"{resource_datatype}\" n'est pas extractable"
+"Ressource avec le type données \"{resource_datatype}\" n'est pas "
+"extractable"
 
 #: frictionless/actions/index.py:40 frictionless/console/helpers.py:218
 msgid "Resource with data type \"{resource_datatype}\" is not indexable"
-msgstr ""
-"Ressource avec le type données \"{resource_datatype}\" n'est pas indexable"
+msgstr "Ressource avec le type données \"{resource_datatype}\" n'est pas indexable"
 
 #: frictionless/actions/transform.py:52
 #: frictionless/console/commands/transform.py:62
@@ -109,7 +165,9 @@ msgstr ""
 
 #: frictionless/checks/cell/deviated_value.py:102
 #, python-format
-msgid "value \"%s\" in row at position \"%s\" and field \"%s\" is deviated \"[%.2f, %.2f]\""
+msgid ""
+"value \"%s\" in row at position \"%s\" and field \"%s\" is deviated "
+"\"[%.2f, %.2f]\""
 msgstr ""
 "valeur \"%s\" dans la ligne à la position \"%s\" et le champ \"%s\" est "
 "dévié \"[%.2f, %.2f]\""
@@ -132,11 +190,11 @@ msgstr "vérification de la valeur requise nécessite l'existence du champ \"%s\
 #: frictionless/checks/cell/required_value.py:60
 #, python-format
 msgid ""
-"The value \"%s\" is required to be present in field \"%s\" in at least one "
-"row."
+"The value \"%s\" is required to be present in field \"%s\" in at least "
+"one row."
 msgstr ""
-"La valeur \"%s\" doit être présente dans le champ \"%s\" sur au moins une "
-"ligne."
+"La valeur \"%s\" doit être présente dans le champ \"%s\" sur au moins une"
+" ligne."
 
 #: frictionless/checks/cell/sequential_value.py:42
 #, python-format
@@ -240,6 +298,14 @@ msgstr "vérification \"{control_type}\" existe déjà"
 msgid "control \"{type}\" does not exist"
 msgstr "vérification \"{type}\" n'existe pas"
 
+#: frictionless/error/error.py:28 frictionless/error/error.py:29
+msgid "Error"
+msgstr "Erreur"
+
+#: frictionless/error/error.py:30
+msgid "{note}"
+msgstr ""
+
 #: frictionless/errors/cell.py:23 frictionless/errors/cell.py:24
 #: frictionless/errors/cell.py:25 frictionless/errors/header.py:20
 #: frictionless/errors/header.py:21
@@ -256,21 +322,21 @@ msgstr "Cellule supplémentaire"
 
 #: frictionless/errors/cell.py:87
 msgid ""
-"This row has more values compared to the header row (the first row in the "
-"data source). A key concept is that all the rows in tabular data must have "
-"the same number of columns."
+"This row has more values compared to the header row (the first row in the"
+" data source). A key concept is that all the rows in tabular data must "
+"have the same number of columns."
 msgstr ""
 "Cette ligne contient plus de valeurs que la ligne d'en-tête (la première "
-"ligne de la source de données). Un concept clé est que toutes les lignes des"
-" données tabulaires doivent avoir le même nombre de colonnes."
+"ligne de la source de données). Un concept clé est que toutes les lignes "
+"des données tabulaires doivent avoir le même nombre de colonnes."
 
 #: frictionless/errors/cell.py:88
 msgid ""
 "Row at position \"{rowNumber}\" has an extra value in field at position "
 "\"{fieldNumber}\""
 msgstr ""
-"La ligne à la position \"{rowNumber}\" a une valeur supplémentaire dans le "
-"champ à la position \"{fieldNumber}\""
+"La ligne à la position \"{rowNumber}\" a une valeur supplémentaire dans "
+"le champ à la position \"{fieldNumber}\""
 
 #: frictionless/errors/cell.py:93
 msgid "Missing Cell"
@@ -278,21 +344,21 @@ msgstr "Cellule manquante"
 
 #: frictionless/errors/cell.py:94
 msgid ""
-"This row has less values compared to the header row (the first row in the "
-"data source). A key concept is that all the rows in tabular data must have "
-"the same number of columns."
+"This row has less values compared to the header row (the first row in the"
+" data source). A key concept is that all the rows in tabular data must "
+"have the same number of columns."
 msgstr ""
-"Cette ligne contient moins de valeurs que la ligne d'en-tête (la première "
-"ligne de la source de données). Un concept clé est que toutes les lignes des"
-" données tabulaires doivent avoir le même nombre de colonnes."
+"Cette ligne contient moins de valeurs que la ligne d'en-tête (la première"
+" ligne de la source de données). Un concept clé est que toutes les lignes"
+" des données tabulaires doivent avoir le même nombre de colonnes."
 
 #: frictionless/errors/cell.py:95
 msgid ""
-"Row at position \"{rowNumber}\" has a missing cell in field \"{fieldName}\" "
-"at position \"{fieldNumber}\""
+"Row at position \"{rowNumber}\" has a missing cell in field "
+"\"{fieldName}\" at position \"{fieldNumber}\""
 msgstr ""
-"La ligne à la position \"{rowNumber}\" a une cellule manquante dans le champ"
-" \"{fieldName}\" à la position \"{fieldNumber}\""
+"La ligne à la position \"{rowNumber}\" a une cellule manquante dans le "
+"champ \"{fieldName}\" à la position \"{fieldNumber}\""
 
 #: frictionless/errors/cell.py:100
 msgid "Type Error"
@@ -300,8 +366,7 @@ msgstr "Erreur de type"
 
 #: frictionless/errors/cell.py:101
 msgid "The value does not match the schema type and format for this field."
-msgstr ""
-"La valeur ne correspond pas au type et au format du schéma pour ce champ."
+msgstr "La valeur ne correspond pas au type et au format du schéma pour ce champ."
 
 #: frictionless/errors/cell.py:102
 msgid ""
@@ -326,8 +391,8 @@ msgid ""
 "constraint: {note}"
 msgstr ""
 "La cellule \"{cell}\" dans la ligne à la position \"{rowNumber}\" et le "
-"champ \"{fieldName}\" à la position \"{fieldNumber}\" ne sont pas conformes "
-"à une contrainte : {note}"
+"champ \"{fieldName}\" à la position \"{fieldNumber}\" ne sont pas "
+"conformes à une contrainte : {note}"
 
 #: frictionless/errors/cell.py:114
 msgid "Unique Error"
@@ -335,11 +400,11 @@ msgstr "Erreur unique"
 
 #: frictionless/errors/cell.py:115
 msgid ""
-"This field is a unique field but it contains a value that has been used in "
-"another row."
+"This field is a unique field but it contains a value that has been used "
+"in another row."
 msgstr ""
-"Ce champ est unique, mais il contient une valeur qui a été utilisée dans une"
-" autre ligne."
+"Ce champ est unique, mais il contient une valeur qui a été utilisée dans "
+"une autre ligne."
 
 #: frictionless/errors/cell.py:116
 msgid ""
@@ -347,7 +412,8 @@ msgid ""
 "\"{fieldName}\" at position \"{fieldNumber}\": {note}"
 msgstr ""
 "Ligne à la position \"{rowNumber}\" présente une violation de contrainte "
-"unique dans le champ \"{fieldName}\" à la position \"{fieldNumber}\": {note}"
+"unique dans le champ \"{fieldName}\" à la position \"{fieldNumber}\": "
+"{note}"
 
 #: frictionless/errors/cell.py:121
 msgid "Truncated Value"
@@ -436,8 +502,7 @@ msgstr "Erreur de comptage d'octets"
 
 #: frictionless/errors/file.py:26
 msgid "The data source does not match the expected byte count: {note}"
-msgstr ""
-"La source de données ne correspond pas au nombre d'octets attendu : {note}"
+msgstr "La source de données ne correspond pas au nombre d'octets attendu : {note}"
 
 #: frictionless/errors/header.py:19
 msgid "Header Error"
@@ -469,14 +534,16 @@ msgid ""
 "The header of the data source contains label that does not exist in the "
 "provided schema."
 msgstr ""
-"L'en-tête de la source de données contient une étiquette qui n'existe pas "
-"dans le schéma fourni."
+"L'en-tête de la source de données contient une étiquette qui n'existe pas"
+" dans le schéma fourni."
 
 #: frictionless/errors/label.py:53
-msgid "There is an extra label \"{label}\" in header at position \"{fieldNumber}\""
+msgid ""
+"There is an extra label \"{label}\" in header at position "
+"\"{fieldNumber}\""
 msgstr ""
-"Il y a une étiquette supplémentaire \"{label}\" dans l'en-tête à la position"
-" \"{fieldNumber}\""
+"Il y a une étiquette supplémentaire \"{label}\" dans l'en-tête à la "
+"position \"{fieldNumber}\""
 
 #: frictionless/errors/label.py:58
 msgid "Missing Label"
@@ -484,16 +551,16 @@ msgstr "Étiquette manquante"
 
 #: frictionless/errors/label.py:59
 msgid ""
-"Based on the schema there should be a label that is missing in the data's "
-"header."
+"Based on the schema there should be a label that is missing in the data's"
+" header."
 msgstr ""
-"D'après le schéma, il devrait y avoir une étiquette manquante dans l'en-tête"
-" des données."
+"D'après le schéma, il devrait y avoir une étiquette manquante dans l'en-"
+"tête des données."
 
 #: frictionless/errors/label.py:60
 msgid ""
-"There is a missing label in the header's field \"{fieldName}\" at position "
-"\"{fieldNumber}\""
+"There is a missing label in the header's field \"{fieldName}\" at "
+"position \"{fieldNumber}\""
 msgstr ""
 "Il manque une étiquette dans le champ de l'en-tête \"{fieldName}\" à la "
 "position \"{fieldNumber}\""
@@ -504,16 +571,17 @@ msgstr "Étiquette vierge"
 
 #: frictionless/errors/label.py:66
 msgid ""
-"A label in the header row is missing a value. Label should be provided and "
-"not be blank."
+"A label in the header row is missing a value. Label should be provided "
+"and not be blank."
 msgstr ""
-"Il manque une valeur à une étiquette de la ligne d'en-tête. L'étiquette doit"
-" être fournie et ne doit pas être vide."
+"Il manque une valeur à une étiquette de la ligne d'en-tête. L'étiquette "
+"doit être fournie et ne doit pas être vide."
 
 #: frictionless/errors/label.py:67
 msgid "Label in the header in field at position \"{fieldNumber}\" is blank"
 msgstr ""
-"L'étiquette dans l'en-tête du champ à la position \"{fieldNumber}\" est vide"
+"L'étiquette dans l'en-tête du champ à la position \"{fieldNumber}\" est "
+"vide"
 
 #: frictionless/errors/label.py:72
 msgid "Duplicate Label"
@@ -521,19 +589,19 @@ msgstr "Étiquette dupliquée"
 
 #: frictionless/errors/label.py:73
 msgid ""
-"Two columns in the header row have the same value. Column names should be "
-"unique."
+"Two columns in the header row have the same value. Column names should be"
+" unique."
 msgstr ""
-"Deux colonnes de la ligne d'en-tête ont la même valeur. Les noms de colonnes"
-" doivent être uniques."
+"Deux colonnes de la ligne d'en-tête ont la même valeur. Les noms de "
+"colonnes doivent être uniques."
 
 #: frictionless/errors/label.py:74
 msgid ""
-"Label \"{label}\" in the header at position \"{fieldNumber}\" is duplicated "
-"to a label: {note}"
+"Label \"{label}\" in the header at position \"{fieldNumber}\" is "
+"duplicated to a label: {note}"
 msgstr ""
-"L'étiquette \"{label}\" dans l'en-tête à la position \"{fieldNumber}\" est "
-"dupliquée en une étiquette : {note}"
+"L'étiquette \"{label}\" dans l'en-tête à la position \"{fieldNumber}\" "
+"est dupliquée en une étiquette : {note}"
 
 #: frictionless/errors/label.py:79
 msgid "Incorrect Label"
@@ -541,16 +609,16 @@ msgstr "Étiquette incorrecte"
 
 #: frictionless/errors/label.py:80
 msgid ""
-"One of the data source header does not match the field name defined in the "
-"schema."
+"One of the data source header does not match the field name defined in "
+"the schema."
 msgstr ""
-"L'un des en-têtes de la source de données ne correspond pas au nom du champ "
-"défini dans le schéma."
+"L'un des en-têtes de la source de données ne correspond pas au nom du "
+"champ défini dans le schéma."
 
 #: frictionless/errors/label.py:81
 msgid ""
-"Label \"{label}\" in field {fieldName} at position \"{fieldNumber}\" does "
-"not match the field name in the schema"
+"Label \"{label}\" in field {fieldName} at position \"{fieldNumber}\" does"
+" not match the field name in the schema"
 msgstr ""
 "L'étiquette \"{label}\" dans le champ {fieldName} à la position "
 "\"{fieldNumber}\" ne correspond pas au nom du champ dans le schéma"
@@ -779,14 +847,14 @@ msgstr "Erreur de source"
 #: frictionless/errors/resource.py:17
 msgid "Data reading error because of not supported or inconsistent contents."
 msgstr ""
-"Erreur de lecture des données en raison d'un contenu non pris en charge ou "
-"incohérent."
+"Erreur de lecture des données en raison d'un contenu non pris en charge "
+"ou incohérent."
 
 #: frictionless/errors/resource.py:18
 msgid "The data source has not supported or has inconsistent contents: {note}"
 msgstr ""
-"La source de données n'est pas prise en charge ou a un contenu incohérent : "
-"{note}"
+"La source de données n'est pas prise en charge ou a un contenu incohérent"
+" : {note}"
 
 #: frictionless/errors/resource.py:23
 msgid "Scheme Error"
@@ -830,13 +898,11 @@ msgstr "Erreur de compression"
 
 #: frictionless/errors/resource.py:45
 msgid "Data reading error because of a decompression problem."
-msgstr ""
-"Erreur de lecture des données en raison d’un problème de décompression."
+msgstr "Erreur de lecture des données en raison d’un problème de décompression."
 
 #: frictionless/errors/resource.py:46
 msgid "The data source could not be successfully decompressed: {note}"
-msgstr ""
-"La source de données n'a pas pu être décompressée avec succès : {note}"
+msgstr "La source de données n'a pas pu être décompressée avec succès : {note}"
 
 #: frictionless/errors/row.py:25 frictionless/errors/row.py:26
 #: frictionless/errors/row.py:27
@@ -862,12 +928,14 @@ msgstr "Erreur PrimaryKey"
 #: frictionless/errors/row.py:72
 msgid "Values in the primary key fields should be unique for every row"
 msgstr ""
-"Valeurs des champs de la clé primaire doivent être uniques pour chaque ligne"
+"Valeurs des champs de la clé primaire doivent être uniques pour chaque "
+"ligne"
 
 #: frictionless/errors/row.py:73
 msgid "Row at position \"{rowNumber}\" violates the primary key: {note}"
 msgstr ""
-"Ligne à la position \"{rowNumber}\" ne respecte pas la clé primaire : {note}"
+"Ligne à la position \"{rowNumber}\" ne respecte pas la clé primaire : "
+"{note}"
 
 #: frictionless/errors/row.py:79
 msgid "ForeignKey Error"
@@ -928,7 +996,8 @@ msgstr "Erreur de comptage des champs"
 #: frictionless/errors/table.py:19
 msgid "The data source does not match the expected field count: {note}"
 msgstr ""
-"La source de données ne correspond pas au nombre de champs attendus : {note}"
+"La source de données ne correspond pas au nombre de champs attendus : "
+"{note}"
 
 #: frictionless/errors/table.py:24
 msgid "Row Count Error"
@@ -937,7 +1006,8 @@ msgstr "Erreur de comptage des lignes"
 #: frictionless/errors/table.py:26
 msgid "The data source does not match the expected row count: {note}"
 msgstr ""
-"La source de données ne correspond pas au nombre de lignes attendu : {note}"
+"La source de données ne correspond pas au nombre de lignes attendu : "
+"{note}"
 
 #: frictionless/errors/table.py:31
 msgid "Table dimensions error"
@@ -1006,7 +1076,8 @@ msgstr "données en ligne non prises en charge"
 #: frictionless/formats/json/parsers/json.py:47
 msgid "cannot extract JSON tabular data from \"{resource_normpath}\""
 msgstr ""
-"impossible d'extraire des données tabulaires JSON de \"{resource_normpath}\""
+"impossible d'extraire des données tabulaires JSON de "
+"\"{resource_normpath}\""
 
 #: frictionless/formats/ods/parser.py:50
 #, python-format
@@ -1028,7 +1099,8 @@ msgstr "Veuillez nous fournir \"dialect.sql.table\" pour l'écriture"
 #: frictionless/formats/yaml/parser.py:45
 msgid "cannot extract YAML tabular data from \"{resource_normpath}\""
 msgstr ""
-"impossible d'extraire des données tabulaires YAML de \"{resource_normpath}\""
+"impossible d'extraire des données tabulaires YAML de "
+"\"{resource_normpath}\""
 
 #: frictionless/formats/zip/adapter.py:84
 #: frictionless/formats/zip/adapter.py:96
@@ -1104,11 +1176,11 @@ msgstr "propriété \"{name}[].email\" n’est pas valide valid \"email\""
 
 #: frictionless/package/package.py:685
 msgid ""
-"profile \"tabular-data-package\" requires all the resources to be \"tabular-"
-"data-resource\""
-msgstr ""
-"profil \"tabular-data-package\" nécessite que toutes les ressources soient "
+"profile \"tabular-data-package\" requires all the resources to be "
 "\"tabular-data-resource\""
+msgstr ""
+"profil \"tabular-data-package\" nécessite que toutes les ressources "
+"soient \"tabular-data-resource\""
 
 #: frictionless/package/package.py:691
 msgid "\"{name}\" should be set as \"resource.schema.{name}\""
@@ -1191,7 +1263,8 @@ msgstr "La clé Api est nécessaire pour la publication de Zenodo"
 #: frictionless/report/report.py:80
 msgid "The \"report.error\" is available for single error reports"
 msgstr ""
-"L'option \"report.error\" est disponible pour les rapports d'erreur uniques"
+"L'option \"report.error\" est disponible pour les rapports d'erreur "
+"uniques"
 
 #: frictionless/report/report.py:88
 msgid "The \"report.task\" is available for single task reports"
@@ -1252,13 +1325,15 @@ msgstr "Resource.infer ne peut pas être utilisé sur une ressource ouverte"
 
 #: frictionless/resource/resource.py:740
 msgid "Resource \"stats.hash\" is deprecated in favor of \"stats.sha256/md5\""
-msgstr "Ressource \"stats.hash\" est obsolète et remplacée par \"stats.sha256/md5\""
+msgstr ""
+"Ressource \"stats.hash\" est obsolète et remplacée par "
+"\"stats.sha256/md5\""
 
 #: frictionless/resource/resource.py:771
 msgid "Resource \"compression=no\" is deprecated in favor not set value"
 msgstr ""
-"La ressource \"compression=no\" est obsolète au profit de la valeur « not "
-"set »"
+"La ressource \"compression=no\" est obsolète au profit de la valeur « not"
+" set »"
 
 #: frictionless/resource/resource.py:786
 msgid "Resource \"layout\" is deprecated in favor of \"dialect\""
@@ -1304,8 +1379,8 @@ msgid ""
 "failed to handle a foreign key for resource \"{name}\" as resource "
 "\"{source_name}\" does not exist"
 msgstr ""
-"échec de la gestion d'une clé étrangère pour la ressource \"{name}\" car la "
-"ressource \"{source_name}\" n'existe pas"
+"échec de la gestion d'une clé étrangère pour la ressource \"{name}\" car "
+"la ressource \"{source_name}\" n'existe pas"
 
 #: frictionless/resources/table.py:331 frictionless/resources/table.py:347
 #, python-format
@@ -1320,8 +1395,8 @@ msgstr "les cellules composant les clés primaires sont toutes \"None\""
 #, python-format
 msgid "for \"%s\": values \"%s\" not found in the lookup table \"%s\" as \"%s\""
 msgstr ""
-"pour \"%s\": valeurs \"%s\" non trouvées dans la table de recherche \"%s\" "
-"comme \"%s\""
+"pour \"%s\": valeurs \"%s\" non trouvées dans la table de recherche "
+"\"%s\" comme \"%s\""
 
 #: frictionless/resources/table.py:460
 msgid "target must be a table resource"
@@ -1350,8 +1425,8 @@ msgstr "contrainte \"{name}\" n'est pas supportée par le type \"{type}\""
 #: frictionless/schema/field.py:271
 msgid "example value \"{example}\" for field \"{field_name}\" is not valid"
 msgstr ""
-"valeur de l'exemple \"{example}\" pour le champ \"{field_name}\" n'est pas "
-"valide"
+"valeur de l'exemple \"{example}\" pour le champ \"{field_name}\" n'est "
+"pas valide"
 
 #: frictionless/schema/field.py:277
 msgid "\"{name}\" should be set as \"constraints.{name}\""
@@ -1406,8 +1481,8 @@ msgstr "Pas de ressource \"{name}\""
 #: frictionless/steps/resource/resource_update.py:45
 msgid "Property \"name\" is required for \"resource_update\" within a package"
 msgstr ""
-"Propriété \"name\" est requise pour la propriété \"resource_update\" au sein"
-" d'un ensemble"
+"Propriété \"name\" est requise pour la propriété \"resource_update\" au "
+"sein d'un ensemble"
 
 #: frictionless/system/loader.py:72 frictionless/system/loader.py:85
 #: frictionless/system/loader.py:98
@@ -1498,3 +1573,7 @@ msgstr "a atteint la limite d’erreurs : {limit_errors}"
 
 #~ msgid "\"{get_name(self.step)}\" raises \"{exception}\""
 #~ msgstr ""
+
+#~ msgid "ForeignKey Error"
+#~ msgstr "Erreur ForeignKey"
+

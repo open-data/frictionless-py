@@ -56,6 +56,7 @@ class System:
         "select_package_class",
         "select_resource_class",
         "select_step_class",
+        # TODO: make some i18n directory stuff...
     ]
 
     trusted: bool = settings.DEFAULT_TRUSTED

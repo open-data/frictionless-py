@@ -76,7 +76,7 @@ class PrimaryKeyError(RowError):
 @attrs.define(kw_only=True)
 class ForeignKeyError(RowError):
     type = "foreign-key"
-    title = property(lambda self: ("ForeignKey Error"))  # (canada fork only): i18n support
+    title = property(lambda self: _("ForeignKey Error"))  # (canada fork only): i18n support
     description = property(lambda self: _("Values in the foreign key fields should exist in the reference table"))  # (canada fork only): i18n support
     template = property(lambda self: _('Row at position "{rowNumber}" violates the foreign key: {note}'))  # (canada fork only): i18n support
 
